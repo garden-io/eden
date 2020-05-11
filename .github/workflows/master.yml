@@ -1,0 +1,25 @@
+name: On merge to master
+on:
+  push:
+    branches:
+      - master
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+      - run: npm install
+      - run: rm -Rf dist/*
+      - run: npm run build
+      - uses: stefanzweifel/git-auto-commit-action@v2.1.0
+        with:
+          commit_message: Build the library
+          branch: master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - uses: butlerlogic/action-autotag@stable
+        with:
+          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+          strategy: package
+          tag_prefix: "v"

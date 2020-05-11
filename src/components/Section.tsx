@@ -1,0 +1,75 @@
+/*
+ * Copyright (C) 2018-2020 Garden Technologies, Inc. <info@garden.io>
+ *
+ * All rights reserved.
+ */
+
+import { Breakpoint, Color, Space } from "../themes"
+import React, { FC } from "react"
+
+import { useTheme } from "../contexts"
+
+interface Props {
+  /**
+   * Component children
+   */
+  children?: any
+  /**
+   * Section background color
+   */
+  background?: Color
+  /**
+   * Section content background color
+   */
+  contentBackground?: Color
+  /**
+   * Section padding
+   */
+  padding?: Space
+  /**
+   * Section content padding
+   */
+  contentPadding?: Space
+  /**
+   * Content width
+   */
+  width?: Breakpoint
+  /**
+   * Section Show border around content for debugging?
+   */
+  debug?: boolean
+}
+
+export const Section: FC<Props> = ({
+  children = null,
+  width = "medium",
+  background = "none",
+  contentBackground = "none",
+  padding = "",
+  contentPadding = "",
+  debug = false,
+}) => {
+  const { colors, space, breakpoints } = useTheme()
+  return (
+    <div
+      style={{
+        display: "flex",
+        justifyContent: "center",
+        backgroundColor: colors[background],
+        padding: space[padding],
+      }}
+    >
+      <div
+        style={{
+          flex: 1,
+          maxWidth: breakpoints[width],
+          backgroundColor: colors[contentBackground],
+          padding: space[contentPadding],
+          border: debug ? "1px dashed red" : "",
+        }}
+      >
+        {children}
+      </div>
+    </div>
+  )
+}
