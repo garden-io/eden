@@ -1,0 +1,19 @@
+{
+  "name": "testlibrary3",
+  "version": "0.0.6",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc"
+  },
+  "devDependencies": {
+    "@types/react": "^16.9.35",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "typescript": "^3.8.3"
+  },
+  "dependencies": {
+    "lodash.merge": "^4.6.2",
+    "react-use": "^14.2.0"
+  }
+}
