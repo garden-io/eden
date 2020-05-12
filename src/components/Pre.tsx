@@ -62,7 +62,7 @@ export const Pre: FC<Props> = ({ children = null, color = "grayDark", background
         padding: space.medium,
         paddingLeft: background === "none" ? "" : space.medium,
         paddingRight: "8ch",
-        whiteWhitespace: "pre-wrap",
+        whiteSpace: "pre-wrap",
         wordBreak: "break-all",
         position: "relative",
       }}
