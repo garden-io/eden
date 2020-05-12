@@ -65,4 +65,5 @@ exports.Title = Title_1.Title;
 var contexts_1 = require("./contexts");
 exports.ThemeProvider = contexts_1.ThemeProvider;
 exports.useTheme = contexts_1.useTheme;
+__export(require("./themes"));
 __export(require("./utils"));

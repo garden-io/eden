@@ -26,4 +26,5 @@ export { Textarea } from "./components/Textarea";
 export { Textfield } from "./components/Textfield";
 export { Title } from "./components/Title";
 export { ThemeProvider, useTheme } from "./contexts";
+export * from "./themes";
 export * from "./utils";
