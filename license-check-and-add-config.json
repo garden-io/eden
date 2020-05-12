@@ -1,0 +1,34 @@
+{
+  "ignore": [
+    ".git",
+    ".gitattributes",
+    "**/*.gitignore",
+    "**/*.gardenignore",
+    "**/*.log",
+    "**/*.yml",
+    "**/*.yaml",
+    "**/*.md",
+    "**/*.woff2",
+    "**/*.crt",
+    "**/*.pem",
+    "**/.DS_Store",
+    "public"
+  ],
+  "license": "./copyright-header.txt",
+  "trailingWhitespace": "TRIM",
+  "defaultFormat": {
+    "append": "",
+    "eachLine": {
+      "prepend": "# "
+    }
+  },
+  "licenseFormats": {
+    "js|ts|tsx|jsx|css|scss|less": {
+      "prepend": "/*",
+      "append": " */\n",
+      "eachLine": {
+        "prepend": " * "
+      }
+    }
+  }
+}

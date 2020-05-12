@@ -1,0 +1,3 @@
+Copyright (C) 2018-2020 Garden Technologies, Inc. <info@garden.io>
+
+All rights reserved.
