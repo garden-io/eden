@@ -6,7 +6,7 @@
  */
 Object.defineProperty(exports, "__esModule", { value: true });
 // Colors
-var brandColors = {
+exports.brandColors = {
     black: "hsl(0, 0%, 0%)",
     gray: "hsl(180,0%,33%)",
     grayLight: "hsl(0,0%,83%)",
@@ -28,18 +28,18 @@ exports.lightColors = {
     gray: "hsl(0,0%,50%)",
     grayDark: "hsl(0,0%,30%)",
     grayDarker: "hsl(0,0%,15%)",
-    greenLight: brandColors.greenLight,
-    greenDark: brandColors.greenDark,
-    greenDarker: brandColors.greenDarker,
-    blueLight: brandColors.blueLight,
-    blue: brandColors.blue,
-    blueDark: brandColors.blueDark,
-    pink: brandColors.pink,
+    greenLight: exports.brandColors.greenLight,
+    greenDark: exports.brandColors.greenDark,
+    greenDarker: exports.brandColors.greenDarker,
+    blueLight: exports.brandColors.blueLight,
+    blue: exports.brandColors.blue,
+    blueDark: exports.brandColors.blueDark,
+    pink: exports.brandColors.pink,
     green: "hsl(160, 75%, 34%)",
     red: "hsl(353, 85%, 44%)",
     yellow: "hsl(37, 100%, 64%)",
-    white: brandColors.white,
-    black: brandColors.black,
+    white: exports.brandColors.white,
+    black: exports.brandColors.black,
     none: "transparent",
 };
 exports.darkColors = {
@@ -49,13 +49,13 @@ exports.darkColors = {
     gray: exports.lightColors.grayLight,
     grayDark: exports.lightColors.white,
     grayDarker: exports.lightColors.white,
-    greenLight: brandColors.greenLight,
-    greenDark: brandColors.greenDark,
-    greenDarker: brandColors.greenDarker,
-    blueLight: brandColors.blueLight,
-    blue: brandColors.blue,
-    blueDark: brandColors.blueDark,
-    pink: brandColors.pink,
+    greenLight: exports.brandColors.greenLight,
+    greenDark: exports.brandColors.greenDark,
+    greenDarker: exports.brandColors.greenDarker,
+    blueLight: exports.brandColors.blueLight,
+    blue: exports.brandColors.blue,
+    blueDark: exports.brandColors.blueDark,
+    pink: exports.brandColors.pink,
     green: "hsl(160, 75%, 34%)",
     red: "hsl(353, 85%, 44%)",
     yellow: "hsl(37, 100%, 64%)",
@@ -65,13 +65,8 @@ exports.darkColors = {
 };
 exports.colors = exports.lightColors;
 exports.logoColors = {
-    light: brandColors.greenLight,
-    dark: brandColors.black,
-};
-exports.statusColors = {
-    ok: exports.lightColors.green,
-    warning: exports.lightColors.yellow,
-    error: exports.lightColors.red,
+    light: exports.brandColors.greenLight,
+    dark: exports.brandColors.black,
 };
 // Space
 exports.spacer = 12;
@@ -148,9 +143,8 @@ exports.theme = {
     colors: exports.colors,
     lightColors: exports.lightColors,
     darkColors: exports.darkColors,
-    brandColors: brandColors,
+    brandColors: exports.brandColors,
     logoColors: exports.logoColors,
-    statusColors: exports.statusColors,
     spacer: exports.spacer,
     space: exports.space,
     breakpoints: exports.breakpoints,

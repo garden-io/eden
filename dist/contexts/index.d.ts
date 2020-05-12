@@ -20,7 +20,6 @@ export declare const ThemeContext: React.Context<{
             white: string;
         };
         logoColors: import("../themes").LogoColors;
-        statusColors: import("../themes").StatusColors;
         spacer: number;
         space: import("../themes").Spaces;
         breakpoints: import("../themes").Breakpoints;
@@ -67,7 +66,6 @@ export declare const useTheme: () => {
         white: string;
     };
     logoColors: import("../themes").LogoColors;
-    statusColors: import("../themes").StatusColors;
     spacer: number;
     space: import("../themes").Spaces;
     breakpoints: import("../themes").Breakpoints;
