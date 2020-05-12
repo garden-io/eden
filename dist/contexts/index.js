@@ -38,9 +38,12 @@ var __importStar = (this && this.__importStar) || function (mod) {
     result["default"] = mod;
     return result;
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = __importStar(require("react"));
-var lodash_merge_1 = require("lodash.merge");
+var lodash_merge_1 = __importDefault(require("lodash.merge"));
 var themes_1 = require("../themes");
 exports.ThemeContext = react_1.createContext({
     theme: themes_1.theme,
@@ -51,7 +54,7 @@ exports.ThemeProvider = function (_a) {
     var _b = __read(react_1.useState(themes_1.theme), 1), currentTheme = _b[0];
     var _c = __read(react_1.useState(false), 2), darkMode = _c[0], setDarkMode = _c[1];
     var value = {
-        theme: lodash_merge_1.merge(currentTheme, {
+        theme: lodash_merge_1.default(currentTheme, {
             colors: darkMode ? currentTheme.darkColors : currentTheme.lightColors,
         }),
         toggleMode: function () {
