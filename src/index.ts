@@ -34,4 +34,6 @@ export { Title } from "./components/Title"
 
 export { ThemeProvider, useTheme } from "./contexts"
 
+export * from "./themes"
+
 export * from "./utils"
