@@ -6,7 +6,7 @@
 
 // Colors
 
-const brandColors = {
+export const brandColors = {
   black: "hsl(0, 0%, 0%)", // #010101 in brand guidelines
   gray: "hsl(180,0%,33%)",
   grayLight: "hsl(0,0%,83%)",
@@ -22,7 +22,7 @@ const brandColors = {
   white: "hsl(0, 0%, 100%)",
 }
 
-interface Colors {
+export interface Colors {
   grayLightest: string
   grayLighter: string
   grayLight: string
@@ -95,7 +95,7 @@ export const colors = lightColors
 // Logo colors
 // TODO: Unifiy light color with the branc
 
-interface LogoColors {
+export interface LogoColors {
   light: string
   dark: string
 }
@@ -109,9 +109,9 @@ export const logoColors: LogoColors = {
 
 // Space
 
-const spacer: number = 12
+export const spacer: number = 12
 
-interface Spaces {
+export interface Spaces {
   none: string
   small: string
   medium: string
@@ -133,7 +133,7 @@ export const space: Spaces = {
   huge: `${spacer * 30}px`,
 }
 
-interface Breakpoints {
+export interface Breakpoints {
   small: string
   medium: string
   large: string
@@ -151,7 +151,7 @@ export const breakpoints: Breakpoints = {
 
 // Fonts
 
-interface FontFamilies {
+export interface FontFamilies {
   garden: string
   title: string
   text: string
@@ -167,7 +167,7 @@ export const fontFamilies: FontFamilies = {
   code: "Cousine",
 }
 
-interface FontWeights {
+export interface FontWeights {
   normal: number
   bold: number
 }
@@ -179,7 +179,7 @@ export const fontWeights: FontWeights = {
   bold: 700,
 }
 
-interface LineHeights {
+export interface LineHeights {
   small: string
   normal: string
 }
@@ -193,7 +193,7 @@ export const lineHeights: LineHeights = {
 
 // Title
 
-interface TitleSizes {
+export interface TitleSizes {
   smaller: string
   small: string
   medium: string
@@ -215,7 +215,7 @@ export const titleSizes: TitleSizes = {
 
 export type TitleTags = "h1" | "h2" | "h3" | "h4" | "h5"
 
-const titleTags = {
+export const titleTags = {
   smaller: "h5",
   small: "h4",
   medium: "h3",
@@ -225,7 +225,7 @@ const titleTags = {
 
 // Text
 
-interface TextSizes {
+export interface TextSizes {
   small: string
   medium: string
   large: string
@@ -239,7 +239,7 @@ export const textSizes: TextSizes = {
   large: `calc(${spacer}px * 2)`, // 18
 }
 
-interface TextAligns {
+export interface TextAligns {
   left: string
   center: string
   right: string
@@ -247,7 +247,7 @@ interface TextAligns {
 
 // Code
 
-interface CodeSizes {
+export interface CodeSizes {
   small: string
   medium: string
   large: string
@@ -261,7 +261,7 @@ export const codeSizes: CodeSizes = {
   large: `calc(${spacer}px * 1.6)`,
 }
 
-interface TextAligns {
+export interface TextAligns {
   left: string
   center: string
   right: string
@@ -277,7 +277,7 @@ export const textAligns: TextAligns = {
 
 // Button
 
-interface ButtonSizes {
+export interface ButtonSizes {
   small: string
   medium: string
   large: string
@@ -287,7 +287,7 @@ export type ButtonSize = keyof ButtonSizes
 
 // Icon
 
-interface IconSizes {
+export interface IconSizes {
   small: number
   medium: number
   large: number
@@ -301,7 +301,7 @@ export const iconSizes: IconSizes = {
   large: spacer * 6, // Modified
 }
 
-interface BorderRadiuses {
+export interface BorderRadiuses {
   large: string
   medium: string
   small: string
