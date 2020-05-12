@@ -4,32 +4,28 @@
  * All rights reserved.
  */
 
-import { Color, IconSize } from "../themes";
-import React, { FC } from "react";
+import { Color, IconSize } from "../themes"
+import React, { FC } from "react"
 
-import { useTheme } from "../contexts";
+import { useTheme } from "../contexts"
 
 interface Props {
   /**
    * Icon fill color
    */
-  color?: Color;
+  color?: Color
   /**
    * Icon fill color
    */
-  size?: IconSize;
+  size?: IconSize
   /**
    * Wrapper Show border around icon for debugging?
    */
-  debug?: boolean;
+  debug?: boolean
 }
 
-export const IconUser: FC<Props> = ({
-  color = "gray",
-  size = "medium",
-  debug = false,
-}) => {
-  const { colors, iconSizes } = useTheme();
+export const IconUser: FC<Props> = ({ color = "gray", size = "medium", debug = false }) => {
+  const { colors, iconSizes } = useTheme()
   return (
     <svg
       role="img"
@@ -61,5 +57,5 @@ export const IconUser: FC<Props> = ({
         r="4"
       ></circle>
     </svg>
-  );
-};
+  )
+}

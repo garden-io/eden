@@ -1,3 +1,18 @@
+export declare const brandColors: {
+    black: string;
+    gray: string;
+    grayLight: string;
+    grayLighter: string;
+    blueDark: string;
+    blue: string;
+    blueLight: string;
+    greenDarker: string;
+    greenDark: string;
+    greenBright: string;
+    greenLight: string;
+    pink: string;
+    white: string;
+};
 export interface Colors {
     grayLightest: string;
     grayLighter: string;
@@ -29,13 +44,6 @@ export interface LogoColors {
 }
 export declare type LogoColor = keyof LogoColors;
 export declare const logoColors: LogoColors;
-export interface StatusColors {
-    ok: Color;
-    warning: Color;
-    error: Color;
-}
-export declare type StatusColor = keyof StatusColors;
-export declare const statusColors: StatusColors;
 export declare const spacer: number;
 export interface Spaces {
     none: string;
@@ -160,7 +168,6 @@ export declare const theme: {
         white: string;
     };
     logoColors: LogoColors;
-    statusColors: StatusColors;
     spacer: number;
     space: Spaces;
     breakpoints: Breakpoints;

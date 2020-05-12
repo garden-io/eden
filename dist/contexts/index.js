@@ -61,7 +61,7 @@ exports.ThemeProvider = function (_a) {
             setDarkMode(!darkMode);
         },
     };
-    return (react_1.default.createElement(exports.ThemeContext.Provider, { value: value }, children));
+    return react_1.default.createElement(exports.ThemeContext.Provider, { value: value }, children);
 };
 exports.useTheme = function () {
     var _a = react_1.useContext(exports.ThemeContext), themeFromContext = _a.theme, toggleMode = _a.toggleMode;
