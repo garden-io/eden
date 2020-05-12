@@ -21,7 +21,7 @@ export declare const ThemeContext: React.Context<{
         };
         logoColors: import("../themes").LogoColors;
         spacer: number;
-        space: import("../themes").Spaces;
+        space: import("../themes").Whitespaces;
         breakpoints: import("../themes").Breakpoints;
         fontFamilies: import("../themes").FontFamilies;
         fontWeights: import("../themes").FontWeights;
@@ -67,7 +67,7 @@ export declare const useTheme: () => {
     };
     logoColors: import("../themes").LogoColors;
     spacer: number;
-    space: import("../themes").Spaces;
+    space: import("../themes").Whitespaces;
     breakpoints: import("../themes").Breakpoints;
     fontFamilies: import("../themes").FontFamilies;
     fontWeights: import("../themes").FontWeights;

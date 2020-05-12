@@ -68,7 +68,7 @@ exports.logoColors = {
     light: exports.brandColors.greenLight,
     dark: exports.brandColors.black,
 };
-// Space
+// Whitespace
 exports.spacer = 12;
 exports.space = {
     none: "",

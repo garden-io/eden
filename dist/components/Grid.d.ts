@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { Space } from "../themes";
+import { Whitespace } from "../themes";
 interface Props {
     /**
      * Component children
@@ -12,7 +12,7 @@ interface Props {
     /**
      * Gap between columns
      */
-    gap?: Space;
+    gap?: Whitespace;
     /**
      * Section Show border around content for debugging?
      */
