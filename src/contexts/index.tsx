@@ -6,7 +6,7 @@
 
 import React, { createContext, useContext, useState } from "react";
 
-import { merge } from "lodash.merge";
+import merge from "lodash.merge";
 import { theme } from "../themes";
 
 export const ThemeContext = createContext({
