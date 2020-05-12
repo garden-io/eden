@@ -4,7 +4,7 @@
  * All rights reserved.
  */
 
-import { Breakpoint, Color, Space } from "../themes"
+import { Breakpoint, Color, Whitespace } from "../themes"
 import React, { FC } from "react"
 
 import { useTheme } from "../contexts"
@@ -25,11 +25,11 @@ interface Props {
   /**
    * Section padding
    */
-  padding?: Space
+  padding?: Whitespace
   /**
    * Section content padding
    */
-  contentPadding?: Space
+  contentPadding?: Whitespace
   /**
    * Content width
    */

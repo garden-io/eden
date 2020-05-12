@@ -87,7 +87,7 @@ export const GardenLogo: FC<Props> = ({ color = "dark" }) => {
           y1="-9.98613"
           x2="15.8203"
           y2="40.0209"
-          gradientUnits="userSpaceOnUse"
+          gradientUnits="userWhitespaceOnUse"
         >
           <stop stopColor="#F4E858" />
           <stop offset="1" stopColor="#164A89" />

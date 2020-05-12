@@ -1,4 +1,4 @@
-import { Breakpoint, Color, Space } from "../themes";
+import { Breakpoint, Color, Whitespace } from "../themes";
 import { FC } from "react";
 interface Props {
     /**
@@ -16,11 +16,11 @@ interface Props {
     /**
      * Section padding
      */
-    padding?: Space;
+    padding?: Whitespace;
     /**
      * Section content padding
      */
-    contentPadding?: Space;
+    contentPadding?: Whitespace;
     /**
      * Content width
      */

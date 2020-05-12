@@ -1,14 +1,14 @@
 import { FC } from "react";
-import { Space as SpaceType } from "../themes";
+import { Whitespace } from "../themes";
 interface Props {
     /**
-     * Space width
+     * Whitespace width
      */
-    width?: SpaceType;
+    width?: Whitespace;
     /**
-     * Space height
+     * Whitespace height
      */
-    height?: SpaceType;
+    height?: Whitespace;
 }
 export declare const Space: FC<Props>;
 export {};

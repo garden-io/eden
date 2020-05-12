@@ -6,7 +6,7 @@
 
 import React, { FC } from "react"
 
-import { Space } from "../themes"
+import { Whitespace } from "../themes"
 import { flatten } from "../utils"
 import { useTheme } from "../contexts"
 
@@ -18,7 +18,7 @@ interface Props {
   /**
    * Gap between columns
    */
-  gap?: Space
+  gap?: Whitespace
   /**
    * Gap between columns
    */

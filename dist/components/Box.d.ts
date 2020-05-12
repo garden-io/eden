@@ -1,4 +1,4 @@
-import { Color, Space } from "../themes";
+import { Color, Whitespace } from "../themes";
 import { FC } from "react";
 interface Props {
     /**
@@ -8,7 +8,7 @@ interface Props {
     /**
      * Gap between columns
      */
-    padding?: Space;
+    padding?: Whitespace;
     /**
      * Border color
      */
@@ -19,7 +19,7 @@ interface Props {
     background?: Color;
     justify?: "flex-start" | "flex-end" | "center" | "space-between" | "space-around" | "stretch";
     align?: "flex-start" | "flex-end" | "center" | "space-between" | "space-around" | "stretch";
-    height?: Space | string;
+    height?: Whitespace | string;
     shadow?: boolean;
     /**
      * Section Show border around content for debugging?

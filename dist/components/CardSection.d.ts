@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { Color, Space } from "../themes";
+import { Color, Whitespace } from "../themes";
 interface Props {
     /**
      * Body
@@ -8,7 +8,7 @@ interface Props {
     /**
      * Padding
      */
-    padding?: Space;
+    padding?: Whitespace;
     /**
      * Background
      */

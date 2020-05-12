@@ -45,7 +45,7 @@ export interface LogoColors {
 export declare type LogoColor = keyof LogoColors;
 export declare const logoColors: LogoColors;
 export declare const spacer: number;
-export interface Spaces {
+export interface Whitespaces {
     none: string;
     small: string;
     medium: string;
@@ -54,8 +54,8 @@ export interface Spaces {
     largest: string;
     huge: string;
 }
-export declare type Space = keyof Spaces;
-export declare const space: Spaces;
+export declare type Whitespace = keyof Whitespaces;
+export declare const space: Whitespaces;
 export interface Breakpoints {
     small: string;
     medium: string;
@@ -169,7 +169,7 @@ export declare const theme: {
     };
     logoColors: LogoColors;
     spacer: number;
-    space: Spaces;
+    space: Whitespaces;
     breakpoints: Breakpoints;
     fontFamilies: FontFamilies;
     fontWeights: FontWeights;

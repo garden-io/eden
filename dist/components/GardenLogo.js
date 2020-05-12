@@ -45,7 +45,7 @@ exports.GardenLogo = function (_a) {
             react_1.default.createElement("path", { d: "M15.545 32.0229L15.545 -1.28458L11.6607 -1.28458L11.6607 32.0229H15.545Z", fill: "#60BDAC" }),
             react_1.default.createElement("path", { style: { mixBlendMode: "overlay" }, opacity: "0.65", d: "M31.0518 -0.0153046H0V31.0365H31.0518V-0.0153046Z", fill: "url(#paint0_linear)" })),
         react_1.default.createElement("defs", null,
-            react_1.default.createElement("linearGradient", { id: "paint0_linear", x1: "15.2239", y1: "-9.98613", x2: "15.8203", y2: "40.0209", gradientUnits: "userSpaceOnUse" },
+            react_1.default.createElement("linearGradient", { id: "paint0_linear", x1: "15.2239", y1: "-9.98613", x2: "15.8203", y2: "40.0209", gradientUnits: "userWhitespaceOnUse" },
                 react_1.default.createElement("stop", { stopColor: "#F4E858" }),
                 react_1.default.createElement("stop", { offset: "1", stopColor: "#164A89" })),
             react_1.default.createElement("clipPath", { id: "clip0" },

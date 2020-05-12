@@ -6,18 +6,18 @@
 
 import React, { FC } from "react"
 
-import { Space as SpaceType } from "../themes"
+import { Whitespace } from "../themes"
 import { useTheme } from "../contexts"
 
 interface Props {
   /**
-   * Space width
+   * Whitespace width
    */
-  width?: SpaceType
+  width?: Whitespace
   /**
-   * Space height
+   * Whitespace height
    */
-  height?: SpaceType
+  height?: Whitespace
 }
 
 export const Space: FC<Props> = ({ width = "medium", height = "medium" }) => {
