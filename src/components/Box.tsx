@@ -4,7 +4,7 @@
  * All rights reserved.
  */
 
-import { Color, Space } from "../themes"
+import { Color, Whitespace } from "../themes"
 import React, { FC } from "react"
 
 import { useTheme } from "../contexts"
@@ -17,7 +17,7 @@ interface Props {
   /**
    * Gap between columns
    */
-  padding?: Space
+  padding?: Whitespace
   /**
    * Border color
    */
@@ -29,7 +29,7 @@ interface Props {
   justify?: "flex-start" | "flex-end" | "center" | "space-between" | "space-around" | "stretch"
 
   align?: "flex-start" | "flex-end" | "center" | "space-between" | "space-around" | "stretch"
-  height?: Space | string
+  height?: Whitespace | string
   shadow?: boolean
   /**
    * Section Show border around content for debugging?

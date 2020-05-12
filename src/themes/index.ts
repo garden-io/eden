@@ -107,11 +107,11 @@ export const logoColors: LogoColors = {
   dark: brandColors.black,
 }
 
-// Space
+// Whitespace
 
 export const spacer: number = 12
 
-export interface Spaces {
+export interface Whitespaces {
   none: string
   small: string
   medium: string
@@ -121,9 +121,9 @@ export interface Spaces {
   huge: string
 }
 
-export type Space = keyof Spaces
+export type Whitespace = keyof Whitespaces
 
-export const space: Spaces = {
+export const space: Whitespaces = {
   none: "",
   small: `${spacer * 0.5}px`,
   medium: `${spacer}px`,

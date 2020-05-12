@@ -6,7 +6,7 @@
 
 import React, { FC } from "react"
 
-import { Color, Space } from "../themes"
+import { Color, Whitespace } from "../themes"
 import { useTheme } from "../contexts"
 
 interface Props {
@@ -17,7 +17,7 @@ interface Props {
   /**
    * Padding
    */
-  padding?: Space
+  padding?: Whitespace
   /**
    * Background
    */
