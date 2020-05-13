@@ -4,7 +4,7 @@ React + Typescript component library for [garden.io](https://garden.io)
 
 ## Installation
 
-### Installing latest version
+### Installing the latest version
 
 Eden can installed using `npm` via direct Github link (note that we currently do not publish npm package).
 
@@ -12,9 +12,9 @@ Eden can installed using `npm` via direct Github link (note that we currently do
 npm i garden-io/eden
 ```
 
-> For CI environments make sure your have `git` installed, `npm` will use that to download the library
+> In CI environments make sure your have `git` installed, `npm` will use that to download the library
 
-### Installing specific version
+### Installing a specific version
 
 It's recommended to point the `package.json` to specific Eden version:
 
@@ -38,7 +38,7 @@ npm i garden-io/eden#branch-name-here
 
 It's expected you have React installed. Typescript is optional but strongly recommended.
 
-Note that Eden relies on global CSS as little as possible but it still needs a minimal set of CSS to set up font loading etc so `<GlobalStyles />` component has to be present on app template.
+Note that Eden relies on global CSS as little as possible but it still needs a minimal set of CSS to set up font loading etc so `<GlobalStyles />` component has to be present on the app template.
 
 To use Eden components, use the following code.
 
@@ -118,9 +118,9 @@ export const Example2: FC<Props> = ({ color = "red" }) => {
 
 ## Packaging
 
-Eden is built on Typescript, but to ease the package usage in different JS / TS environments, we package the libary to CommonJS format under `/dist` alongside with type information.
+Eden is built on Typescript, but to ease the package usage in different JS / TS environments, we package the library to CommonJS format under `/dist` alongside with type information.
 
-We use `tsc` for compilaton and compiled library is committed back to codebase on each push / PR by Github actions in [.github/workflows](.github/workflows).
+We use `tsc` for compilation and compiled library is committed back to the codebase on each push / PR by Github actions in [.github/workflows](.github/workflows).
 
 ## Copyright headers
 
