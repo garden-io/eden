@@ -71,7 +71,7 @@ export const EditableTitle: FC<Props> = ({ title = "", value = "", onChange = ()
         <Grid columns="1fr auto auto">
           <Textfield value={currentValue} onChange={handleCurrentChange} />
           <Button onClick={onSave}>Save</Button>
-          <Button secondary color="red" onClick={onCancel}>
+          <Button secondary color="statusRed" onClick={onCancel}>
             Cancel
           </Button>
         </Grid>
