@@ -11,6 +11,7 @@ import { fontFamilies } from "../themes"
 
 interface Props {
   title?: string
+  name?: string
   value?: any
   placeholder?: string
   type?: string
@@ -20,6 +21,7 @@ interface Props {
 
 export const Textfield: FC<Props> = ({
   title = "",
+  name = "",
   value = "",
   placeholder = "",
   type = "text",
@@ -44,6 +46,7 @@ export const Textfield: FC<Props> = ({
         </div>
       )}
       <input
+        name={name}
         type={type}
         value={value}
         placeholder={placeholder}
