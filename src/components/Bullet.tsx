@@ -23,12 +23,17 @@ interface Props {
    * Component children
    */
   // color?: Color
+  /**
+   * Data selector for testing
+   */
+  dataTest?: string
 }
 
-export const Bullet: FC<Props> = ({ children = null, background = "grayDark" }) => {
+export const Bullet: FC<Props> = ({ dataTest = null, children = null, background = "grayDark" }) => {
   const { colors, space } = useTheme()
   return (
     <div
+      data-test={dataTest}
       style={{
         width: `calc(${space.largest} * 0.4)`,
         height: `calc(${space.largest} * 0.4)`,

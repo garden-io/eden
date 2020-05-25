@@ -27,9 +27,19 @@ interface Props {
    * Background color
    */
   background?: Color
+  /**
+   * Data selector for testing
+   */
+  dataTest?: string
 }
 
-export const Pre: FC<Props> = ({ children = null, color = "grayDark", background = "grayLight", copy = false }) => {
+export const Pre: FC<Props> = ({
+  dataTest = false,
+  children = null,
+  color = "grayDark",
+  background = "grayLight",
+  copy = false,
+}) => {
   const { colors, fontFamilies, textSizes, codeSizes, space, borderRadiuses } = useTheme()
 
   const statuses = ["Copy", "Copied", "Error"]
@@ -52,6 +62,7 @@ export const Pre: FC<Props> = ({ children = null, color = "grayDark", background
 
   return (
     <div
+      data-test={dataTest}
       style={{
         borderRadius: borderRadiuses.small,
         backgroundColor: colors[background],

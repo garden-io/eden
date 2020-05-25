@@ -14,12 +14,16 @@ interface Props {
   title?: string
   value?: boolean
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void
+  /**
+   * Data selector for testing
+   */
+  dataTest?: string
 }
 
-export const Checkbox: FC<Props> = ({ title = "", value = false, onChange = () => null }) => {
+export const Checkbox: FC<Props> = ({ dataTest = null, title = "", value = false, onChange = () => null }) => {
   const { colors, textSizes } = useTheme()
   return (
-    <Flex align="flex-start">
+    <Flex align="flex-start" data-test={dataTest}>
       <input
         type="checkbox"
         checked={value}

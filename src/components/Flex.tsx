@@ -33,6 +33,10 @@ interface Props {
    * Show border around content for debugging?
    */
   debug?: boolean
+  /**
+   * Data selector for testing
+   */
+  dataTest?: string
 }
 
 export const Flex: FC<Props> = ({
@@ -42,10 +46,12 @@ export const Flex: FC<Props> = ({
   align = "center",
   wrap = false,
   debug = false,
+  dataTest = false,
 }) => {
   const { space } = useTheme()
   return (
     <div
+      data-test={dataTest}
       style={{
         display: "flex",
         justifyContent: justify,

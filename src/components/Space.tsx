@@ -18,9 +18,13 @@ interface Props {
    * Whitespace height
    */
   height?: Whitespace
+  /**
+   * Data selector for testing
+   */
+  dataTest?: string
 }
 
-export const Space: FC<Props> = ({ width = "medium", height = "medium" }) => {
+export const Space: FC<Props> = ({ dataTest = false, width = "medium", height = "medium" }) => {
   const { space } = useTheme()
-  return <div style={{ height: space[height], width: space[width] }} />
+  return <div data-test={dataTest} style={{ height: space[height], width: space[width] }} />
 }

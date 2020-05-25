@@ -26,12 +26,22 @@ interface Props {
    * Border color
    */
   borderColor?: Color
+  /**
+   * Data selector for testing
+   */
+  dataTest?: string
 }
 
-export const Card: FC<Props> = ({ children = null, borderRadius = "medium", borderColor = "grayLight" }) => {
+export const Card: FC<Props> = ({
+  dataTest = null,
+  children = null,
+  borderRadius = "medium",
+  borderColor = "grayLight",
+}) => {
   const { colors, borderRadiuses } = useTheme()
   return (
     <div
+      data-test={dataTest}
       style={{
         borderRadius: borderRadiuses[borderRadius],
         borderColor: colors[borderColor],

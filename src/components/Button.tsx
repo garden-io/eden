@@ -42,6 +42,10 @@ interface Props {
    * Router link to navigate to
    */
   to?: string
+  /**
+   * Data selector for testing
+   */
+  dataTest?: string
 }
 
 export const Button: FC<Props> = ({
@@ -52,6 +56,7 @@ export const Button: FC<Props> = ({
   secondary = false,
   wide = false,
   type = "button",
+  dataTest = null,
 }) => {
   const { colors, space, textSizes } = useTheme()
   const sizingMap = {
@@ -73,6 +78,7 @@ export const Button: FC<Props> = ({
   }
   return (
     <button
+      data-test={dataTest}
       type={type}
       style={{
         display: wide ? "flex" : "inline-flex",

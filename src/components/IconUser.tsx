@@ -22,12 +22,17 @@ interface Props {
    * Wrapper Show border around icon for debugging?
    */
   debug?: boolean
+  /**
+   * Data selector for testing
+   */
+  dataTest?: string
 }
 
-export const IconUser: FC<Props> = ({ color = "gray", size = "medium", debug = false }) => {
+export const IconUser: FC<Props> = ({ dataTest = false, color = "gray", size = "medium", debug = false }) => {
   const { colors, iconSizes } = useTheme()
   return (
     <svg
+      data-test={dataTest}
       role="img"
       viewBox="0 0 24 24"
       xmlns="http://www.w3.org/2000/svg"

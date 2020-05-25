@@ -18,9 +18,13 @@ interface Props {
    * Callback when button is clicked
    */
   onClick?: (event: React.MouseEvent<HTMLElement, MouseEvent>) => void
+  /**
+   * Data selector for testing
+   */
+  dataTest?: string
 }
 
-export const IconDeleteButton: FC<Props> = ({ color = "gray", onClick = () => null }) => {
+export const IconDeleteButton: FC<Props> = ({ dataTest = false, color = "gray", onClick = () => null }) => {
   const handleClick = (event: React.MouseEvent<HTMLElement, MouseEvent>) => {
     // TODO: Replace with inline confirmation next to the button
     if (window.confirm("Are you sure to delete?")) {
@@ -28,7 +32,7 @@ export const IconDeleteButton: FC<Props> = ({ color = "gray", onClick = () => nu
     }
   }
   return (
-    <div onClick={handleClick} style={{ cursor: "pointer" }}>
+    <div data-test={dataTest} onClick={handleClick} style={{ cursor: "pointer" }}>
       <IconDelete size="small" color={color} />
     </div>
   )

@@ -42,6 +42,10 @@ interface Props {
    * Title color
    */
   color?: Color
+  /**
+   * Data selector for testing
+   */
+  dataTest?: string
 }
 
 export const Title: FC<Props> = ({
@@ -53,12 +57,14 @@ export const Title: FC<Props> = ({
   tag = "h3",
   to = null,
   onClick = () => {},
+  dataTest = false,
 }) => {
   const { colors, titleSizes, fontWeights, lineHeights, titleTags } = useTheme()
 
   const HeadingTag: any = tag ? tag : titleTags[size]
   return (
     <HeadingTag
+      data-test={dataTest}
       style={{
         fontFamily: fontFamilies[fontFamily],
         fontSize: titleSizes[size],
