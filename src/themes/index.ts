@@ -305,6 +305,7 @@ export interface BorderRadiuses {
   large: string
   medium: string
   small: string
+  none: string
 }
 
 export type BorderRadius = keyof BorderRadiuses
@@ -313,6 +314,7 @@ export const borderRadiuses: BorderRadiuses = {
   large: "4px",
   medium: "3px",
   small: "2px",
+  none: "0px",
 }
 
 export const theme = {
