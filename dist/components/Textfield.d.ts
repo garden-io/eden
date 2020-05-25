@@ -1,6 +1,7 @@
 import { FC } from "react";
 interface Props {
     title?: string;
+    name?: string;
     value?: any;
     placeholder?: string;
     type?: string;

@@ -13,10 +13,10 @@ var Flex_1 = require("./Flex");
 var contexts_1 = require("../contexts");
 var themes_1 = require("../themes");
 exports.Checkbox = function (_a) {
-    var _b = _a.title, title = _b === void 0 ? "" : _b, _c = _a.value, value = _c === void 0 ? false : _c, _d = _a.onChange, onChange = _d === void 0 ? function () { return null; } : _d;
-    var _e = contexts_1.useTheme(), colors = _e.colors, textSizes = _e.textSizes;
+    var _b = _a.title, title = _b === void 0 ? "" : _b, _c = _a.name, name = _c === void 0 ? "" : _c, _d = _a.value, value = _d === void 0 ? false : _d, _e = _a.onChange, onChange = _e === void 0 ? function () { return null; } : _e;
+    var _f = contexts_1.useTheme(), colors = _f.colors, textSizes = _f.textSizes;
     return (react_1.default.createElement(Flex_1.Flex, { align: "flex-start" },
-        react_1.default.createElement("input", { type: "checkbox", checked: value, onChange: onChange, style: {
+        react_1.default.createElement("input", { name: name, type: "checkbox", checked: value, onChange: onChange, style: {
                 fontSize: textSizes.large,
             } }),
         react_1.default.createElement("div", { style: {

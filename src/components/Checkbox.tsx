@@ -12,15 +12,17 @@ import { fontFamilies } from "../themes"
 
 interface Props {
   title?: string
+  name?: string
   value?: boolean
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void
 }
 
-export const Checkbox: FC<Props> = ({ title = "", value = false, onChange = () => null }) => {
+export const Checkbox: FC<Props> = ({ title = "", name = "", value = false, onChange = () => null }) => {
   const { colors, textSizes } = useTheme()
   return (
     <Flex align="flex-start">
       <input
+        name={name}
         type="checkbox"
         checked={value}
         onChange={onChange}

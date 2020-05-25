@@ -11,11 +11,12 @@ import { fontFamilies } from "../themes"
 
 interface TextareaProps {
   title?: string
+  name?: string
   value?: any
   onChange?: (event: React.ChangeEvent<HTMLTextAreaElement>) => void
 }
 
-export const Textarea: FC<TextareaProps> = ({ title = "", value = "", onChange = () => null }) => {
+export const Textarea: FC<TextareaProps> = ({ title = "", name = "", value = "", onChange = () => null }) => {
   const { colors, space, textSizes } = useTheme()
 
   return (
@@ -33,6 +34,7 @@ export const Textarea: FC<TextareaProps> = ({ title = "", value = "", onChange =
         </div>
       )}
       <textarea
+        name={name}
         value={value}
         rows={10}
         style={{
