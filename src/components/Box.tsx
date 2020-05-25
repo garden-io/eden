@@ -4,7 +4,7 @@
  * All rights reserved.
  */
 
-import { Color, Whitespace } from "../themes"
+import { Color, Whitespace, BorderRadius } from "../themes"
 import React, { FC } from "react"
 
 import { useTheme } from "../contexts"
@@ -23,8 +23,9 @@ interface Props {
    */
   borderColor?: Color
   /**
-   * Background color
+   * Border radius
    */
+  borderRadius: BorderRadius
   background?: Color
   justify?: "flex-start" | "flex-end" | "center" | "space-between" | "space-around" | "stretch"
 
@@ -35,20 +36,23 @@ interface Props {
    * Section Show border around content for debugging?
    */
   debug?: boolean
+  overflow?: string
 }
 
 export const Box: FC<Props> = ({
   children = null,
   padding = "large",
   borderColor = "none",
+  borderRadius = "none",
   background = "none",
   justify = "flex-start",
   align = "flex-start",
   height = "",
   shadow = false,
   debug = false,
+  overflow = "auto",
 }) => {
-  const { space, colors } = useTheme()
+  const { space, colors, borderRadiuses } = useTheme()
   return (
     <div
       style={{
@@ -57,11 +61,13 @@ export const Box: FC<Props> = ({
         alignItems: align,
         padding: space[padding],
         borderColor: colors[borderColor],
+        borderRadius: borderRadiuses[borderRadius],
         borderStyle: borderColor ? "solid" : "",
         backgroundColor: colors[background],
         borderWidth: borderColor ? "1px" : "",
         height: Object(space).hasOwnProperty(height) ? space[height] : height,
         boxShadow: shadow ? "0 0 2px rgba(0,0,0,0.1), 0 0 40px rgba(0,0,0,0.05)" : "",
+        overflow,
       }}
     >
       <div

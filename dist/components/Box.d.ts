@@ -1,4 +1,4 @@
-import { Color, Whitespace } from "../themes";
+import { Color, Whitespace, BorderRadius } from "../themes";
 import { FC } from "react";
 interface Props {
     /**
@@ -14,8 +14,9 @@ interface Props {
      */
     borderColor?: Color;
     /**
-     * Background color
+     * Border radius
      */
+    borderRadius: BorderRadius;
     background?: Color;
     justify?: "flex-start" | "flex-end" | "center" | "space-between" | "space-around" | "stretch";
     align?: "flex-start" | "flex-end" | "center" | "space-between" | "space-around" | "stretch";
@@ -25,6 +26,7 @@ interface Props {
      * Section Show border around content for debugging?
      */
     debug?: boolean;
+    overflow?: string;
 }
 export declare const Box: FC<Props>;
 export {};

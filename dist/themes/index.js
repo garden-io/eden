@@ -138,6 +138,7 @@ exports.borderRadiuses = {
     large: "4px",
     medium: "3px",
     small: "2px",
+    none: "0px",
 };
 exports.theme = {
     colors: exports.colors,
