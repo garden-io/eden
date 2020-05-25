@@ -16,14 +16,14 @@ interface TextareaProps {
   /**
    * Data selector for testing
    */
-  dataTest?: string
+  testid?: string
 }
 
-export const Textarea: FC<TextareaProps> = ({ dataTest = false, title = "", value = "", onChange = () => null }) => {
+export const Textarea: FC<TextareaProps> = ({ testid = false, title = "", value = "", onChange = () => null }) => {
   const { colors, space, textSizes } = useTheme()
 
   return (
-    <div data-test={dataTest}>
+    <div data-testid={testid}>
       {title && (
         <div
           style={{

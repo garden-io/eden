@@ -41,11 +41,11 @@ interface Props {
   /**
    * Data selector for testing
    */
-  dataTest?: string
+  testid?: string
 }
 
 export const Section: FC<Props> = ({
-  dataTest = false,
+  testid = false,
   children = null,
   width = "medium",
   background = "none",
@@ -57,7 +57,7 @@ export const Section: FC<Props> = ({
   const { colors, space, breakpoints } = useTheme()
   return (
     <div
-      data-test={dataTest}
+      data-testid={testid}
       style={{
         display: "flex",
         justifyContent: "center",

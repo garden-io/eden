@@ -17,13 +17,13 @@ interface Props {
   /**
    * Data selector for testing
    */
-  dataTest?: string
+  testid?: string
 }
 
-export const Checkbox: FC<Props> = ({ dataTest = null, title = "", value = false, onChange = () => null }) => {
+export const Checkbox: FC<Props> = ({ testid = null, title = "", value = false, onChange = () => null }) => {
   const { colors, textSizes } = useTheme()
   return (
-    <Flex align="flex-start" data-test={dataTest}>
+    <Flex align="flex-start" data-testid={testid}>
       <input
         type="checkbox"
         checked={value}

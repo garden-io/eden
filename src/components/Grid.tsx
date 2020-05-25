@@ -33,7 +33,7 @@ interface Props {
   /**
    * Data selector for testing
    */
-  dataTest?: string
+  testid?: string
 }
 
 export const Grid: FC<Props> = ({
@@ -43,13 +43,13 @@ export const Grid: FC<Props> = ({
   debug = false,
   justify = "start",
   align = "stretch",
-  dataTest = false,
+  testid = false,
 }) => {
   const { space } = useTheme()
 
   return (
     <div
-      data-test={dataTest}
+      data-testid={testid}
       style={{
         display: "grid",
         gridTemplateColumns: typeof columns === "string" ? columns : `repeat(${columns}, 1fr)`,

@@ -21,10 +21,10 @@ interface Props {
   /**
    * Data selector for testing
    */
-  dataTest?: string
+  testid?: string
 }
 
-export const IconDeleteButton: FC<Props> = ({ dataTest = false, color = "gray", onClick = () => null }) => {
+export const IconDeleteButton: FC<Props> = ({ testid = false, color = "gray", onClick = () => null }) => {
   const handleClick = (event: React.MouseEvent<HTMLElement, MouseEvent>) => {
     // TODO: Replace with inline confirmation next to the button
     if (window.confirm("Are you sure to delete?")) {
@@ -32,7 +32,7 @@ export const IconDeleteButton: FC<Props> = ({ dataTest = false, color = "gray", 
     }
   }
   return (
-    <div data-test={dataTest} onClick={handleClick} style={{ cursor: "pointer" }}>
+    <div data-testid={testid} onClick={handleClick} style={{ cursor: "pointer" }}>
       <IconDelete size="small" color={color} />
     </div>
   )

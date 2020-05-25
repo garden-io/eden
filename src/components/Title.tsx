@@ -45,7 +45,7 @@ interface Props {
   /**
    * Data selector for testing
    */
-  dataTest?: string
+  testid?: string
 }
 
 export const Title: FC<Props> = ({
@@ -57,14 +57,14 @@ export const Title: FC<Props> = ({
   tag = "h3",
   to = null,
   onClick = () => {},
-  dataTest = false,
+  testid = false,
 }) => {
   const { colors, titleSizes, fontWeights, lineHeights, titleTags } = useTheme()
 
   const HeadingTag: any = tag ? tag : titleTags[size]
   return (
     <HeadingTag
-      data-test={dataTest}
+      data-testid={testid}
       style={{
         fontFamily: fontFamilies[fontFamily],
         fontSize: titleSizes[size],

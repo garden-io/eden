@@ -17,14 +17,14 @@ interface Props {
   /**
    * Data selector for testing
    */
-  dataTest?: string
+  testid?: string
 }
 
-export const Line: FC<Props> = ({ dataTest = false, color = "grayLight" }) => {
+export const Line: FC<Props> = ({ testid = false, color = "grayLight" }) => {
   const { colors } = useTheme()
   return (
     <div
-      data-test={dataTest}
+      data-testid={testid}
       style={{
         borderBottomWidth: "1px",
         borderBottomStyle: "solid",

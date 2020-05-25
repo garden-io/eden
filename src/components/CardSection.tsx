@@ -29,11 +29,11 @@ interface Props {
   /**
    * Data selector for testing
    */
-  dataTest?: string
+  testid?: string
 }
 
 export const CardSection: FC<Props> = ({
-  dataTest = null,
+  testid = null,
   children = null,
   padding = "medium",
   background = "white",
@@ -42,7 +42,7 @@ export const CardSection: FC<Props> = ({
   const { colors, space } = useTheme()
   return (
     <div
-      data-test={dataTest}
+      data-testid={testid}
       style={{
         padding: space[padding],
         background: colors[background] ? colors[background] : colors[background],

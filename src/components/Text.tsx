@@ -42,7 +42,7 @@ interface Props {
   /**
    * Data selector for testing
    */
-  dataTest?: string
+  testid?: string
 }
 
 export const Text: FC<Props> = ({
@@ -53,12 +53,12 @@ export const Text: FC<Props> = ({
   color = "grayDark",
   to = null,
   onClick = () => {},
-  dataTest = false,
+  testid = false,
 }) => {
   const { colors, textSizes, fontFamilies, fontWeights, lineHeights, textAligns } = useTheme()
   return (
     <div
-      data-test={dataTest}
+      data-testid={testid}
       style={{
         fontFamily: fontFamilies[fontFamily],
         fontSize: textSizes[size],

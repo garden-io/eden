@@ -21,10 +21,10 @@ interface Props {
   /**
    * Data selector for testing
    */
-  dataTest?: string
+  testid?: string
 }
 
-export const Space: FC<Props> = ({ dataTest = false, width = "medium", height = "medium" }) => {
+export const Space: FC<Props> = ({ testid = false, width = "medium", height = "medium" }) => {
   const { space } = useTheme()
-  return <div data-test={dataTest} style={{ height: space[height], width: space[width] }} />
+  return <div data-testid={testid} style={{ height: space[height], width: space[width] }} />
 }

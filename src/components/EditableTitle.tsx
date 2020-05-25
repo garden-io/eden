@@ -21,10 +21,10 @@ interface Props {
   /**
    * Data selector for testing
    */
-  dataTest?: string
+  testid?: string
 }
 
-export const EditableTitle: FC<Props> = ({ dataTest = null, title = "", value = "", onChange = () => undefined }) => {
+export const EditableTitle: FC<Props> = ({ testid = null, title = "", value = "", onChange = () => undefined }) => {
   const [editing, setEditing] = useState(false)
   const [currentValue, setCurrentValue] = useState(value)
 
@@ -47,7 +47,7 @@ export const EditableTitle: FC<Props> = ({ dataTest = null, title = "", value = 
   const { colors, space, textSizes } = useTheme()
 
   return (
-    <div data-test={dataTest}>
+    <div data-testid={testid}>
       {title && (
         <div
           style={{

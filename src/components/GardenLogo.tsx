@@ -13,10 +13,10 @@ interface Props {
   /**
    * Data selector for testing
    */
-  dataTest?: string
+  testid?: string
 }
 
-export const GardenLogo: FC<Props> = ({ dataTest = false, color = "dark" }) => {
+export const GardenLogo: FC<Props> = ({ testid = false, color = "dark" }) => {
   const { logoColors } = useTheme()
   return (
     // TODO: Allow logo without a workmark
@@ -28,7 +28,7 @@ export const GardenLogo: FC<Props> = ({ dataTest = false, color = "dark" }) => {
     //   xmlns="http://www.w3.org/2000/svg"
     // >
     <svg
-      data-test={dataTest}
+      data-testid={testid}
       width="140"
       height="35"
       viewBox="0 0 140 35"

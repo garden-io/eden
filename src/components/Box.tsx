@@ -38,7 +38,7 @@ interface Props {
   /**
    * Data selector for testing
    */
-  dataTest?: string
+  testid?: string
 }
 
 export const Box: FC<Props> = ({
@@ -51,12 +51,12 @@ export const Box: FC<Props> = ({
   height = "",
   shadow = false,
   debug = false,
-  dataTest = null,
+  testid = null,
 }) => {
   const { space, colors } = useTheme()
   return (
     <div
-      data-test={dataTest}
+      data-testid={testid}
       style={{
         display: "flex",
         justifyContent: justify,

@@ -19,7 +19,7 @@ interface Props {
   /**
    * Data selector for testing
    */
-  dataTest?: string
+  testid?: string
 }
 
 export const Textfield: FC<Props> = ({
@@ -29,13 +29,13 @@ export const Textfield: FC<Props> = ({
   type = "text",
   disabled = false,
   onChange = () => null,
-  dataTest = false,
+  testid = false,
 }) => {
   const { colors, space, textSizes } = useTheme()
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => onChange(event.target.value)
   return (
     /* TODO: Make opacity a thene variable */
-    <div style={{ opacity: disabled ? 0.5 : 1 }} data-test={dataTest}>
+    <div style={{ opacity: disabled ? 0.5 : 1 }} data-testid={testid}>
       {title && (
         <div
           style={{

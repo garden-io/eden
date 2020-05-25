@@ -30,11 +30,11 @@ interface Props {
   /**
    * Data selector for testing
    */
-  dataTest?: string
+  testid?: string
 }
 
 export const Pre: FC<Props> = ({
-  dataTest = false,
+  testid = false,
   children = null,
   color = "grayDark",
   background = "grayLight",
@@ -62,7 +62,7 @@ export const Pre: FC<Props> = ({
 
   return (
     <div
-      data-test={dataTest}
+      data-testid={testid}
       style={{
         borderRadius: borderRadiuses.small,
         backgroundColor: colors[background],
