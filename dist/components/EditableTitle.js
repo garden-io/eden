@@ -66,5 +66,5 @@ exports.EditableTitle = function (_a) {
         editing && (react_1.default.createElement(Grid_1.Grid, { columns: "1fr auto auto" },
             react_1.default.createElement(Textfield_1.Textfield, { value: currentValue, onChange: handleCurrentChange }),
             react_1.default.createElement(Button_1.Button, { onClick: onSave }, "Save"),
-            react_1.default.createElement(Button_1.Button, { secondary: true, color: "red", onClick: onCancel }, "Cancel")))));
+            react_1.default.createElement(Button_1.Button, { secondary: true, color: "statusRed", onClick: onCancel }, "Cancel")))));
 };
