@@ -145,6 +145,7 @@ export interface BorderRadiuses {
     large: string;
     medium: string;
     small: string;
+    none: string;
 }
 export declare type BorderRadius = keyof BorderRadiuses;
 export declare const borderRadiuses: BorderRadiuses;
