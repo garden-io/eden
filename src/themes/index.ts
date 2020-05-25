@@ -29,7 +29,6 @@ export interface Colors {
   gray: string
   grayDark: string
   grayDarker: string
-  green: string
   greenLight: string
   greenDark: string
   greenDarker: string
@@ -37,8 +36,9 @@ export interface Colors {
   blue: string
   blueDark: string
   pink: string
-  red: string
-  yellow: string
+  statusGreen: string
+  statusRed: string
+  statusYellow: string
   white: string
   black: string
   none: string
@@ -60,9 +60,9 @@ export const lightColors: Colors = {
   blue: brandColors.blue,
   blueDark: brandColors.blueDark,
   pink: brandColors.pink,
-  green: "hsl(160, 75%, 34%)",
-  red: "hsl(353, 85%, 44%)",
-  yellow: "hsl(37, 100%, 64%)",
+  statusGreen: "hsl(150, 75%, 34%)",
+  statusRed: "hsl(353, 85%, 44%)",
+  statusYellow: "hsl(37, 100%, 64%)",
   white: brandColors.white,
   black: brandColors.black,
   none: "transparent",
@@ -82,9 +82,9 @@ export const darkColors: Colors = {
   blue: brandColors.blue,
   blueDark: brandColors.blueDark,
   pink: brandColors.pink,
-  green: "hsl(160, 75%, 34%)",
-  red: "hsl(353, 85%, 44%)",
-  yellow: "hsl(37, 100%, 64%)",
+  statusGreen: lightColors.statusGreen,
+  statusRed: lightColors.statusRed,
+  statusYellow: lightColors.statusYellow,
   white: lightColors.grayDark,
   black: lightColors.white,
   none: "transparent",

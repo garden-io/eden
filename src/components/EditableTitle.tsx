@@ -11,16 +11,19 @@ import { Flex } from "./Flex"
 import { Grid } from "./Grid"
 import { Textfield } from "./Textfield"
 import { Title } from "./Title"
+
+import { TitleSize } from "../themes"
 import { useTheme } from "../contexts"
 
 interface Props {
   title?: string
+  size?: TitleSize
   value?: any
   placeholder?: string
   onChange?: (value: string) => void
 }
 
-export const EditableTitle: FC<Props> = ({ title = "", value = "", onChange = () => undefined }) => {
+export const EditableTitle: FC<Props> = ({ title = "", size = "medium", value = "", onChange = () => undefined }) => {
   const [editing, setEditing] = useState(false)
   const [currentValue, setCurrentValue] = useState(value)
 
@@ -58,7 +61,7 @@ export const EditableTitle: FC<Props> = ({ title = "", value = "", onChange = ()
 
       {!editing && (
         <Flex align="center">
-          <Title size="large">{currentValue}</Title>
+          <Title size={size}>{currentValue}</Title>
           {!editing && (
             <Button secondary size="small" onClick={onEdit}>
               Edit
@@ -71,7 +74,7 @@ export const EditableTitle: FC<Props> = ({ title = "", value = "", onChange = ()
         <Grid columns="1fr auto auto">
           <Textfield value={currentValue} onChange={handleCurrentChange} />
           <Button onClick={onSave}>Save</Button>
-          <Button secondary color="red" onClick={onCancel}>
+          <Button secondary color="statusRed" onClick={onCancel}>
             Cancel
           </Button>
         </Grid>

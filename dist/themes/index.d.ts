@@ -20,7 +20,6 @@ export interface Colors {
     gray: string;
     grayDark: string;
     grayDarker: string;
-    green: string;
     greenLight: string;
     greenDark: string;
     greenDarker: string;
@@ -28,8 +27,9 @@ export interface Colors {
     blue: string;
     blueDark: string;
     pink: string;
-    red: string;
-    yellow: string;
+    statusGreen: string;
+    statusRed: string;
+    statusYellow: string;
     white: string;
     black: string;
     none: string;
