@@ -16,7 +16,7 @@ interface Props {
     /**
      * Border radius
      */
-    borderRadius: BorderRadius;
+    borderRadius?: BorderRadius;
     background?: Color;
     justify?: "flex-start" | "flex-end" | "center" | "space-between" | "space-around" | "stretch";
     align?: "flex-start" | "flex-end" | "center" | "space-between" | "space-around" | "stretch";
