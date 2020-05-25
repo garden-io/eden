@@ -21,6 +21,10 @@ interface Props {
      * Background color
      */
     background?: Color;
+    /**
+     * Data selector for testing
+     */
+    dataTest?: string;
 }
 export declare const Code: FC<Props>;
 export {};

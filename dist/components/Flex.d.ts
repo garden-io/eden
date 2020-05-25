@@ -22,6 +22,10 @@ interface Props {
      * Show border around content for debugging?
      */
     debug?: boolean;
+    /**
+     * Data selector for testing
+     */
+    dataTest?: string;
 }
 export declare const Flex: FC<Props>;
 export {};

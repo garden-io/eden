@@ -16,6 +16,10 @@ interface Props {
      * Border color
      */
     borderColor?: Color;
+    /**
+     * Data selector for testing
+     */
+    dataTest?: string;
 }
 export declare const Card: FC<Props>;
 export {};

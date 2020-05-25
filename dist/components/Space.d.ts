@@ -9,6 +9,10 @@ interface Props {
      * Whitespace height
      */
     height?: Whitespace;
+    /**
+     * Data selector for testing
+     */
+    dataTest?: string;
 }
 export declare const Space: FC<Props>;
 export {};

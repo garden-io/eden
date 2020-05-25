@@ -12,8 +12,8 @@ var themes_1 = require("../themes");
 var react_1 = __importDefault(require("react"));
 var contexts_1 = require("../contexts");
 exports.Button = function (_a) {
-    var _b = _a.children, children = _b === void 0 ? null : _b, _c = _a.onClick, onClick = _c === void 0 ? function () { return null; } : _c, _d = _a.color, color = _d === void 0 ? "greenDark" : _d, _e = _a.size, size = _e === void 0 ? "medium" : _e, _f = _a.secondary, secondary = _f === void 0 ? false : _f, _g = _a.wide, wide = _g === void 0 ? false : _g, _h = _a.type, type = _h === void 0 ? "button" : _h;
-    var _j = contexts_1.useTheme(), colors = _j.colors, space = _j.space, textSizes = _j.textSizes;
+    var _b = _a.children, children = _b === void 0 ? null : _b, _c = _a.onClick, onClick = _c === void 0 ? function () { return null; } : _c, _d = _a.color, color = _d === void 0 ? "greenDark" : _d, _e = _a.size, size = _e === void 0 ? "medium" : _e, _f = _a.secondary, secondary = _f === void 0 ? false : _f, _g = _a.wide, wide = _g === void 0 ? false : _g, _h = _a.type, type = _h === void 0 ? "button" : _h, _j = _a.dataTest, dataTest = _j === void 0 ? null : _j;
+    var _k = contexts_1.useTheme(), colors = _k.colors, space = _k.space, textSizes = _k.textSizes;
     var sizingMap = {
         small: {
             height: "calc(" + space.large + " * 1.5)",
@@ -31,7 +31,7 @@ exports.Button = function (_a) {
             fontSize: textSizes.large,
         },
     };
-    return (react_1.default.createElement("button", { type: type, style: {
+    return (react_1.default.createElement("button", { "data-test": dataTest, type: type, style: {
             display: wide ? "flex" : "inline-flex",
             width: wide ? "100%" : "",
             alignItems: "center",

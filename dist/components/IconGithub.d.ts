@@ -13,6 +13,10 @@ interface Props {
      * Section Show border around icon for debugging?
      */
     debug?: boolean;
+    /**
+     * Data selector for testing
+     */
+    dataTest?: string;
 }
 export declare const IconGithub: FC<Props>;
 export {};

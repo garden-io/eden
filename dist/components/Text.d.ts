@@ -29,6 +29,10 @@ interface Props {
      * Text color
      */
     color?: Color;
+    /**
+     * Data selector for testing
+     */
+    dataTest?: string;
 }
 export declare const Text: FC<Props>;
 export {};

@@ -17,6 +17,10 @@ interface Props {
      *  Is it filling the height of the parent?
      */
     fill?: boolean;
+    /**
+     * Data selector for testing
+     */
+    dataTest?: string;
 }
 export declare const CardSection: FC<Props>;
 export {};

@@ -13,6 +13,10 @@ interface Props {
      * Wrapper Show border around icon for debugging?
      */
     debug?: boolean;
+    /**
+     * Data selector for testing
+     */
+    dataTest?: string;
 }
 export declare const IconDelete: FC<Props>;
 export {};

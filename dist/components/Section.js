@@ -11,9 +11,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = __importDefault(require("react"));
 var contexts_1 = require("../contexts");
 exports.Section = function (_a) {
-    var _b = _a.children, children = _b === void 0 ? null : _b, _c = _a.width, width = _c === void 0 ? "medium" : _c, _d = _a.background, background = _d === void 0 ? "none" : _d, _e = _a.contentBackground, contentBackground = _e === void 0 ? "none" : _e, _f = _a.padding, padding = _f === void 0 ? "" : _f, _g = _a.contentPadding, contentPadding = _g === void 0 ? "" : _g, _h = _a.debug, debug = _h === void 0 ? false : _h;
-    var _j = contexts_1.useTheme(), colors = _j.colors, space = _j.space, breakpoints = _j.breakpoints;
-    return (react_1.default.createElement("div", { style: {
+    var _b = _a.dataTest, dataTest = _b === void 0 ? false : _b, _c = _a.children, children = _c === void 0 ? null : _c, _d = _a.width, width = _d === void 0 ? "medium" : _d, _e = _a.background, background = _e === void 0 ? "none" : _e, _f = _a.contentBackground, contentBackground = _f === void 0 ? "none" : _f, _g = _a.padding, padding = _g === void 0 ? "" : _g, _h = _a.contentPadding, contentPadding = _h === void 0 ? "" : _h, _j = _a.debug, debug = _j === void 0 ? false : _j;
+    var _k = contexts_1.useTheme(), colors = _k.colors, space = _k.space, breakpoints = _k.breakpoints;
+    return (react_1.default.createElement("div", { "data-test": dataTest, style: {
             display: "flex",
             justifyContent: "center",
             backgroundColor: colors[background],
