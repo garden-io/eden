@@ -32,11 +32,11 @@ var react_1 = __importStar(require("react"));
 var react_use_1 = require("react-use");
 var contexts_1 = require("../contexts");
 exports.Pre = function (_a) {
-    var _b = _a.children, children = _b === void 0 ? null : _b, _c = _a.color, color = _c === void 0 ? "grayDark" : _c, _d = _a.background, background = _d === void 0 ? "grayLight" : _d, _e = _a.copy, copy = _e === void 0 ? false : _e;
-    var _f = contexts_1.useTheme(), colors = _f.colors, fontFamilies = _f.fontFamilies, textSizes = _f.textSizes, codeSizes = _f.codeSizes, space = _f.space, borderRadiuses = _f.borderRadiuses;
+    var _b = _a.testid, testid = _b === void 0 ? false : _b, _c = _a.children, children = _c === void 0 ? null : _c, _d = _a.color, color = _d === void 0 ? "grayDark" : _d, _e = _a.background, background = _e === void 0 ? "grayLight" : _e, _f = _a.copy, copy = _f === void 0 ? false : _f;
+    var _g = contexts_1.useTheme(), colors = _g.colors, fontFamilies = _g.fontFamilies, textSizes = _g.textSizes, codeSizes = _g.codeSizes, space = _g.space, borderRadiuses = _g.borderRadiuses;
     var statuses = ["Copy", "Copied", "Error"];
-    var _g = __read(react_1.useState(0), 2), status = _g[0], setStatus = _g[1];
-    var _h = __read(react_use_1.useCopyToClipboard(), 2), copyToClipboard = _h[1];
+    var _h = __read(react_1.useState(0), 2), status = _h[0], setStatus = _h[1];
+    var _j = __read(react_use_1.useCopyToClipboard(), 2), copyToClipboard = _j[1];
     var handleClick = function () {
         copyToClipboard(children);
         setStatus(1);
@@ -44,7 +44,7 @@ exports.Pre = function (_a) {
     react_use_1.useInterval(function () {
         setStatus(0);
     }, status > 0 ? 1000 : null);
-    return (react_1.default.createElement("div", { style: {
+    return (react_1.default.createElement("div", { "data-testid": testid, style: {
             borderRadius: borderRadiuses.small,
             backgroundColor: colors[background],
             fontFamily: fontFamilies.code,

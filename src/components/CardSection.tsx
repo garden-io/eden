@@ -26,12 +26,23 @@ interface Props {
    *  Is it filling the height of the parent?
    */
   fill?: boolean
+  /**
+   * Data selector for testing
+   */
+  testid?: string
 }
 
-export const CardSection: FC<Props> = ({ children = null, padding = "medium", background = "white", fill = false }) => {
+export const CardSection: FC<Props> = ({
+  testid = null,
+  children = null,
+  padding = "medium",
+  background = "white",
+  fill = false,
+}) => {
   const { colors, space } = useTheme()
   return (
     <div
+      data-testid={testid}
       style={{
         padding: space[padding],
         background: colors[background] ? colors[background] : colors[background],

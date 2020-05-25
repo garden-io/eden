@@ -12,9 +12,9 @@ var react_1 = __importDefault(require("react"));
 var contexts_1 = require("../contexts");
 var __1 = require("..");
 exports.Bullet = function (_a) {
-    var _b = _a.children, children = _b === void 0 ? null : _b, _c = _a.background, background = _c === void 0 ? "grayDark" : _c;
-    var _d = contexts_1.useTheme(), colors = _d.colors, space = _d.space;
-    return (react_1.default.createElement("div", { style: {
+    var _b = _a.testid, testid = _b === void 0 ? null : _b, _c = _a.children, children = _c === void 0 ? null : _c, _d = _a.background, background = _d === void 0 ? "grayDark" : _d;
+    var _e = contexts_1.useTheme(), colors = _e.colors, space = _e.space;
+    return (react_1.default.createElement("div", { "data-testid": testid, style: {
             width: "calc(" + space.largest + " * 0.4)",
             height: "calc(" + space.largest + " * 0.4)",
             borderRadius: "100%",

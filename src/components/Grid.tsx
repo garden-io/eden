@@ -30,6 +30,10 @@ interface Props {
   justify?: "flex-start" | "flex-end" | "center" | "space-between" | "space-around"
 
   align?: "flex-start" | "flex-end" | "center" | "space-between" | "space-around" | "stretch"
+  /**
+   * Data selector for testing
+   */
+  testid?: string
 }
 
 export const Grid: FC<Props> = ({
@@ -39,11 +43,13 @@ export const Grid: FC<Props> = ({
   debug = false,
   justify = "start",
   align = "stretch",
+  testid = false,
 }) => {
   const { space } = useTheme()
 
   return (
     <div
+      data-testid={testid}
       style={{
         display: "grid",
         gridTemplateColumns: typeof columns === "string" ? columns : `repeat(${columns}, 1fr)`,

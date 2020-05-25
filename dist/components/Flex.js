@@ -12,9 +12,9 @@ var react_1 = __importDefault(require("react"));
 var utils_1 = require("../utils");
 var contexts_1 = require("../contexts");
 exports.Flex = function (_a) {
-    var _b = _a.children, children = _b === void 0 ? null : _b, _c = _a.gap, gap = _c === void 0 ? "medium" : _c, _d = _a.justify, justify = _d === void 0 ? "flex-start" : _d, _e = _a.align, align = _e === void 0 ? "center" : _e, _f = _a.wrap, wrap = _f === void 0 ? false : _f, _g = _a.debug, debug = _g === void 0 ? false : _g;
+    var _b = _a.children, children = _b === void 0 ? null : _b, _c = _a.gap, gap = _c === void 0 ? "medium" : _c, _d = _a.justify, justify = _d === void 0 ? "flex-start" : _d, _e = _a.align, align = _e === void 0 ? "center" : _e, _f = _a.wrap, wrap = _f === void 0 ? false : _f, _g = _a.debug, debug = _g === void 0 ? false : _g, _h = _a.testid, testid = _h === void 0 ? false : _h;
     var space = contexts_1.useTheme().space;
-    return (react_1.default.createElement("div", { style: {
+    return (react_1.default.createElement("div", { "data-testid": testid, style: {
             display: "flex",
             justifyContent: justify,
             alignItems: align,

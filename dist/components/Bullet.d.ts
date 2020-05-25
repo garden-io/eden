@@ -9,6 +9,13 @@ interface Props {
      * Component children
      */
     background?: Color;
+    /**
+     * Component children
+     */
+    /**
+     * Data selector for testing
+     */
+    testid?: string;
 }
 export declare const Bullet: FC<Props>;
 export {};

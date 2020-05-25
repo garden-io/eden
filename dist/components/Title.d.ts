@@ -33,6 +33,10 @@ interface Props {
      * Title color
      */
     color?: Color;
+    /**
+     * Data selector for testing
+     */
+    testid?: string;
 }
 export declare const Title: FC<Props>;
 export {};

@@ -29,6 +29,10 @@ interface Props {
      * Section Show border around content for debugging?
      */
     debug?: boolean;
+    /**
+     * Data selector for testing
+     */
+    testid?: string;
 }
 export declare const Section: FC<Props>;
 export {};

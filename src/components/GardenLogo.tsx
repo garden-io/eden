@@ -10,9 +10,13 @@ import { useTheme } from "../contexts"
 
 interface Props {
   color?: LogoColor
+  /**
+   * Data selector for testing
+   */
+  testid?: string
 }
 
-export const GardenLogo: FC<Props> = ({ color = "dark" }) => {
+export const GardenLogo: FC<Props> = ({ testid = false, color = "dark" }) => {
   const { logoColors } = useTheme()
   return (
     // TODO: Allow logo without a workmark
@@ -24,6 +28,7 @@ export const GardenLogo: FC<Props> = ({ color = "dark" }) => {
     //   xmlns="http://www.w3.org/2000/svg"
     // >
     <svg
+      data-testid={testid}
       width="140"
       height="35"
       viewBox="0 0 140 35"

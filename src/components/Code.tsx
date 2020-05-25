@@ -30,6 +30,10 @@ interface Props {
    * Background color
    */
   background?: Color
+  /**
+   * Data selector for testing
+   */
+  testid?: string
 }
 
 export const Code: FC<Props> = ({
@@ -38,10 +42,12 @@ export const Code: FC<Props> = ({
   color = "grayDark",
   background = "none",
   onClick = () => {},
+  testid = null,
 }) => {
   const { colors, codeSizes, fontWeights, lineHeights } = useTheme()
   return (
     <code
+      data-testid={testid}
       style={{
         display: "block",
         fontFamily: fontFamilies.code,

@@ -19,6 +19,10 @@ interface Props {
     debug?: boolean;
     justify?: "flex-start" | "flex-end" | "center" | "space-between" | "space-around";
     align?: "flex-start" | "flex-end" | "center" | "space-between" | "space-around" | "stretch";
+    /**
+     * Data selector for testing
+     */
+    testid?: string;
 }
 export declare const Grid: FC<Props>;
 export {};

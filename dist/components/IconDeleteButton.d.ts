@@ -9,6 +9,10 @@ interface Props {
      * Callback when button is clicked
      */
     onClick?: (event: React.MouseEvent<HTMLElement, MouseEvent>) => void;
+    /**
+     * Data selector for testing
+     */
+    testid?: string;
 }
 export declare const IconDeleteButton: FC<Props>;
 export {};

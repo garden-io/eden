@@ -5,6 +5,10 @@ interface Props {
      * Component children
      */
     color?: Color;
+    /**
+     * Data selector for testing
+     */
+    testid?: string;
 }
 export declare const Line: FC<Props>;
 export {};

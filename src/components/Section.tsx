@@ -38,9 +38,14 @@ interface Props {
    * Section Show border around content for debugging?
    */
   debug?: boolean
+  /**
+   * Data selector for testing
+   */
+  testid?: string
 }
 
 export const Section: FC<Props> = ({
+  testid = false,
   children = null,
   width = "medium",
   background = "none",
@@ -52,6 +57,7 @@ export const Section: FC<Props> = ({
   const { colors, space, breakpoints } = useTheme()
   return (
     <div
+      data-testid={testid}
       style={{
         display: "flex",
         justifyContent: "center",

@@ -13,13 +13,17 @@ interface TextareaProps {
   title?: string
   value?: any
   onChange?: (event: React.ChangeEvent<HTMLTextAreaElement>) => void
+  /**
+   * Data selector for testing
+   */
+  testid?: string
 }
 
-export const Textarea: FC<TextareaProps> = ({ title = "", value = "", onChange = () => null }) => {
+export const Textarea: FC<TextareaProps> = ({ testid = false, title = "", value = "", onChange = () => null }) => {
   const { colors, space, textSizes } = useTheme()
 
   return (
-    <div>
+    <div data-testid={testid}>
       {title && (
         <div
           style={{

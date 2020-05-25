@@ -33,6 +33,10 @@ interface Props {
      * Router link to navigate to
      */
     to?: string;
+    /**
+     * Data selector for testing
+     */
+    testid?: string;
 }
 export declare const Button: FC<Props>;
 export {};
