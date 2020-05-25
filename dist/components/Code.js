@@ -12,9 +12,9 @@ var themes_1 = require("../themes");
 var react_1 = __importDefault(require("react"));
 var contexts_1 = require("../contexts");
 exports.Code = function (_a) {
-    var _b = _a.children, children = _b === void 0 ? null : _b, _c = _a.size, size = _c === void 0 ? "medium" : _c, _d = _a.color, color = _d === void 0 ? "grayDark" : _d, _e = _a.background, background = _e === void 0 ? "none" : _e, _f = _a.onClick, onClick = _f === void 0 ? function () { } : _f, _g = _a.dataTest, dataTest = _g === void 0 ? null : _g;
+    var _b = _a.children, children = _b === void 0 ? null : _b, _c = _a.size, size = _c === void 0 ? "medium" : _c, _d = _a.color, color = _d === void 0 ? "grayDark" : _d, _e = _a.background, background = _e === void 0 ? "none" : _e, _f = _a.onClick, onClick = _f === void 0 ? function () { } : _f, _g = _a.testid, testid = _g === void 0 ? null : _g;
     var _h = contexts_1.useTheme(), colors = _h.colors, codeSizes = _h.codeSizes, fontWeights = _h.fontWeights, lineHeights = _h.lineHeights;
-    return (react_1.default.createElement("code", { "data-test": dataTest, style: {
+    return (react_1.default.createElement("code", { "data-testid": testid, style: {
             display: "block",
             fontFamily: themes_1.fontFamilies.code,
             fontSize: codeSizes[size],

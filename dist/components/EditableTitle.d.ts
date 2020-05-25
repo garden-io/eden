@@ -7,7 +7,7 @@ interface Props {
     /**
      * Data selector for testing
      */
-    dataTest?: string;
+    testid?: string;
 }
 export declare const EditableTitle: FC<Props>;
 export {};

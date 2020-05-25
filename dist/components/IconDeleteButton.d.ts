@@ -12,7 +12,7 @@ interface Props {
     /**
      * Data selector for testing
      */
-    dataTest?: string;
+    testid?: string;
 }
 export declare const IconDeleteButton: FC<Props>;
 export {};

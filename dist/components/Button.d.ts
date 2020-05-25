@@ -36,7 +36,7 @@ interface Props {
     /**
      * Data selector for testing
      */
-    dataTest?: string;
+    testid?: string;
 }
 export declare const Button: FC<Props>;
 export {};

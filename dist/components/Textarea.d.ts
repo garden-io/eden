@@ -6,7 +6,7 @@ interface TextareaProps {
     /**
      * Data selector for testing
      */
-    dataTest?: string;
+    testid?: string;
 }
 export declare const Textarea: FC<TextareaProps>;
 export {};

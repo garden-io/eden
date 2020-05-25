@@ -6,7 +6,7 @@ interface Props {
     /**
      * Data selector for testing
      */
-    dataTest?: string;
+    testid?: string;
 }
 export declare const Checkbox: FC<Props>;
 export {};
