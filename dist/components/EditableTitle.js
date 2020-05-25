@@ -36,9 +36,9 @@ var Textfield_1 = require("./Textfield");
 var Title_1 = require("./Title");
 var contexts_1 = require("../contexts");
 exports.EditableTitle = function (_a) {
-    var _b = _a.title, title = _b === void 0 ? "" : _b, _c = _a.value, value = _c === void 0 ? "" : _c, _d = _a.onChange, onChange = _d === void 0 ? function () { return undefined; } : _d;
-    var _e = __read(react_1.useState(false), 2), editing = _e[0], setEditing = _e[1];
-    var _f = __read(react_1.useState(value), 2), currentValue = _f[0], setCurrentValue = _f[1];
+    var _b = _a.title, title = _b === void 0 ? "" : _b, _c = _a.size, size = _c === void 0 ? "medium" : _c, _d = _a.value, value = _d === void 0 ? "" : _d, _e = _a.onChange, onChange = _e === void 0 ? function () { return undefined; } : _e;
+    var _f = __read(react_1.useState(false), 2), editing = _f[0], setEditing = _f[1];
+    var _g = __read(react_1.useState(value), 2), currentValue = _g[0], setCurrentValue = _g[1];
     var handleCurrentChange = function (val) {
         if (editing) {
             setCurrentValue(val);
@@ -53,7 +53,7 @@ exports.EditableTitle = function (_a) {
         setCurrentValue(value);
         setEditing(false);
     };
-    var _g = contexts_1.useTheme(), colors = _g.colors, space = _g.space, textSizes = _g.textSizes;
+    var _h = contexts_1.useTheme(), colors = _h.colors, space = _h.space, textSizes = _h.textSizes;
     return (react_1.default.createElement("div", null,
         title && (react_1.default.createElement("div", { style: {
                 fontSize: textSizes.medium,
@@ -61,7 +61,7 @@ exports.EditableTitle = function (_a) {
                 marginBottom: space.small,
             } }, title)),
         !editing && (react_1.default.createElement(Flex_1.Flex, { align: "center" },
-            react_1.default.createElement(Title_1.Title, { size: "large" }, currentValue),
+            react_1.default.createElement(Title_1.Title, { size: size }, currentValue),
             !editing && (react_1.default.createElement(Button_1.Button, { secondary: true, size: "small", onClick: onEdit }, "Edit")))),
         editing && (react_1.default.createElement(Grid_1.Grid, { columns: "1fr auto auto" },
             react_1.default.createElement(Textfield_1.Textfield, { value: currentValue, onChange: handleCurrentChange }),
