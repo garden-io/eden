@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "module": "commonjs",
+    "lib": ["es2015", "dom"],
+    "declaration": true,
+    "outDir": "dist",
+    "esModuleInterop": true,
+    "jsx": "react",
+    "noImplicitAny": false,
+    "importHelpers": false,
+    "downlevelIteration": true
+  },
+  "exclude": ["node_modules", "dist", ".cache", "public", "src/pages/**", "gatsby-config.js"]
+}
