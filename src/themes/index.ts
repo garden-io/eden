@@ -161,8 +161,8 @@ export interface FontFamilies {
 export type FontFamily = keyof FontFamilies
 
 export const fontFamilies: FontFamilies = {
-  garden: "Garden",
-  title: "Garden", // Modified
+  garden: "Garden, Nunito Sans",
+  title: "Garden, Nunito Sans", // Modified
   text: "Nunito Sans",
   code: "Cousine",
 }
