@@ -5,7 +5,7 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "dev": "gatsby develop",
-    "build": "tsc -P tsconfig.cjs.json",
+    "build": "tsc -P tsconfig.dist.json",
     "check": "tsc -noEmit"
   },
   "devDependencies": {

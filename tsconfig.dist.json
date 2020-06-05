@@ -11,5 +11,5 @@
     "importHelpers": false,
     "downlevelIteration": true
   },
-  "exclude": ["node_modules", "dist", ".cache", "src/pages/**", "gatsby-config.js"]
+  "exclude": ["node_modules", "dist", ".cache", "public", "src/pages/**", "gatsby-config.js"]
 }
