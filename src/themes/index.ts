@@ -175,7 +175,7 @@ export interface FontWeights {
 export type FontWeight = keyof FontWeights
 
 export const fontWeights: FontWeights = {
-  normal: 400,
+  normal: 300,
   bold: 700,
 }
 

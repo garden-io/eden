@@ -1,13 +1,18 @@
 import React from "react"
 
-import { GlobalStyles, Title, Section, Space } from ".."
+import { GlobalStyles, Title, Text, Section, Space } from ".."
 
 const Index = () => (
   <>
     <GlobalStyles />
     <Section width="small">
       <Space height="largest" />
-      <Title>Hello World</Title>
+      <Title fontWeight="normal">
+        Hello <b>World</b>
+      </Title>
+      <Text>
+        Hello <b>World</b>
+      </Text>
     </Section>
   </>
 )
