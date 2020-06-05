@@ -4,11 +4,14 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "build": "tsc",
+    "dev": "next",
+    "build": "tsc -P tsconfig.cjs.json",
     "check": "tsc -noEmit"
   },
   "devDependencies": {
+    "@types/node": "^14.0.11",
     "@types/react": "^16.9.35",
+    "next": "^9.4.4",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "typescript": "^3.8.3"
