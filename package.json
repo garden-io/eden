@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "next",
     "build": "tsc -P tsconfig.cjs.json",
+    "export": "next build && next export",
     "check": "tsc -noEmit"
   },
   "devDependencies": {

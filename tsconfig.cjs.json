@@ -11,5 +11,5 @@
     "importHelpers": false,
     "downlevelIteration": true
   },
-  "exclude": ["node_modules", "dist", "pages/**/*", "next-env.d.ts"]
+  "exclude": ["node_modules", "dist", "pages/**", "public/**", "next-env.d.ts"]
 }
