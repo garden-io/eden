@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "gatsby develop",
     "build": "tsc -P tsconfig.dist.json",
-    "export": "gatsby build",
+    "build:docs": "gatsby build",
     "check": "tsc -noEmit"
   },
   "devDependencies": {
