@@ -6,12 +6,13 @@
   "scripts": {
     "dev": "gatsby develop",
     "build": "tsc -P tsconfig.dist.json",
+    "export": "gatsby build",
     "check": "tsc -noEmit"
   },
   "devDependencies": {
     "@types/react": "^16.9.35",
-    "gatsby": "^2.23.1",
-    "gatsby-plugin-typescript": "^2.4.4",
+    "gatsby": "2.22.12",
+    "gatsby-plugin-typescript": "2.4.4",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "typescript": "^3.8.3"
