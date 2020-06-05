@@ -4,10 +4,8 @@
  * All rights reserved.
  */
 
-import { Color, TitleSize, TitleTags, TextAlign, textAligns, fontFamilies, FontFamily } from "../themes"
 import React, { FC } from "react"
-
-import { useTheme } from "../contexts"
+import { Color, TitleSize, TitleTags, TextAlign, textAligns, fontFamilies, FontFamily, FontWeight, useTheme } from ".."
 
 interface Props {
   /**
@@ -27,13 +25,13 @@ interface Props {
    */
   fontFamily?: FontFamily
   /**
-   * Headings tag
+   * Font weight
    */
-  tag?: TitleTags
+  fontWeight?: FontWeight
   /**
    * Headings tag
    */
-  to?: string
+  tag?: TitleTags
   /**
    * Function called when title is clicked
    */
@@ -50,9 +48,9 @@ export const Title: FC<Props> = ({
   textAlign = "left",
   color = "grayDark",
   fontFamily = "title",
+  fontWeight = "bold",
   tag = "h3",
-  to = null,
-  onClick = () => {},
+  onClick = null,
 }) => {
   const { colors, titleSizes, fontWeights, lineHeights, titleTags } = useTheme()
 
@@ -62,11 +60,11 @@ export const Title: FC<Props> = ({
       style={{
         fontFamily: fontFamilies[fontFamily],
         fontSize: titleSizes[size],
-        fontWeight: fontWeights.bold,
-        lineHeight: lineHeights.small,
+        fontWeight: fontWeights[fontWeight],
+        lineHeight: `calc(${lineHeights.small} * 1.1)`,
         color: colors[color],
         margin: 0,
-        cursor: to || onClick ? "pointer" : "",
+        cursor: onClick ? "pointer" : "",
         textAlign: textAligns[textAlign],
       }}
       onClick={onClick}

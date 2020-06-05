@@ -161,8 +161,8 @@ export interface FontFamilies {
 export type FontFamily = keyof FontFamilies
 
 export const fontFamilies: FontFamilies = {
-  garden: "Garden",
-  title: "Garden", // Modified
+  garden: "Garden, Nunito Sans",
+  title: "Garden, Nunito Sans", // Modified
   text: "Nunito Sans",
   code: "Cousine",
 }
@@ -175,7 +175,7 @@ export interface FontWeights {
 export type FontWeight = keyof FontWeights
 
 export const fontWeights: FontWeights = {
-  normal: 400,
+  normal: 300,
   bold: 700,
 }
 
