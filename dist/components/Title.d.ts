@@ -1,5 +1,5 @@
-import { Color, TitleSize, TitleTags, TextAlign, FontFamily } from "../themes";
 import { FC } from "react";
+import { Color, TitleSize, TitleTags, TextAlign, FontFamily, FontWeight } from "..";
 interface Props {
     /**
      * Component children
@@ -18,13 +18,13 @@ interface Props {
      */
     fontFamily?: FontFamily;
     /**
-     * Headings tag
+     * Font weight
      */
-    tag?: TitleTags;
+    fontWeight?: FontWeight;
     /**
      * Headings tag
      */
-    to?: string;
+    tag?: TitleTags;
     /**
      * Function called when title is clicked
      */

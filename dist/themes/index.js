@@ -86,13 +86,13 @@ exports.breakpoints = {
     full: "100%",
 };
 exports.fontFamilies = {
-    garden: "Garden",
-    title: "Garden",
+    garden: "Garden, Nunito Sans",
+    title: "Garden, Nunito Sans",
     text: "Nunito Sans",
     code: "Cousine",
 };
 exports.fontWeights = {
-    normal: 400,
+    normal: 300,
     bold: 700,
 };
 exports.lineHeights = {
