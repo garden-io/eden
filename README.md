@@ -68,30 +68,27 @@ To use the Eden typed style variables, you will need to wrap your application to
 ```tsx
 // index.tsx
 
-import { React }, FC from "react"
-import { UiProvider } from "eden"
+import React, { FC } from "react"
+import { ThemeProvider } from "eden"
 import { Example } from "./components/Example.tsx"
 
 export const App: FC = () => {
-  <UiProvider>
+  <ThemeProvider>
     <Example />
-  <UiProvider>
+  <ThemeProvider>
 }
 ```
 
 ```tsx
 // components/Example.tsx
 
-import { React }, FC from "react"
-import { useUi } from "eden"
+import React, { FC } from "react"
+import { useTheme } from "eden"
 
 export const Example: FC = () => {
-  const { colors } = useUi()
-  return (
-    <div style={{ background: colors.red }}>Red</div>
-  )
+  const { colors } = useTheme()
+  return <div style={{ background: colors.gray }}>Gray</div>
 }
-
 ```
 
 ### Using types
@@ -108,10 +105,10 @@ interface Props {
   color?: Color
 }
 
-export const Example2: FC<Props> = ({ color = "red" }) => {
-  const { colors } = useUi()
+export const Example: FC<Props> = ({ color = "gray" }) => {
+  const { colors } = useTheme()
   return (
-    <div style={{ background: colors[color] }}>Red</div>
+    <div style={{ background: colors[color] }}>Gray</div>
   )
 }
 ```
