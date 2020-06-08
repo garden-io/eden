@@ -63,35 +63,51 @@ export const App: FC = () => {
 
 ### Using style variables
 
-To use the Eden typed style variables, you will need to wrap your application to `UiProvider` that provides access to styles in all child components using `useUi()` hook
+To use the Eden style variables, you will need to wrap your application to `ThemeProvider` that provides access to styles in all child components using `useTheme()` hook
 
 ```tsx
 // index.tsx
 
-import { React }, FC from "react"
-import { UiProvider } from "eden"
+import React, { FC } from "react"
+import { ThemeProvider, useTheme } from "eden"
 import { Example } from "./components/Example.tsx"
 
+export const Example: FC = () => {
+  const { colors } = useTheme()
+  return <div style={{ background: colors.gray }}>Gray</div>
+}
+
 export const App: FC = () => {
-  <UiProvider>
+  <ThemeProvider>
     <Example />
-  <UiProvider>
+  <ThemeProvider>
 }
 ```
 
+### Overriding the default styles
+
+You can pass a `customTheme` object to `ThemeProvider` to override parts of the default styles.
+
 ```tsx
-// components/Example.tsx
+import React, { FC } from "react"
+import { ThemeProvider, useTheme } from "eden"
 
-import { React }, FC from "react"
-import { useUi } from "eden"
-
-export const Example: FC = () => {
-  const { colors } = useUi()
-  return (
-    <div style={{ background: colors.red }}>Red</div>
-  )
+const Example: FC = () => {
+  const { colors } = useTheme()
+  return <div style={{ background: colors.gray }}>Gray is now red</div>
 }
 
+const customTheme = {
+  colors: {
+    gray: "red",
+  },
+}
+
+const App: FC = () => (
+  <ThemeProvider customTheme={customTheme}>
+    <Example />
+  </ThemeProvider>
+)
 ```
 
 ### Using types
@@ -108,10 +124,10 @@ interface Props {
   color?: Color
 }
 
-export const Example2: FC<Props> = ({ color = "red" }) => {
-  const { colors } = useUi()
+export const Example: FC<Props> = ({ color = "gray" }) => {
+  const { colors } = useTheme()
   return (
-    <div style={{ background: colors[color] }}>Red</div>
+    <div style={{ background: colors[color] }}>Gray</div>
   )
 }
 ```
