@@ -305,6 +305,8 @@ export const borderRadiuses: BorderRadiuses = {
 export const theme = {
   colors,
   brandColors,
+  grayColors,
+  statusColors,
   logoColors,
   spacer,
   space,
