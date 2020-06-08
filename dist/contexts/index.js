@@ -52,13 +52,15 @@ exports.ThemeContext = react_1.createContext({
 exports.ThemeProvider = function (_a) {
     var children = _a.children, _b = _a.customTheme, customTheme = _b === void 0 ? {} : _b;
     var _c = __read(react_1.useState(themes_1.theme), 1), currentTheme = _c[0];
-    var _d = __read(react_1.useState(false), 2), darkMode = _d[0], setDarkMode = _d[1];
+    // const [darkMode, setDarkMode] = useState(false)
     var value = {
-        theme: lodash_merge_1.default(currentTheme, {
-            colors: darkMode ? currentTheme.darkColors : currentTheme.lightColors,
-        }, customTheme),
+        theme: lodash_merge_1.default(currentTheme, 
+        // {
+        //   colors: darkMode ? currentTheme.darkColors : currentTheme.lightColors,
+        // },
+        customTheme),
         toggleMode: function () {
-            setDarkMode(!darkMode);
+            // setDarkMode(!darkMode)
         },
     };
     return react_1.default.createElement(exports.ThemeContext.Provider, { value: value }, children);
