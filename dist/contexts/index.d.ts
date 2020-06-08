@@ -42,8 +42,9 @@ export declare const ThemeContext: React.Context<{
     };
     toggleMode: () => void;
 }>;
-export declare const ThemeProvider: ({ children }: {
+export declare const ThemeProvider: ({ children, customTheme }: {
     children: any;
+    customTheme?: {};
 }) => JSX.Element;
 export declare const useTheme: () => {
     toggleMode: () => void;

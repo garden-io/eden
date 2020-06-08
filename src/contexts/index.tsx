@@ -14,14 +14,18 @@ export const ThemeContext = createContext({
   toggleMode: () => {},
 })
 
-export const ThemeProvider = ({ children }) => {
+export const ThemeProvider = ({ children, customTheme = {} }) => {
   const [currentTheme] = useState(theme)
   const [darkMode, setDarkMode] = useState(false)
 
   const value = {
-    theme: merge(currentTheme, {
-      colors: darkMode ? currentTheme.darkColors : currentTheme.lightColors,
-    }),
+    theme: merge(
+      currentTheme,
+      {
+        colors: darkMode ? currentTheme.darkColors : currentTheme.lightColors,
+      },
+      customTheme
+    ),
     toggleMode: () => {
       setDarkMode(!darkMode)
     },
