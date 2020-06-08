@@ -114,7 +114,8 @@ const EdenTextfields = () => {
     <Grid columns="1fr 1fr">
       <Grid>
         <Textfield placeholder="Hello" />
-        <Textfield borderWidth="large" placeholder="Hello" />
+        {/* TODO: medium and large */}
+        <Textfield borderWidth="medium" placeholder="Hello" />
       </Grid>
     </Grid>
   )
