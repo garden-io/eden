@@ -1,4 +1,4 @@
-import { Color, Whitespace, BorderRadius } from "../themes";
+import { Color, Whitespace, BorderRadius, BorderWidth } from "../themes";
 import { FC } from "react";
 interface Props {
     /**
@@ -13,6 +13,10 @@ interface Props {
      * Border color
      */
     borderColor?: Color;
+    /**
+     * Border width
+     */
+    borderWidth?: BorderWidth;
     /**
      * Border radius
      */

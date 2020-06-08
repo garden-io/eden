@@ -50,6 +50,7 @@ export declare const ThemeContext: React.Context<{
         codeSizes: import("../themes").CodeSizes;
         iconSizes: import("../themes").IconSizes;
         borderRadiuses: import("../themes").BorderRadiuses;
+        borderWidths: import("../themes").BorderWidths;
     };
     toggleMode: () => void;
 }>;
@@ -108,4 +109,5 @@ export declare const useTheme: () => {
     codeSizes: import("../themes").CodeSizes;
     iconSizes: import("../themes").IconSizes;
     borderRadiuses: import("../themes").BorderRadiuses;
+    borderWidths: import("../themes").BorderWidths;
 };
