@@ -1,5 +1,5 @@
 import React from "react"
-import { Box, GlobalStyles, Text, Space, Grid, colors, Code, Section, Color } from ".."
+import { Box, GlobalStyles, Text, Space, Grid, colors, Code, Section, Color, Button } from ".."
 
 const EdenColors = () => (
   <Grid columns={6} gap="none">
