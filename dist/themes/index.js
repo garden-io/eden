@@ -4,6 +4,17 @@
  *
  * All rights reserved.
  */
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 // Colors
 exports.brandColors = {
@@ -21,49 +32,22 @@ exports.brandColors = {
     pink: "hsl(319, 74%, 72%)",
     white: "hsl(0, 0%, 100%)",
 };
-exports.lightColors = {
-    grayLightest: "hsl(0,0%,97%)",
-    grayLighter: "hsl(0,0%,93%)",
-    grayLight: "hsl(0,0%,90%)",
-    gray: "hsl(0,0%,50%)",
-    grayDark: "hsl(0,0%,30%)",
-    grayDarker: "hsl(0,0%,15%)",
-    greenLight: exports.brandColors.greenLight,
-    greenDark: exports.brandColors.greenDark,
-    greenDarker: exports.brandColors.greenDarker,
-    blueLight: exports.brandColors.blueLight,
-    blue: exports.brandColors.blue,
-    blueDark: exports.brandColors.blueDark,
-    pink: exports.brandColors.pink,
-    statusGreen: "hsl(150, 75%, 34%)",
-    statusRed: "hsl(353, 85%, 44%)",
+var h = 206;
+var s = 5;
+exports.grayColors = {
+    grayLightest: "hsl(" + h + "," + s + "%,93%)",
+    grayLighter: "hsl(" + h + "," + s + "%,90%)",
+    grayLight: "hsl(" + h + ", " + s + "%, 72%)",
+    gray: "hsl(" + h + "," + s + "%,50%)",
+    grayDark: "hsl(" + h + "," + s + "%,30%)",
+    grayDarker: "hsl(" + h + "," + s + "%,15%)",
+};
+exports.statusColors = {
+    statusGreen: "hsl(165, 75%, 34%)",
+    statusRed: "hsl(346, 100%, 61%)",
     statusYellow: "hsl(37, 100%, 64%)",
-    white: exports.brandColors.white,
-    black: exports.brandColors.black,
-    none: "transparent",
 };
-exports.darkColors = {
-    grayLightest: exports.lightColors.white,
-    grayLighter: exports.lightColors.white,
-    grayLight: exports.lightColors.white,
-    gray: exports.lightColors.grayLight,
-    grayDark: exports.lightColors.white,
-    grayDarker: exports.lightColors.white,
-    greenLight: exports.brandColors.greenLight,
-    greenDark: exports.brandColors.greenDark,
-    greenDarker: exports.brandColors.greenDarker,
-    blueLight: exports.brandColors.blueLight,
-    blue: exports.brandColors.blue,
-    blueDark: exports.brandColors.blueDark,
-    pink: exports.brandColors.pink,
-    statusGreen: exports.lightColors.statusGreen,
-    statusRed: exports.lightColors.statusRed,
-    statusYellow: exports.lightColors.statusYellow,
-    white: exports.lightColors.grayDark,
-    black: exports.lightColors.white,
-    none: "transparent",
-};
-exports.colors = exports.lightColors;
+exports.colors = __assign(__assign(__assign(__assign({}, exports.grayColors), { greenLight: exports.brandColors.greenLight, greenDark: exports.brandColors.greenDark, greenDarker: exports.brandColors.greenDarker, blueLight: exports.brandColors.blueLight, blue: exports.brandColors.blue, blueDark: exports.brandColors.blueDark, pink: exports.brandColors.pink }), exports.statusColors), { white: exports.brandColors.white, black: exports.brandColors.black, none: "transparent" });
 exports.logoColors = {
     light: exports.brandColors.greenLight,
     dark: exports.brandColors.black,
@@ -142,8 +126,6 @@ exports.borderRadiuses = {
 };
 exports.theme = {
     colors: exports.colors,
-    lightColors: exports.lightColors,
-    darkColors: exports.darkColors,
     brandColors: exports.brandColors,
     logoColors: exports.logoColors,
     spacer: exports.spacer,

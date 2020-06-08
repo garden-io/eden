@@ -2,8 +2,6 @@ import React from "react";
 export declare const ThemeContext: React.Context<{
     theme: {
         colors: import("../themes").Colors;
-        lightColors: import("../themes").Colors;
-        darkColors: import("../themes").Colors;
         brandColors: {
             black: string;
             gray: string;
@@ -49,8 +47,6 @@ export declare const ThemeProvider: ({ children, customTheme }: {
 export declare const useTheme: () => {
     toggleMode: () => void;
     colors: import("../themes").Colors;
-    lightColors: import("../themes").Colors;
-    darkColors: import("../themes").Colors;
     brandColors: {
         black: string;
         gray: string;

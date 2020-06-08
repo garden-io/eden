@@ -13,6 +13,19 @@ export declare const brandColors: {
     pink: string;
     white: string;
 };
+export declare const grayColors: {
+    grayLightest: string;
+    grayLighter: string;
+    grayLight: string;
+    gray: string;
+    grayDark: string;
+    grayDarker: string;
+};
+export declare const statusColors: {
+    statusGreen: string;
+    statusRed: string;
+    statusYellow: string;
+};
 export interface Colors {
     grayLightest: string;
     grayLighter: string;
@@ -35,8 +48,6 @@ export interface Colors {
     none: string;
 }
 export declare type Color = keyof Colors;
-export declare const lightColors: Colors;
-export declare const darkColors: Colors;
 export declare const colors: Colors;
 export interface LogoColors {
     light: string;
@@ -151,8 +162,6 @@ export declare type BorderRadius = keyof BorderRadiuses;
 export declare const borderRadiuses: BorderRadiuses;
 export declare const theme: {
     colors: Colors;
-    lightColors: Colors;
-    darkColors: Colors;
     brandColors: {
         black: string;
         gray: string;
