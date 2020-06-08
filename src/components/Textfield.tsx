@@ -6,8 +6,7 @@
 
 import React, { FC } from "react"
 
-import { useTheme } from "../contexts"
-import { fontFamilies } from "../themes"
+import { useTheme, BorderWidths, Color, BorderWidth, BorderRadius } from ".."
 
 interface Props {
   title?: string
@@ -16,6 +15,10 @@ interface Props {
   placeholder?: string
   type?: string
   disabled?: boolean
+  /**
+   * Border width
+   */
+  borderWidth?: BorderWidth
   onChange?: (value: string) => void
 }
 
@@ -26,9 +29,10 @@ export const Textfield: FC<Props> = ({
   placeholder = "",
   type = "text",
   disabled = false,
+  borderWidth = "small",
   onChange = () => null,
 }) => {
-  const { colors, space, textSizes } = useTheme()
+  const { colors, space, textSizes, fontFamilies, borderWidths, borderRadiuses } = useTheme()
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => onChange(event.target.value)
   return (
     /* TODO: Make opacity a thene variable */
@@ -54,8 +58,8 @@ export const Textfield: FC<Props> = ({
         style={{
           display: "block",
           background: colors.white,
-          borderRadius: "1px",
-          borderWidth: "1px",
+          borderRadius: borderRadiuses.small,
+          borderWidth: borderWidths[borderWidth],
           borderStyle: "solid",
           borderColor: colors.grayLight,
           color: colors.gray,
