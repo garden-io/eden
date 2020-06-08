@@ -22,8 +22,6 @@ const Colors = () => {
       <GlobalStyles />
       <Space height="largest" />
       <Section>
-        <Button>Hello</Button>
-        <Button secondary>Hello</Button>
         <Space height="larger" />
         <Grid gap="large">
           <Text size="large">Eden</Text>
