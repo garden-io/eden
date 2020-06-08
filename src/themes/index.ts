@@ -35,7 +35,7 @@ export const grayColors = {
 
 export const statusColors = {
   statusGreen: "hsl(165, 75%, 34%)",
-  statusRed: "hsl(346, 100%, 61%)",
+  statusRed: "hsl(0, 91%, 42%)",
   statusYellow: "hsl(37, 100%, 64%)",
 }
 
