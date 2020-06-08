@@ -63,14 +63,19 @@ export const App: FC = () => {
 
 ### Using style variables
 
-To use the Eden typed style variables, you will need to wrap your application to `UiProvider` that provides access to styles in all child components using `useUi()` hook
+To use the Eden style variables, you will need to wrap your application to `ThemeProvider` that provides access to styles in all child components using `useTheme()` hook
 
 ```tsx
 // index.tsx
 
 import React, { FC } from "react"
-import { ThemeProvider } from "eden"
+import { ThemeProvider, useTheme } from "eden"
 import { Example } from "./components/Example.tsx"
+
+export const Example: FC = () => {
+  const { colors } = useTheme()
+  return <div style={{ background: colors.gray }}>Gray</div>
+}
 
 export const App: FC = () => {
   <ThemeProvider>
@@ -79,16 +84,30 @@ export const App: FC = () => {
 }
 ```
 
+### Overriding the default styles
+
+You can pass a `customTheme` object to `ThemeProvider` to override parts of the default styles.
+
 ```tsx
-// components/Example.tsx
-
 import React, { FC } from "react"
-import { useTheme } from "eden"
+import { ThemeProvider, useTheme } from "eden"
 
-export const Example: FC = () => {
+const Example: FC = () => {
   const { colors } = useTheme()
-  return <div style={{ background: colors.gray }}>Gray</div>
+  return <div style={{ background: colors.gray }}>Gray is now red</div>
 }
+
+const customTheme = {
+  colors: {
+    gray: "red",
+  },
+}
+
+const App: FC = () => (
+  <ThemeProvider customTheme={customTheme}>
+    <Example />
+  </ThemeProvider>
+)
 ```
 
 ### Using types
