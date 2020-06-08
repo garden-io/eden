@@ -2,8 +2,6 @@ import React from "react";
 export declare const ThemeContext: React.Context<{
     theme: {
         colors: import("../themes").Colors;
-        lightColors: import("../themes").Colors;
-        darkColors: import("../themes").Colors;
         brandColors: {
             black: string;
             gray: string;
@@ -18,6 +16,19 @@ export declare const ThemeContext: React.Context<{
             greenLight: string;
             pink: string;
             white: string;
+        };
+        grayColors: {
+            grayLightest: string;
+            grayLighter: string;
+            grayLight: string;
+            gray: string;
+            grayDark: string;
+            grayDarker: string;
+        };
+        statusColors: {
+            statusGreen: string;
+            statusRed: string;
+            statusYellow: string;
         };
         logoColors: import("../themes").LogoColors;
         spacer: number;
@@ -49,8 +60,6 @@ export declare const ThemeProvider: ({ children, customTheme }: {
 export declare const useTheme: () => {
     toggleMode: () => void;
     colors: import("../themes").Colors;
-    lightColors: import("../themes").Colors;
-    darkColors: import("../themes").Colors;
     brandColors: {
         black: string;
         gray: string;
@@ -65,6 +74,19 @@ export declare const useTheme: () => {
         greenLight: string;
         pink: string;
         white: string;
+    };
+    grayColors: {
+        grayLightest: string;
+        grayLighter: string;
+        grayLight: string;
+        gray: string;
+        grayDark: string;
+        grayDarker: string;
+    };
+    statusColors: {
+        statusGreen: string;
+        statusRed: string;
+        statusYellow: string;
     };
     logoColors: import("../themes").LogoColors;
     spacer: number;

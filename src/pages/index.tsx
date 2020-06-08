@@ -1,20 +1,36 @@
 import React from "react"
+import { Box, GlobalStyles, Text, Space, Grid, colors, Code, Section, Color } from ".."
 
-import { GlobalStyles, Title, Text, Section, Space } from ".."
-
-const Index = () => (
-  <>
-    <GlobalStyles />
-    <Section width="small">
-      <Space height="largest" />
-      <Title fontWeight="normal">
-        Hello <b>World</b>
-      </Title>
-      <Text>
-        Hello <b>World</b>
-      </Text>
-    </Section>
-  </>
+const EdenColors = () => (
+  <Grid columns={6} gap="none">
+    {Object.entries(colors).map(([key, value]) => (
+      <Box key={key} background={key as Color} height="160px" align="flex-end">
+        <Code size="small" color="black">
+          {key}
+        </Code>
+        <Code size="small" color="black">
+          {value}
+        </Code>
+      </Box>
+    ))}
+  </Grid>
 )
 
-export default Index
+const Colors = () => {
+  return (
+    <>
+      <GlobalStyles />
+      <Space height="largest" />
+      <Section>
+        <Space height="larger" />
+        <Grid gap="large">
+          <Text size="large">Eden</Text>
+          <Text>Colors</Text>
+          <EdenColors />
+        </Grid>
+      </Section>
+    </>
+  )
+}
+
+export default Colors
