@@ -41,6 +41,7 @@ exports.Button = function (_a) {
             color: secondary ? colors[color] : colors.white,
             backgroundColor: secondary ? colors.none : colors[color],
             transition: "100ms ease",
+            borderStyle: secondary ? "solid" : "none",
             borderColor: colors[color],
             borderRadius: "1px",
             fontSize: sizingMap[size].fontSize,

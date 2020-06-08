@@ -80,26 +80,25 @@ exports.fontWeights = {
     bold: 700,
 };
 exports.lineHeights = {
-    small: "1.15em",
+    small: "1.25em",
     normal: "1.75em",
 };
 exports.titleSizes = {
-    smaller: "calc(" + exports.spacer + "px * 1.1666)",
-    small: "calc(" + exports.spacer + "px * 1.5)",
+    small: "calc(" + exports.spacer + "px * 1.75)",
     medium: "calc(" + exports.spacer + "px * 2.5)",
     large: "calc(" + exports.spacer + "px * 3)",
     larger: "calc(" + exports.spacer + "px * 4)",
-    largest: "calc(" + exports.spacer + "px * 6)",
+    largest: "calc(" + exports.spacer + "px * 5)",
 };
 exports.titleTags = {
-    smaller: "h5",
-    small: "h4",
-    medium: "h3",
-    large: "h2",
-    larger: "h1",
+    small: "h5",
+    medium: "h4",
+    large: "h3",
+    larger: "h2",
+    largest: "h1",
 };
 exports.textSizes = {
-    small: "calc(" + exports.spacer + "px * 1.083)",
+    small: "calc(" + exports.spacer + "px * 1.2)",
     medium: "calc(" + exports.spacer + "px * 1.5)",
     large: "calc(" + exports.spacer + "px * 2)",
 };
