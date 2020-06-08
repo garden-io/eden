@@ -22,6 +22,23 @@ export const brandColors = {
   white: "hsl(0, 0%, 100%)",
 }
 
+const h = 206
+const s = 5
+export const grayColors = {
+  grayLightest: `hsl(${h},${s}%,93%)`,
+  grayLighter: `hsl(${h},${s}%,90%)`,
+  grayLight: `hsl(${h}, ${s}%, 72%)`,
+  gray: `hsl(${h},${s}%,50%)`,
+  grayDark: `hsl(${h},${s}%,30%)`,
+  grayDarker: `hsl(${h},${s}%,15%)`,
+}
+
+export const statusColors = {
+  statusGreen: "hsl(150, 75%, 34%)",
+  statusRed: "hsl(353, 85%, 44%)",
+  statusYellow: "hsl(37, 100%, 64%)",
+}
+
 export interface Colors {
   grayLightest: string
   grayLighter: string
@@ -46,13 +63,8 @@ export interface Colors {
 
 export type Color = keyof Colors
 
-export const lightColors: Colors = {
-  grayLightest: "hsl(0,0%,97%)",
-  grayLighter: "hsl(0,0%,93%)",
-  grayLight: "hsl(0,0%,90%)",
-  gray: "hsl(0,0%,50%)",
-  grayDark: "hsl(0,0%,30%)",
-  grayDarker: "hsl(0,0%,15%)",
+export const colors: Colors = {
+  ...grayColors,
   greenLight: brandColors.greenLight,
   greenDark: brandColors.greenDark,
   greenDarker: brandColors.greenDarker,
@@ -60,40 +72,13 @@ export const lightColors: Colors = {
   blue: brandColors.blue,
   blueDark: brandColors.blueDark,
   pink: brandColors.pink,
-  statusGreen: "hsl(150, 75%, 34%)",
-  statusRed: "hsl(353, 85%, 44%)",
-  statusYellow: "hsl(37, 100%, 64%)",
+  ...statusColors,
   white: brandColors.white,
   black: brandColors.black,
   none: "transparent",
 }
 
-export const darkColors: Colors = {
-  grayLightest: lightColors.white,
-  grayLighter: lightColors.white,
-  grayLight: lightColors.white,
-  gray: lightColors.grayLight,
-  grayDark: lightColors.white,
-  grayDarker: lightColors.white,
-  greenLight: brandColors.greenLight,
-  greenDark: brandColors.greenDark,
-  greenDarker: brandColors.greenDarker,
-  blueLight: brandColors.blueLight,
-  blue: brandColors.blue,
-  blueDark: brandColors.blueDark,
-  pink: brandColors.pink,
-  statusGreen: lightColors.statusGreen,
-  statusRed: lightColors.statusRed,
-  statusYellow: lightColors.statusYellow,
-  white: lightColors.grayDark,
-  black: lightColors.white,
-  none: "transparent",
-}
-
-export const colors = lightColors
-
 // Logo colors
-// TODO: Unifiy light color with the branc
 
 export interface LogoColors {
   light: string
@@ -319,8 +304,6 @@ export const borderRadiuses: BorderRadiuses = {
 
 export const theme = {
   colors,
-  lightColors,
-  darkColors,
   brandColors,
   logoColors,
   spacer,
