@@ -39,11 +39,11 @@ export declare const ThemeContext: React.Context<{
         lineHeights: import("../themes").LineHeights;
         titleSizes: import("../themes").TitleSizes;
         titleTags: {
-            smaller: string;
             small: string;
             medium: string;
             large: string;
             larger: string;
+            largest: string;
         };
         textSizes: import("../themes").TextSizes;
         textAligns: import("../themes").TextAligns;
@@ -97,11 +97,11 @@ export declare const useTheme: () => {
     lineHeights: import("../themes").LineHeights;
     titleSizes: import("../themes").TitleSizes;
     titleTags: {
-        smaller: string;
         small: string;
         medium: string;
         large: string;
         larger: string;
+        largest: string;
     };
     textSizes: import("../themes").TextSizes;
     textAligns: import("../themes").TextAligns;

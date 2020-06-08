@@ -61,7 +61,7 @@ export const Title: FC<Props> = ({
         fontFamily: fontFamilies[fontFamily],
         fontSize: titleSizes[size],
         fontWeight: fontWeights[fontWeight],
-        lineHeight: `calc(${lineHeights.small} * 1.1)`,
+        lineHeight: lineHeights.small,
         color: colors[color],
         margin: 0,
         cursor: onClick ? "pointer" : "",

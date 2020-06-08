@@ -1,5 +1,24 @@
 import React from "react"
-import { Box, GlobalStyles, Text, Space, Grid, colors, Code, Section, Color, Button } from ".."
+import {
+  Box,
+  GlobalStyles,
+  Text,
+  Space,
+  Grid,
+  colors,
+  Code,
+  Section,
+  Color,
+  titleSizes,
+  flatten,
+  Title,
+  TitleSize,
+  TitleSizes,
+  titleTags,
+  textSizes,
+  TextSize,
+  Pre,
+} from ".."
 
 const EdenColors = () => (
   <Grid columns={6} gap="none">
@@ -16,6 +35,70 @@ const EdenColors = () => (
   </Grid>
 )
 
+const EdenTitles = () => (
+  <Grid columns="1fr 3fr 1fr">
+    <Space />
+    <Grid>
+      {flatten(
+        Object.entries(titleSizes)
+          .reverse()
+          .map(([key, value]) => [
+            <Title size={key as TitleSize}>
+              Here is {key} {titleTags[key]} title that wraps into lines
+            </Title>,
+            <Space height="large" />,
+          ])
+      )}
+    </Grid>
+    <Space />
+  </Grid>
+)
+
+// const EdenTitleSizes = () => (
+//   <Grid columns="1fr 3fr 1fr">
+//     <Space />
+//     <Grid>
+//       {flatten(
+//         Object.entries(titleSizes).map(([key, value]) => (
+//           <div style={{ position: "relative", height: "3px" }}>
+//             <div
+//               style={{
+//                 position: "absolute",
+//                 top: "0px",
+//                 bottom: "0px",
+//                 left: "0px",
+//                 width: `calc(${value} * 10)`,
+//                 background: "#ccc",
+//               }}
+//             ></div>
+//           </div>
+//         ))
+//       )}
+//     </Grid>
+//     <Space />
+//   </Grid>
+//)
+
+const EdenTexts = () => (
+  <Grid columns="1fr 3fr 1fr">
+    <Space />
+    <Grid>
+      {flatten(
+        Object.entries(textSizes)
+          .reverse()
+          .map(([key, _]) => [
+            <Text size={key as TextSize}>
+              Here is {key} {titleTags[key]} text that wraps into multiple lines and is actually even longer than
+              expected. Here is the text that wraps into multiple lines and is actually even longer than expected.
+            </Text>,
+            <Space />,
+          ])
+      )}
+    </Grid>
+    <Space />
+  </Grid>
+)
+
 const Colors = () => {
   return (
     <>
@@ -24,8 +107,11 @@ const Colors = () => {
       <Section>
         <Space height="larger" />
         <Grid gap="large">
-          <Text size="large">Eden</Text>
-          <Text>Colors</Text>
+          <Text size="large">Title</Text>
+          <EdenTitles />
+          <Text size="large">Text</Text>
+          <EdenTexts />
+          <Text size="large">Colors</Text>
           <EdenColors />
         </Grid>
       </Section>

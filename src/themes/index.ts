@@ -172,14 +172,13 @@ export interface LineHeights {
 export type LineHeight = keyof LineHeights
 
 export const lineHeights: LineHeights = {
-  small: "1.15em",
+  small: "1.25em",
   normal: "1.75em",
 }
 
 // Title
 
 export interface TitleSizes {
-  smaller: string
   small: string
   medium: string
   large: string
@@ -190,22 +189,21 @@ export interface TitleSizes {
 export type TitleSize = keyof TitleSizes
 
 export const titleSizes: TitleSizes = {
-  smaller: `calc(${spacer}px * 1.1666)`,
-  small: `calc(${spacer}px * 1.5)`,
-  medium: `calc(${spacer}px * 2.5)`,
+  small: `calc(${spacer}px * 1.75)`, // 21
+  medium: `calc(${spacer}px * 2.5)`, // 24
   large: `calc(${spacer}px * 3)`, // 32
   larger: `calc(${spacer}px * 4)`, // 48
-  largest: `calc(${spacer}px * 6)`, // 72
+  largest: `calc(${spacer}px * 5)`, // 60
 }
 
 export type TitleTags = "h1" | "h2" | "h3" | "h4" | "h5"
 
 export const titleTags = {
-  smaller: "h5",
-  small: "h4",
-  medium: "h3",
-  large: "h2",
-  larger: "h1",
+  small: "h5",
+  medium: "h4",
+  large: "h3",
+  larger: "h2",
+  largest: "h1",
 }
 
 // Text
@@ -219,7 +217,7 @@ export interface TextSizes {
 export type TextSize = keyof TextSizes
 
 export const textSizes: TextSizes = {
-  small: `calc(${spacer}px * 1.083)`, // 13
+  small: `calc(${spacer}px * 1.2)`, // 14.4
   medium: `calc(${spacer}px * 1.5)`, // 16
   large: `calc(${spacer}px * 2)`, // 18
 }

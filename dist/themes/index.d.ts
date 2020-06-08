@@ -96,7 +96,6 @@ export interface LineHeights {
 export declare type LineHeight = keyof LineHeights;
 export declare const lineHeights: LineHeights;
 export interface TitleSizes {
-    smaller: string;
     small: string;
     medium: string;
     large: string;
@@ -107,11 +106,11 @@ export declare type TitleSize = keyof TitleSizes;
 export declare const titleSizes: TitleSizes;
 export declare type TitleTags = "h1" | "h2" | "h3" | "h4" | "h5";
 export declare const titleTags: {
-    smaller: string;
     small: string;
     medium: string;
     large: string;
     larger: string;
+    largest: string;
 };
 export interface TextSizes {
     small: string;
@@ -199,11 +198,11 @@ export declare const theme: {
     lineHeights: LineHeights;
     titleSizes: TitleSizes;
     titleTags: {
-        smaller: string;
         small: string;
         medium: string;
         large: string;
         larger: string;
+        largest: string;
     };
     textSizes: TextSizes;
     textAligns: TextAligns;
