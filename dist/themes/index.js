@@ -44,7 +44,7 @@ exports.grayColors = {
 };
 exports.statusColors = {
     statusGreen: "hsl(165, 75%, 34%)",
-    statusRed: "hsl(346, 100%, 61%)",
+    statusRed: "hsl(0, 91%, 42%)",
     statusYellow: "hsl(37, 100%, 64%)",
 };
 exports.colors = __assign(__assign(__assign(__assign({}, exports.grayColors), { greenLight: exports.brandColors.greenLight, greenDark: exports.brandColors.greenDark, greenDarker: exports.brandColors.greenDarker, blueLight: exports.brandColors.blueLight, blue: exports.brandColors.blue, blueDark: exports.brandColors.blueDark, pink: exports.brandColors.pink }), exports.statusColors), { white: exports.brandColors.white, black: exports.brandColors.black, none: "transparent" });
@@ -127,6 +127,8 @@ exports.borderRadiuses = {
 exports.theme = {
     colors: exports.colors,
     brandColors: exports.brandColors,
+    grayColors: exports.grayColors,
+    statusColors: exports.statusColors,
     logoColors: exports.logoColors,
     spacer: exports.spacer,
     space: exports.space,

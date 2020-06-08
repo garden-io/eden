@@ -177,6 +177,19 @@ export declare const theme: {
         pink: string;
         white: string;
     };
+    grayColors: {
+        grayLightest: string;
+        grayLighter: string;
+        grayLight: string;
+        gray: string;
+        grayDark: string;
+        grayDarker: string;
+    };
+    statusColors: {
+        statusGreen: string;
+        statusRed: string;
+        statusYellow: string;
+    };
     logoColors: LogoColors;
     spacer: number;
     space: Whitespaces;

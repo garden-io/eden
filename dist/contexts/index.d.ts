@@ -17,6 +17,19 @@ export declare const ThemeContext: React.Context<{
             pink: string;
             white: string;
         };
+        grayColors: {
+            grayLightest: string;
+            grayLighter: string;
+            grayLight: string;
+            gray: string;
+            grayDark: string;
+            grayDarker: string;
+        };
+        statusColors: {
+            statusGreen: string;
+            statusRed: string;
+            statusYellow: string;
+        };
         logoColors: import("../themes").LogoColors;
         spacer: number;
         space: import("../themes").Whitespaces;
@@ -61,6 +74,19 @@ export declare const useTheme: () => {
         greenLight: string;
         pink: string;
         white: string;
+    };
+    grayColors: {
+        grayLightest: string;
+        grayLighter: string;
+        grayLight: string;
+        gray: string;
+        grayDark: string;
+        grayDarker: string;
+    };
+    statusColors: {
+        statusGreen: string;
+        statusRed: string;
+        statusYellow: string;
     };
     logoColors: import("../themes").LogoColors;
     spacer: number;
