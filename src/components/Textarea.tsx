@@ -6,18 +6,26 @@
 
 import React, { FC } from "react"
 
-import { useTheme } from "../contexts"
-import { fontFamilies } from "../themes"
+import { useTheme, fontFamilies, BorderWidth } from ".."
 
 interface TextareaProps {
   title?: string
+  placeholder?: string
   name?: string
   value?: any
+  borderWidth?: BorderWidth
   onChange?: (event: React.ChangeEvent<HTMLTextAreaElement>) => void
 }
 
-export const Textarea: FC<TextareaProps> = ({ title = "", name = "", value = "", onChange = () => null }) => {
-  const { colors, space, textSizes } = useTheme()
+export const Textarea: FC<TextareaProps> = ({
+  title = "",
+  placeholder = "",
+  name = "",
+  value = "",
+  borderWidth = "medium",
+  onChange = () => null,
+}) => {
+  const { colors, space, textSizes, borderRadiuses, borderWidths } = useTheme()
 
   return (
     <div>
@@ -37,11 +45,12 @@ export const Textarea: FC<TextareaProps> = ({ title = "", name = "", value = "",
         name={name}
         value={value}
         rows={10}
+        placeholder={placeholder}
         style={{
           display: "block",
           background: colors.white,
-          borderRadius: "1px",
-          borderWidth: "1px",
+          borderRadius: borderRadiuses.small,
+          borderWidth: borderWidths[borderWidth],
           borderStyle: "solid",
           borderColor: colors.grayLight,
           color: colors.gray,

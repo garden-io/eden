@@ -19,6 +19,7 @@ import {
   TextSize,
   Pre,
   Textfield,
+  Textarea,
 } from ".."
 
 const EdenColors = () => (
@@ -114,8 +115,20 @@ const EdenTextfields = () => {
     <Grid columns="1fr 1fr">
       <Grid>
         <Textfield placeholder="Hello" />
-        {/* TODO: medium and large */}
-        <Textfield borderWidth="medium" placeholder="Hello" />
+        <Textfield borderWidth="small" placeholder="Hello" />
+        <Textarea placeholder="Hello" />
+        <Textarea borderWidth="small" placeholder="Hello" />
+      </Grid>
+    </Grid>
+  )
+}
+
+const EdenTextareas = () => {
+  return (
+    <Grid columns="1fr 1fr">
+      <Grid>
+        <Textarea placeholder="Hello" />
+        <Textarea borderWidth="small" placeholder="Hello" />
       </Grid>
     </Grid>
   )
@@ -129,14 +142,16 @@ const Colors = () => {
       <Section>
         <Space height="larger" />
         <Grid gap="large">
-          <Text size="large">Textfield</Text>
-          <EdenTextfields />
           <Text size="large">Box</Text>
           <EdenBoxes />
           <Text size="large">Title</Text>
           <EdenTitles />
           <Text size="large">Text</Text>
           <EdenTexts />
+          <Text size="large">Textfield</Text>
+          <EdenTextfields />
+          <Text size="large">Textarea</Text>
+          <EdenTextareas />
           <Text size="large">Colors</Text>
           <EdenColors />
         </Grid>

@@ -29,7 +29,7 @@ export const Textfield: FC<Props> = ({
   placeholder = "",
   type = "text",
   disabled = false,
-  borderWidth = "small",
+  borderWidth = "medium",
   onChange = () => null,
 }) => {
   const { colors, space, textSizes, fontFamilies, borderWidths, borderRadiuses } = useTheme()
