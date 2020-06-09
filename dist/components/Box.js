@@ -22,7 +22,7 @@ exports.Box = function (_a) {
             borderRadius: borderRadiuses[borderRadius],
             borderStyle: borderColor ? "solid" : "",
             backgroundColor: colors[background],
-            borderWidth: borderColor ? borderWidths[borderWidth] : "",
+            borderWidth: borderWidths[borderWidth],
             height: Object(space).hasOwnProperty(height) ? space[height] : height,
             boxShadow: shadow ? "4px 4px 10px " + colors.shadow : "",
             overflow: overflow,
