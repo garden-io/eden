@@ -220,9 +220,9 @@ export interface TextSizes {
 export type TextSize = keyof TextSizes
 
 export const textSizes: TextSizes = {
-  small: `calc(${spacer}px * 1.2)`, // 14.4
+  small: `calc(${spacer}px * 1.25)`, // 15
   medium: `calc(${spacer}px * 1.5)`, // 16
-  large: `calc(${spacer}px * 2)`, // 18
+  large: `calc(${spacer}px * 1.75)`, // 21
 }
 
 export interface TextAligns {
