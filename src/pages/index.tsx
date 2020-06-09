@@ -13,11 +13,10 @@ import {
   flatten,
   Title,
   TitleSize,
-  TitleSizes,
   titleTags,
   textSizes,
   TextSize,
-  Pre,
+  Gradient,
 } from ".."
 
 const EdenColors = () => (
@@ -113,6 +112,14 @@ const Colors = () => {
           <EdenTexts />
           <Text size="large">Colors</Text>
           <EdenColors />
+          <Text size="large">Gradient green</Text>
+          <Gradient>
+            <Space height="huge" />
+          </Gradient>
+          <Text size="large">Gradient blue</Text>
+          <Gradient color="blue">
+            <Space height="huge" />
+          </Gradient>
         </Grid>
       </Section>
     </>
