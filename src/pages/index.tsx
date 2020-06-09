@@ -236,8 +236,16 @@ const Colors = () => {
           <Gradient>
             <Space height="huge" />
           </Gradient>
+          <Text size="large">Gradient greenReverse</Text>
+          <Gradient color="greenReverse">
+            <Space height="huge" />
+          </Gradient>
           <Text size="large">Gradient blue</Text>
           <Gradient color="blue">
+            <Space height="huge" />
+          </Gradient>
+          <Text size="large">Gradient blueReverse</Text>
+          <Gradient color="blueReverse">
             <Space height="huge" />
           </Gradient>
           <Text size="large">Box</Text>
