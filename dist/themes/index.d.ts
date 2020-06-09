@@ -1,8 +1,5 @@
 export declare const brandColors: {
     black: string;
-    gray: string;
-    grayLight: string;
-    grayLighter: string;
     blueDark: string;
     blue: string;
     blueLight: string;
@@ -170,9 +167,6 @@ export declare const theme: {
     colors: Colors;
     brandColors: {
         black: string;
-        gray: string;
-        grayLight: string;
-        grayLighter: string;
         blueDark: string;
         blue: string;
         blueLight: string;

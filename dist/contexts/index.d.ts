@@ -4,9 +4,6 @@ export declare const ThemeContext: React.Context<{
         colors: import("../themes").Colors;
         brandColors: {
             black: string;
-            gray: string;
-            grayLight: string;
-            grayLighter: string;
             blueDark: string;
             blue: string;
             blueLight: string;
@@ -63,9 +60,6 @@ export declare const useTheme: () => {
     colors: import("../themes").Colors;
     brandColors: {
         black: string;
-        gray: string;
-        grayLight: string;
-        grayLighter: string;
         blueDark: string;
         blue: string;
         blueLight: string;

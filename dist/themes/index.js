@@ -19,9 +19,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 // Colors
 exports.brandColors = {
     black: "hsl(0, 0%, 0%)",
-    gray: "hsl(180,0%,33%)",
-    grayLight: "hsl(0,0%,83%)",
-    grayLighter: "hsl(210,33%,100%)",
     blueDark: "hsl(205,100%,30%)",
     blue: "hsl(197,100%,46%)",
     blueLight: "hsl(197, 61%, 92%)",
