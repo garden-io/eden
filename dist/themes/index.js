@@ -112,7 +112,7 @@ exports.textAligns = {
 exports.iconSizes = {
     small: exports.spacer * 1.5,
     medium: exports.spacer * 2.5,
-    large: exports.spacer * 6,
+    large: exports.spacer * 4,
 };
 exports.borderRadiuses = {
     large: "4px",
