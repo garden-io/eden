@@ -298,16 +298,16 @@ export const borderRadiuses: BorderRadiuses = {
 }
 
 export interface BorderWidths {
+  large: string
   medium: string
-  small: string
   none: string
 }
 
 export type BorderWidth = keyof BorderWidths
 
 export const borderWidths: BorderWidths = {
-  medium: "2px",
-  small: "1px",
+  large: "2px",
+  medium: "1px",
   none: "0px",
 }
 

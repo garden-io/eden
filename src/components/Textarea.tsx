@@ -62,6 +62,8 @@ export const Textarea: FC<TextareaProps> = ({
           fontSize: textSizes.medium,
           outline: "none",
           width: "100%",
+          // TODO: extract to a style
+          boxShadow: "inset 2px 2px 4px rgba(224, 225, 237, 0.5)",
         }}
         onChange={onChange}
       />

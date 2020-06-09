@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import {
   Box,
   GlobalStyles,
@@ -35,6 +35,8 @@ import {
   Textfield,
   Textarea,
   Button,
+  SelectOption,
+  Select,
 } from ".."
 import { IconCaret } from "../components/IconCaret"
 
@@ -192,6 +194,34 @@ const EdenTextareas = () => {
   )
 }
 
+const EdenSelects = () => {
+  const options1: SelectOption[] = [{ value: "hello" }, { value: "world" }]
+  const [selected1, setSelected1] = useState("hello")
+  const onChange1 = (option) => setSelected1(option)
+
+  const options2: SelectOption[] = [
+    { title: "Hello", value: 0 },
+    { title: "World", value: 1 },
+  ]
+  const [selected2, setSelected2] = useState(0)
+  const onChange2 = (option) => setSelected2(option)
+
+  return (
+    <Grid columns="1fr 1fr">
+      <Grid>
+        <Select name="select_1_field" borderWidth="large" options={options1} onChange={onChange1} />
+        <Text>
+          <div id="select_1_selected">{selected1}</div>
+        </Text>
+        <Select name="select_2_field" options={options2} onChange={onChange2} />
+        <Text>
+          <div id="select_2_selected">{selected2}</div>
+        </Text>
+      </Grid>
+    </Grid>
+  )
+}
+
 const Colors = () => {
   return (
     <>
@@ -210,7 +240,6 @@ const Colors = () => {
           <Gradient color="blue">
             <Space height="huge" />
           </Gradient>
-
           <Text size="large">Box</Text>
           <EdenBoxes />
           <Text size="large">Title</Text>
@@ -225,6 +254,8 @@ const Colors = () => {
           <EdenTextfields />
           <Text size="large">Textarea</Text>
           <EdenTextareas />
+          <Text size="large">Select</Text>
+          <EdenSelects />
           <Text size="large">Expandable</Text>
           <Grid columns="1fr 1fr">
             <Expandable title="hello">
