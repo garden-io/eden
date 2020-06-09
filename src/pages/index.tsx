@@ -17,7 +17,69 @@ import {
   textSizes,
   TextSize,
   Gradient,
+  iconSizes,
+  Flex,
+  IconSize,
+  IconTwitter,
+  IconArrow,
+  IconBranch,
+  IconCheck,
+  IconDelete,
+  IconDocs,
+  IconGithub,
+  IconLock,
+  IconPlaceholder,
+  IconSlack,
+  IconUser,
+  Expandable,
 } from ".."
+import { IconCaret } from "../components/IconCaret"
+
+const EdenArrows = () => {
+  return (
+    <>
+      {Object.entries(iconSizes).map(([key, value]) => (
+        <>
+          <Flex key={key} wrap>
+            <IconArrow size={key as IconSize} />
+            <IconArrow size={key as IconSize} direction="right" />
+            <IconArrow size={key as IconSize} direction="down" />
+            <IconArrow size={key as IconSize} direction="left" />
+            <IconCaret size={key as IconSize} />
+            <IconCaret size={key as IconSize} direction="right" />
+            <IconCaret size={key as IconSize} direction="down" />
+            <IconCaret size={key as IconSize} direction="left" />
+          </Flex>
+          <Space height="larger" />
+        </>
+      ))}
+    </>
+  )
+}
+
+const EdenIcons = () => {
+  return (
+    <>
+      {Object.entries(iconSizes).map(([key, value]) => (
+        <>
+          <Flex key={key} wrap>
+            <IconUser size={key as IconSize} />
+            <IconBranch size={key as IconSize} />
+            <IconCheck size={key as IconSize} />
+            <IconDelete size={key as IconSize} />
+            <IconLock size={key as IconSize} />
+            <IconDocs size={key as IconSize} />
+            <IconGithub size={key as IconSize} />
+            <IconSlack size={key as IconSize} />
+            <IconTwitter size={key as IconSize} />
+            <IconPlaceholder size={key as IconSize} />
+          </Flex>
+          <Space height="larger" />
+        </>
+      ))}
+    </>
+  )
+}
 
 const EdenColors = () => (
   <Grid columns={6} gap="none">
@@ -106,6 +168,10 @@ const Colors = () => {
       <Section>
         <Space height="larger" />
         <Grid gap="large">
+          <Text size="large">Arrows</Text>
+          <EdenArrows />
+          <Text size="large">Icons</Text>
+          <EdenIcons />
           <Text size="large">Title</Text>
           <EdenTitles />
           <Text size="large">Text</Text>
@@ -120,6 +186,10 @@ const Colors = () => {
           <Gradient color="blue">
             <Space height="huge" />
           </Gradient>
+          <Text size="large">Gradient blue</Text>
+          <Expandable title="hello">
+            <Text>world</Text>
+          </Expandable>
         </Grid>
       </Section>
     </>

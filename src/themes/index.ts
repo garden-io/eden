@@ -316,4 +316,5 @@ export const theme = {
   codeSizes,
   iconSizes,
   borderRadiuses,
+  borderWidths,
 }
