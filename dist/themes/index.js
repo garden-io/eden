@@ -121,8 +121,8 @@ exports.borderRadiuses = {
     none: "0px",
 };
 exports.borderWidths = {
-    medium: "2px",
-    small: "1px",
+    large: "2px",
+    medium: "1px",
     none: "0px",
 };
 exports.theme = {
