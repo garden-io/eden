@@ -13,14 +13,76 @@ import {
   flatten,
   Title,
   TitleSize,
-  TitleSizes,
   titleTags,
   textSizes,
   TextSize,
-  Pre,
+  Gradient,
+  iconSizes,
+  Flex,
+  IconSize,
+  IconTwitter,
+  IconArrow,
+  IconBranch,
+  IconCheck,
+  IconDelete,
+  IconDocs,
+  IconGithub,
+  IconLock,
+  IconPlaceholder,
+  IconSlack,
+  IconUser,
+  Expandable,
   Textfield,
   Textarea,
+  Button,
 } from ".."
+import { IconCaret } from "../components/IconCaret"
+
+const EdenArrows = () => {
+  return (
+    <>
+      {Object.entries(iconSizes).map(([key, value]) => (
+        <>
+          <Flex key={key} wrap>
+            <IconArrow size={key as IconSize} />
+            <IconArrow size={key as IconSize} direction="right" />
+            <IconArrow size={key as IconSize} direction="down" />
+            <IconArrow size={key as IconSize} direction="left" />
+            <IconCaret size={key as IconSize} />
+            <IconCaret size={key as IconSize} direction="right" />
+            <IconCaret size={key as IconSize} direction="down" />
+            <IconCaret size={key as IconSize} direction="left" />
+          </Flex>
+          <Space height="larger" />
+        </>
+      ))}
+    </>
+  )
+}
+
+const EdenIcons = () => {
+  return (
+    <>
+      {Object.entries(iconSizes).map(([key, value]) => (
+        <>
+          <Flex key={key} wrap>
+            <IconUser size={key as IconSize} />
+            <IconBranch size={key as IconSize} />
+            <IconCheck size={key as IconSize} />
+            <IconDelete size={key as IconSize} />
+            <IconLock size={key as IconSize} />
+            <IconDocs size={key as IconSize} />
+            <IconGithub size={key as IconSize} />
+            <IconSlack size={key as IconSize} />
+            <IconTwitter size={key as IconSize} />
+            <IconPlaceholder size={key as IconSize} />
+          </Flex>
+          <Space height="larger" />
+        </>
+      ))}
+    </>
+  )
+}
 
 const EdenColors = () => (
   <Grid columns={6} gap="none">
@@ -113,12 +175,11 @@ const EdenBoxes = () => {
 const EdenTextfields = () => {
   return (
     <Grid columns="1fr 1fr">
-      <Grid>
+      <Flex>
         <Textfield placeholder="Hello" />
-        <Textfield borderWidth="small" placeholder="Hello" />
-        <Textarea placeholder="Hello" />
-        <Textarea borderWidth="small" placeholder="Hello" />
-      </Grid>
+        <Button secondary>Test button</Button>
+        <Button>Test button</Button>
+      </Flex>
     </Grid>
   )
 }
@@ -126,10 +187,7 @@ const EdenTextfields = () => {
 const EdenTextareas = () => {
   return (
     <Grid columns="1fr 1fr">
-      <Grid>
-        <Textarea placeholder="Hello" />
-        <Textarea borderWidth="small" placeholder="Hello" />
-      </Grid>
+      <Textarea placeholder="Hello" />
     </Grid>
   )
 }
@@ -142,18 +200,38 @@ const Colors = () => {
       <Section>
         <Space height="larger" />
         <Grid gap="large">
+          <Text size="large">Colors</Text>
+          <EdenColors />
+          <Text size="large">Gradient green</Text>
+          <Gradient>
+            <Space height="huge" />
+          </Gradient>
+          <Text size="large">Gradient blue</Text>
+          <Gradient color="blue">
+            <Space height="huge" />
+          </Gradient>
+
           <Text size="large">Box</Text>
           <EdenBoxes />
           <Text size="large">Title</Text>
           <EdenTitles />
           <Text size="large">Text</Text>
           <EdenTexts />
+          <Text size="large">Arrows</Text>
+          <EdenArrows />
+          <Text size="large">Icons</Text>
+          <EdenIcons />
           <Text size="large">Textfield</Text>
           <EdenTextfields />
           <Text size="large">Textarea</Text>
           <EdenTextareas />
-          <Text size="large">Colors</Text>
-          <EdenColors />
+          <Text size="large">Expandable</Text>
+          <Grid columns="1fr 1fr">
+            <Expandable title="hello">
+              <Text>world</Text>
+            </Expandable>
+          </Grid>
+          <Space height="huge" />
         </Grid>
       </Section>
     </>

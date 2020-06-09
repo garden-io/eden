@@ -4,13 +4,9 @@
  * All rights reserved.
  */
 
-// Source https://github.com/simple-icons/simple-icons/blob/develop/icons/github.svg
-// Licence https://github.com/simple-icons/simple-icons/blob/develop/LICENSE.md
-
-import { Color, IconSize } from "../themes"
 import React, { FC } from "react"
 
-import { useTheme } from "../contexts"
+import { Color, IconSize, useTheme } from ".."
 
 interface Props {
   /**
@@ -22,17 +18,27 @@ interface Props {
    */
   size?: IconSize
   /**
-   * Section Show border around icon for debugging?
+   * Show border around icon for debugging?
    */
   debug?: boolean
+  /**
+   *  Caret direction
+   */
+  direction?: "up" | "right" | "down" | "left"
 }
 
-export const IconPlaceholder: FC<Props> = ({ color = "gray", size = "medium", debug = false }) => {
+export const IconCaret: FC<Props> = ({ color = "gray", size = "medium", debug = false, direction = "up" }) => {
   const { colors, iconSizes } = useTheme()
+  const directions = {
+    up: 0,
+    right: 90,
+    down: 180,
+    left: 270,
+  }
   return (
     <svg
       role="img"
-      viewBox={`0 0 ${iconSizes[size]} ${iconSizes[size]}`}
+      viewBox="0 0 24 24"
       xmlns="http://www.w3.org/2000/svg"
       style={{
         width: `${iconSizes[size]}px`,
@@ -41,15 +47,14 @@ export const IconPlaceholder: FC<Props> = ({ color = "gray", size = "medium", de
         border: debug ? "1px dashed red" : "",
       }}
     >
-      <circle
-        stroke={colors[color]}
-        cx={iconSizes[size] / 2}
-        cy={iconSizes[size] / 2}
-        r={iconSizes[size] / 2 - 1}
+      <polyline
+        transform={`rotate(${directions[direction]} 12 12)`}
         fill="none"
+        stroke={colors[color]}
         strokeWidth="2"
-        strokeDasharray="4 4"
         strokeLinecap="round"
+        strokeLinejoin="round"
+        points="18 15 12 9 6 15"
       />
     </svg>
   )

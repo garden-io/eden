@@ -4,7 +4,7 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "dev": "gatsby develop",
+    "dev": "gatsby develop -p 8010",
     "build": "tsc -P tsconfig.dist.json",
     "build:docs": "gatsby build",
     "check": "tsc -noEmit"
