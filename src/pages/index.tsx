@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import {
   Box,
   GlobalStyles,
@@ -35,6 +35,8 @@ import {
   Textfield,
   Textarea,
   Button,
+  SelectOption,
+  Select,
 } from ".."
 import { IconCaret } from "../components/IconCaret"
 
@@ -161,14 +163,9 @@ const EdenTexts = () => (
 
 const EdenBoxes = () => {
   return (
-    <Grid>
-      <Box borderWidth="medium" borderColor="greenDark">
-        <Text>Sample box</Text>
-      </Box>
-      <Box borderWidth="small" borderColor="greenDark">
-        <Text>Sample box</Text>
-      </Box>
-    </Grid>
+    <Box borderColor="greenDark">
+      <Text>Box</Text>
+    </Box>
   )
 }
 
@@ -177,8 +174,8 @@ const EdenTextfields = () => {
     <Grid columns="1fr 1fr">
       <Flex>
         <Textfield placeholder="Hello" />
-        <Button secondary>Test button</Button>
         <Button>Test button</Button>
+        <Button secondary>Test button</Button>
       </Flex>
     </Grid>
   )
@@ -192,6 +189,23 @@ const EdenTextareas = () => {
   )
 }
 
+const EdenSelects = () => {
+  const options1: SelectOption[] = [{ value: "hello" }, { value: "world" }]
+  const [selected1, setSelected1] = useState("hello")
+  const onChange1 = (option) => setSelected1(option)
+
+  return (
+    <Grid columns="1fr 1fr">
+      <Grid>
+        <Select options={options1} onChange={onChange1} />
+        <Text>
+          <div>Selected option: {selected1}</div>
+        </Text>
+      </Grid>
+    </Grid>
+  )
+}
+
 const Colors = () => {
   return (
     <>
@@ -199,38 +213,48 @@ const Colors = () => {
       <Space height="largest" />
       <Section>
         <Space height="larger" />
-        <Grid gap="large">
-          <Text size="large">Colors</Text>
+        <Grid gap="larger">
+          <Code>E D E N</Code>
+          <Code>colors</Code>
           <EdenColors />
-          <Text size="large">Gradient green</Text>
+          <Code>Gradient color="green"</Code>
           <Gradient>
-            <Space height="huge" />
+            <Space height="largest" />
           </Gradient>
-          <Text size="large">Gradient blue</Text>
+          <Code>Gradient color="greenReverse"</Code>
+          <Gradient color="greenReverse">
+            <Space height="largest" />
+          </Gradient>
+          <Code>Gradient color="blue"</Code>
           <Gradient color="blue">
-            <Space height="huge" />
+            <Space height="largest" />
           </Gradient>
-
-          <Text size="large">Box</Text>
-          <EdenBoxes />
-          <Text size="large">Title</Text>
+          <Code>Gradient color="blueReverse"</Code>
+          <Gradient color="blueReverse">
+            <Space height="largest" />
+          </Gradient>
+          <Code>Title</Code>
           <EdenTitles />
-          <Text size="large">Text</Text>
+          <Code>Text</Code>
           <EdenTexts />
-          <Text size="large">Arrows</Text>
+          <Code>IconArrow / IconCaret</Code>
           <EdenArrows />
-          <Text size="large">Icons</Text>
+          <Code>Icon*</Code>
           <EdenIcons />
-          <Text size="large">Textfield</Text>
+          <Code>Textfield / Button / Button secondary</Code>
           <EdenTextfields />
-          <Text size="large">Textarea</Text>
+          <Code>Textarea</Code>
           <EdenTextareas />
-          <Text size="large">Expandable</Text>
+          <Code>Select</Code>
+          <EdenSelects />
+          <Code>Expandable</Code>
           <Grid columns="1fr 1fr">
-            <Expandable title="hello">
-              <Text>world</Text>
+            <Expandable title="Hello">
+              <Text>World</Text>
             </Expandable>
           </Grid>
+          <Code>Box</Code>
+          <EdenBoxes />
           <Space height="huge" />
         </Grid>
       </Section>

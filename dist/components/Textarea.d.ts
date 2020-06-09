@@ -5,6 +5,7 @@ interface TextareaProps {
     placeholder?: string;
     name?: string;
     value?: any;
+    rows?: number;
     borderWidth?: BorderWidth;
     onChange?: (event: React.ChangeEvent<HTMLTextAreaElement>) => void;
 }

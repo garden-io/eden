@@ -44,7 +44,10 @@ exports.statusColors = {
     statusRed: "hsl(0, 91%, 42%)",
     statusYellow: "hsl(37, 100%, 64%)",
 };
-exports.colors = __assign(__assign(__assign(__assign({}, exports.grayColors), { greenLight: exports.brandColors.greenLight, greenDark: exports.brandColors.greenDark, greenDarker: exports.brandColors.greenDarker, blueLight: exports.brandColors.blueLight, blue: exports.brandColors.blue, blueDark: exports.brandColors.blueDark, pink: exports.brandColors.pink }), exports.statusColors), { white: exports.brandColors.white, black: exports.brandColors.black, none: "transparent" });
+var shadowColors = {
+    shadow: "hsla(197, 61%, 92%,0.5)",
+};
+exports.colors = __assign(__assign(__assign(__assign(__assign({}, exports.grayColors), { greenLight: exports.brandColors.greenLight, greenDark: exports.brandColors.greenDark, greenDarker: exports.brandColors.greenDarker, blueLight: exports.brandColors.blueLight, blue: exports.brandColors.blue, blueDark: exports.brandColors.blueDark, pink: exports.brandColors.pink }), exports.statusColors), { white: exports.brandColors.white, black: exports.brandColors.black, none: "transparent" }), shadowColors);
 exports.logoColors = {
     light: exports.brandColors.greenLight,
     dark: exports.brandColors.black,
@@ -95,9 +98,9 @@ exports.titleTags = {
     largest: "h1",
 };
 exports.textSizes = {
-    small: "calc(" + exports.spacer + "px * 1.2)",
+    small: "calc(" + exports.spacer + "px * 1.25)",
     medium: "calc(" + exports.spacer + "px * 1.5)",
-    large: "calc(" + exports.spacer + "px * 2)",
+    large: "calc(" + exports.spacer + "px * 1.75)",
 };
 exports.codeSizes = {
     small: "calc(" + exports.spacer + "px * 1)",
@@ -112,7 +115,7 @@ exports.textAligns = {
 exports.iconSizes = {
     small: exports.spacer * 1.5,
     medium: exports.spacer * 2.5,
-    large: exports.spacer * 6,
+    large: exports.spacer * 4,
 };
 exports.borderRadiuses = {
     large: "4px",
@@ -121,8 +124,8 @@ exports.borderRadiuses = {
     none: "0px",
 };
 exports.borderWidths = {
-    medium: "2px",
-    small: "1px",
+    large: "2px",
+    medium: "1px",
     none: "0px",
 };
 exports.theme = {
