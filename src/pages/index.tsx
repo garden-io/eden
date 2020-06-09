@@ -161,6 +161,14 @@ const EdenTexts = () => (
   </Grid>
 )
 
+const EdenBoxes = () => {
+  return (
+    <Box borderColor="greenDark">
+      <Text>Box</Text>
+    </Box>
+  )
+}
+
 const EdenTextfields = () => {
   return (
     <Grid columns="1fr 1fr">
@@ -217,44 +225,46 @@ const Colors = () => {
       <Section>
         <Space height="larger" />
         <Grid gap="large">
-          <Text size="large">Colors</Text>
+          <Code>Colors</Code>
           <EdenColors />
-          <Text size="large">Gradient green</Text>
+          <Code>Gradient green</Code>
           <Gradient>
             <Space height="huge" />
           </Gradient>
-          <Text size="large">Gradient greenReverse</Text>
+          <Code>Gradient greenReverse</Code>
           <Gradient color="greenReverse">
             <Space height="huge" />
           </Gradient>
-          <Text size="large">Gradient blue</Text>
+          <Code>Gradient blue</Code>
           <Gradient color="blue">
             <Space height="huge" />
           </Gradient>
-          <Text size="large">Gradient blueReverse</Text>
+          <Code>Gradient blueReverse</Code>
           <Gradient color="blueReverse">
             <Space height="huge" />
           </Gradient>
-          <Text size="large">Title</Text>
+          <Code>Title</Code>
           <EdenTitles />
-          <Text size="large">Text</Text>
+          <Code>Text</Code>
           <EdenTexts />
-          <Text size="large">Arrows</Text>
+          <Code>Arrows</Code>
           <EdenArrows />
-          <Text size="large">Icons</Text>
+          <Code>Icons</Code>
           <EdenIcons />
-          <Text size="large">Textfield</Text>
+          <Code>Textfield</Code>
           <EdenTextfields />
-          <Text size="large">Textarea</Text>
+          <Code>Textarea</Code>
           <EdenTextareas />
-          <Text size="large">Select</Text>
+          <Code>Select</Code>
           <EdenSelects />
-          <Text size="large">Expandable</Text>
+          <Code>Expandable</Code>
           <Grid columns="1fr 1fr">
             <Expandable title="hello">
               <Text>world</Text>
             </Expandable>
           </Grid>
+          <Code>Box</Code>
+          <EdenBoxes />
           <Space height="huge" />
         </Grid>
       </Section>
