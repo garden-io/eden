@@ -16,7 +16,6 @@ import {
   titleTags,
   textSizes,
   TextSize,
-<<<<<<< HEAD
   Gradient,
   iconSizes,
   Flex,
@@ -33,11 +32,9 @@ import {
   IconSlack,
   IconUser,
   Expandable,
-=======
-  Pre,
   Textfield,
   Textarea,
->>>>>>> master
+  Button,
 } from ".."
 import { IconCaret } from "../components/IconCaret"
 
@@ -178,12 +175,11 @@ const EdenBoxes = () => {
 const EdenTextfields = () => {
   return (
     <Grid columns="1fr 1fr">
-      <Grid>
+      <Flex>
         <Textfield placeholder="Hello" />
-        <Textfield borderWidth="small" placeholder="Hello" />
-        <Textarea placeholder="Hello" />
-        <Textarea borderWidth="small" placeholder="Hello" />
-      </Grid>
+        <Button secondary>Test button</Button>
+        <Button>Test button</Button>
+      </Flex>
     </Grid>
   )
 }
@@ -191,10 +187,7 @@ const EdenTextfields = () => {
 const EdenTextareas = () => {
   return (
     <Grid columns="1fr 1fr">
-      <Grid>
-        <Textarea placeholder="Hello" />
-        <Textarea borderWidth="small" placeholder="Hello" />
-      </Grid>
+      <Textarea placeholder="Hello" />
     </Grid>
   )
 }
@@ -207,23 +200,6 @@ const Colors = () => {
       <Section>
         <Space height="larger" />
         <Grid gap="large">
-<<<<<<< HEAD
-          <Text size="large">Arrows</Text>
-          <EdenArrows />
-          <Text size="large">Icons</Text>
-          <EdenIcons />
-=======
-          <Text size="large">Box</Text>
-          <EdenBoxes />
->>>>>>> master
-          <Text size="large">Title</Text>
-          <EdenTitles />
-          <Text size="large">Text</Text>
-          <EdenTexts />
-          <Text size="large">Textfield</Text>
-          <EdenTextfields />
-          <Text size="large">Textarea</Text>
-          <EdenTextareas />
           <Text size="large">Colors</Text>
           <EdenColors />
           <Text size="large">Gradient green</Text>
@@ -234,10 +210,28 @@ const Colors = () => {
           <Gradient color="blue">
             <Space height="huge" />
           </Gradient>
-          <Text size="large">Gradient blue</Text>
-          <Expandable title="hello">
-            <Text>world</Text>
-          </Expandable>
+
+          <Text size="large">Box</Text>
+          <EdenBoxes />
+          <Text size="large">Title</Text>
+          <EdenTitles />
+          <Text size="large">Text</Text>
+          <EdenTexts />
+          <Text size="large">Arrows</Text>
+          <EdenArrows />
+          <Text size="large">Icons</Text>
+          <EdenIcons />
+          <Text size="large">Textfield</Text>
+          <EdenTextfields />
+          <Text size="large">Textarea</Text>
+          <EdenTextareas />
+          <Text size="large">Expandable</Text>
+          <Grid columns="1fr 1fr">
+            <Expandable title="hello">
+              <Text>world</Text>
+            </Expandable>
+          </Grid>
+          <Space height="huge" />
         </Grid>
       </Section>
     </>
