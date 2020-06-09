@@ -98,9 +98,9 @@ exports.titleTags = {
     largest: "h1",
 };
 exports.textSizes = {
-    small: "calc(" + exports.spacer + "px * 1.2)",
+    small: "calc(" + exports.spacer + "px * 1.25)",
     medium: "calc(" + exports.spacer + "px * 1.5)",
-    large: "calc(" + exports.spacer + "px * 2)",
+    large: "calc(" + exports.spacer + "px * 1.75)",
 };
 exports.codeSizes = {
     small: "calc(" + exports.spacer + "px * 1)",
