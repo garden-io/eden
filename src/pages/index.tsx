@@ -174,8 +174,8 @@ const EdenTextfields = () => {
     <Grid columns="1fr 1fr">
       <Flex>
         <Textfield placeholder="Hello" />
-        <Button secondary>Test button</Button>
         <Button>Test button</Button>
+        <Button secondary>Test button</Button>
       </Flex>
     </Grid>
   )
@@ -194,23 +194,12 @@ const EdenSelects = () => {
   const [selected1, setSelected1] = useState("hello")
   const onChange1 = (option) => setSelected1(option)
 
-  const options2: SelectOption[] = [
-    { title: "Hello", value: 0 },
-    { title: "World", value: 1 },
-  ]
-  const [selected2, setSelected2] = useState(0)
-  const onChange2 = (option) => setSelected2(option)
-
   return (
     <Grid columns="1fr 1fr">
       <Grid>
-        <Select name="select_1_field" borderWidth="large" options={options1} onChange={onChange1} />
+        <Select options={options1} onChange={onChange1} />
         <Text>
-          <div id="select_1_selected">{selected1}</div>
-        </Text>
-        <Select name="select_2_field" options={options2} onChange={onChange2} />
-        <Text>
-          <div id="select_2_selected">{selected2}</div>
+          <div>Selected option: {selected1}</div>
         </Text>
       </Grid>
     </Grid>
@@ -224,34 +213,35 @@ const Colors = () => {
       <Space height="largest" />
       <Section>
         <Space height="larger" />
-        <Grid gap="large">
-          <Code>Colors</Code>
+        <Grid gap="larger">
+          <Code>E D E N</Code>
+          <Code>colors</Code>
           <EdenColors />
-          <Code>Gradient green</Code>
+          <Code>Gradient color="green"</Code>
           <Gradient>
-            <Space height="huge" />
+            <Space height="largest" />
           </Gradient>
-          <Code>Gradient greenReverse</Code>
+          <Code>Gradient color="greenReverse"</Code>
           <Gradient color="greenReverse">
-            <Space height="huge" />
+            <Space height="largest" />
           </Gradient>
-          <Code>Gradient blue</Code>
+          <Code>Gradient color="blue"</Code>
           <Gradient color="blue">
-            <Space height="huge" />
+            <Space height="largest" />
           </Gradient>
-          <Code>Gradient blueReverse</Code>
+          <Code>Gradient color="blueReverse"</Code>
           <Gradient color="blueReverse">
-            <Space height="huge" />
+            <Space height="largest" />
           </Gradient>
           <Code>Title</Code>
           <EdenTitles />
           <Code>Text</Code>
           <EdenTexts />
-          <Code>Arrows</Code>
+          <Code>IconArrow / IconCaret</Code>
           <EdenArrows />
-          <Code>Icons</Code>
+          <Code>Icon*</Code>
           <EdenIcons />
-          <Code>Textfield</Code>
+          <Code>Textfield / Button / Button secondary</Code>
           <EdenTextfields />
           <Code>Textarea</Code>
           <EdenTextareas />
@@ -259,8 +249,8 @@ const Colors = () => {
           <EdenSelects />
           <Code>Expandable</Code>
           <Grid columns="1fr 1fr">
-            <Expandable title="hello">
-              <Text>world</Text>
+            <Expandable title="Hello">
+              <Text>World</Text>
             </Expandable>
           </Grid>
           <Code>Box</Code>
