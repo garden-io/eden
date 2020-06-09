@@ -278,7 +278,7 @@ export type IconSize = keyof IconSizes
 export const iconSizes: IconSizes = {
   small: spacer * 1.5,
   medium: spacer * 2.5,
-  large: spacer * 6, // Modified
+  large: spacer * 4,
 }
 
 export interface BorderRadiuses {

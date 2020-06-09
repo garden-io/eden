@@ -13,6 +13,7 @@ interface TextareaProps {
   placeholder?: string
   name?: string
   value?: any
+  rows?: number
   borderWidth?: BorderWidth
   onChange?: (event: React.ChangeEvent<HTMLTextAreaElement>) => void
 }
@@ -22,6 +23,7 @@ export const Textarea: FC<TextareaProps> = ({
   placeholder = "",
   name = "",
   value = "",
+  rows = 5,
   borderWidth = "medium",
   onChange = () => null,
 }) => {
@@ -44,7 +46,7 @@ export const Textarea: FC<TextareaProps> = ({
       <textarea
         name={name}
         value={value}
-        rows={10}
+        rows={rows}
         placeholder={placeholder}
         style={{
           display: "block",
