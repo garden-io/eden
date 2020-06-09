@@ -56,6 +56,11 @@ export interface Colors {
   white: string
   black: string
   none: string
+  shadow: string
+}
+
+const shadowColors = {
+  shadow: "hsla(197, 61%, 92%,0.5)", // blueLight
 }
 
 export type Color = keyof Colors
@@ -73,6 +78,7 @@ export const colors: Colors = {
   white: brandColors.white,
   black: brandColors.black,
   none: "transparent",
+  ...shadowColors,
 }
 
 // Logo colors

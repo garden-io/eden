@@ -39,7 +39,7 @@ export { Text } from "./components/Text"
 export { Textarea } from "./components/Textarea"
 export { Textfield } from "./components/Textfield"
 export { Title } from "./components/Title"
-export { Select, SelectOption } from "./components/Select"
+export * from "./components/Select"
 
 export { ThemeProvider, useTheme } from "./contexts"
 

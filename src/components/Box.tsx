@@ -71,7 +71,7 @@ export const Box: FC<Props> = ({
         backgroundColor: colors[background],
         borderWidth: borderColor ? borderWidths[borderWidth] : "",
         height: Object(space).hasOwnProperty(height) ? space[height] : height,
-        boxShadow: shadow ? "0 0 2px rgba(0,0,0,0.1), 0 0 40px rgba(0,0,0,0.05)" : "",
+        boxShadow: shadow ? `4px 4px 10px ${colors.shadow}` : "",
         overflow,
       }}
     >

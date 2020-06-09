@@ -161,19 +161,6 @@ const EdenTexts = () => (
   </Grid>
 )
 
-const EdenBoxes = () => {
-  return (
-    <Grid>
-      <Box borderWidth="medium" borderColor="greenDark">
-        <Text>Sample box</Text>
-      </Box>
-      <Box borderWidth="small" borderColor="greenDark">
-        <Text>Sample box</Text>
-      </Box>
-    </Grid>
-  )
-}
-
 const EdenTextfields = () => {
   return (
     <Grid columns="1fr 1fr">
@@ -248,8 +235,6 @@ const Colors = () => {
           <Gradient color="blueReverse">
             <Space height="huge" />
           </Gradient>
-          <Text size="large">Box</Text>
-          <EdenBoxes />
           <Text size="large">Title</Text>
           <EdenTitles />
           <Text size="large">Text</Text>
