@@ -43,6 +43,7 @@ export interface Colors {
     white: string;
     black: string;
     none: string;
+    shadow: string;
 }
 export declare type Color = keyof Colors;
 export declare const colors: Colors;

@@ -44,7 +44,10 @@ exports.statusColors = {
     statusRed: "hsl(0, 91%, 42%)",
     statusYellow: "hsl(37, 100%, 64%)",
 };
-exports.colors = __assign(__assign(__assign(__assign({}, exports.grayColors), { greenLight: exports.brandColors.greenLight, greenDark: exports.brandColors.greenDark, greenDarker: exports.brandColors.greenDarker, blueLight: exports.brandColors.blueLight, blue: exports.brandColors.blue, blueDark: exports.brandColors.blueDark, pink: exports.brandColors.pink }), exports.statusColors), { white: exports.brandColors.white, black: exports.brandColors.black, none: "transparent" });
+var shadowColors = {
+    shadow: "hsla(197, 61%, 92%,0.5)",
+};
+exports.colors = __assign(__assign(__assign(__assign(__assign({}, exports.grayColors), { greenLight: exports.brandColors.greenLight, greenDark: exports.brandColors.greenDark, greenDarker: exports.brandColors.greenDarker, blueLight: exports.brandColors.blueLight, blue: exports.brandColors.blue, blueDark: exports.brandColors.blueDark, pink: exports.brandColors.pink }), exports.statusColors), { white: exports.brandColors.white, black: exports.brandColors.black, none: "transparent" }), shadowColors);
 exports.logoColors = {
     light: exports.brandColors.greenLight,
     dark: exports.brandColors.black,
