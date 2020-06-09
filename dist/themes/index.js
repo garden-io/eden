@@ -123,6 +123,11 @@ exports.borderRadiuses = {
     small: "2px",
     none: "0px",
 };
+exports.borderWidths = {
+    medium: "2px",
+    small: "1px",
+    none: "0px",
+};
 exports.theme = {
     colors: exports.colors,
     brandColors: exports.brandColors,
@@ -142,4 +147,5 @@ exports.theme = {
     codeSizes: exports.codeSizes,
     iconSizes: exports.iconSizes,
     borderRadiuses: exports.borderRadiuses,
+    borderWidths: exports.borderWidths,
 };

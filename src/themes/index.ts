@@ -297,6 +297,20 @@ export const borderRadiuses: BorderRadiuses = {
   none: "0px",
 }
 
+export interface BorderWidths {
+  medium: string
+  small: string
+  none: string
+}
+
+export type BorderWidth = keyof BorderWidths
+
+export const borderWidths: BorderWidths = {
+  medium: "2px",
+  small: "1px",
+  none: "0px",
+}
+
 export const theme = {
   colors,
   brandColors,

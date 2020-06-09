@@ -159,6 +159,13 @@ export interface BorderRadiuses {
 }
 export declare type BorderRadius = keyof BorderRadiuses;
 export declare const borderRadiuses: BorderRadiuses;
+export interface BorderWidths {
+    medium: string;
+    small: string;
+    none: string;
+}
+export declare type BorderWidth = keyof BorderWidths;
+export declare const borderWidths: BorderWidths;
 export declare const theme: {
     colors: Colors;
     brandColors: {
@@ -209,4 +216,5 @@ export declare const theme: {
     codeSizes: CodeSizes;
     iconSizes: IconSizes;
     borderRadiuses: BorderRadiuses;
+    borderWidths: BorderWidths;
 };

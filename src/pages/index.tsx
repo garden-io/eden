@@ -16,6 +16,7 @@ import {
   titleTags,
   textSizes,
   TextSize,
+<<<<<<< HEAD
   Gradient,
   iconSizes,
   Flex,
@@ -32,6 +33,11 @@ import {
   IconSlack,
   IconUser,
   Expandable,
+=======
+  Pre,
+  Textfield,
+  Textarea,
+>>>>>>> master
 } from ".."
 import { IconCaret } from "../components/IconCaret"
 
@@ -97,8 +103,7 @@ const EdenColors = () => (
 )
 
 const EdenTitles = () => (
-  <Grid columns="1fr 3fr 1fr">
-    <Space />
+  <Grid columns="2fr 1fr">
     <Grid>
       {flatten(
         Object.entries(titleSizes)
@@ -111,7 +116,6 @@ const EdenTitles = () => (
           ])
       )}
     </Grid>
-    <Space />
   </Grid>
 )
 
@@ -141,8 +145,7 @@ const EdenTitles = () => (
 //)
 
 const EdenTexts = () => (
-  <Grid columns="1fr 3fr 1fr">
-    <Space />
+  <Grid columns="2fr 1fr">
     <Grid>
       {flatten(
         Object.entries(textSizes)
@@ -156,9 +159,45 @@ const EdenTexts = () => (
           ])
       )}
     </Grid>
-    <Space />
   </Grid>
 )
+
+const EdenBoxes = () => {
+  return (
+    <Grid>
+      <Box borderWidth="medium" borderColor="greenDark">
+        <Text>Sample box</Text>
+      </Box>
+      <Box borderWidth="small" borderColor="greenDark">
+        <Text>Sample box</Text>
+      </Box>
+    </Grid>
+  )
+}
+
+const EdenTextfields = () => {
+  return (
+    <Grid columns="1fr 1fr">
+      <Grid>
+        <Textfield placeholder="Hello" />
+        <Textfield borderWidth="small" placeholder="Hello" />
+        <Textarea placeholder="Hello" />
+        <Textarea borderWidth="small" placeholder="Hello" />
+      </Grid>
+    </Grid>
+  )
+}
+
+const EdenTextareas = () => {
+  return (
+    <Grid columns="1fr 1fr">
+      <Grid>
+        <Textarea placeholder="Hello" />
+        <Textarea borderWidth="small" placeholder="Hello" />
+      </Grid>
+    </Grid>
+  )
+}
 
 const Colors = () => {
   return (
@@ -168,14 +207,23 @@ const Colors = () => {
       <Section>
         <Space height="larger" />
         <Grid gap="large">
+<<<<<<< HEAD
           <Text size="large">Arrows</Text>
           <EdenArrows />
           <Text size="large">Icons</Text>
           <EdenIcons />
+=======
+          <Text size="large">Box</Text>
+          <EdenBoxes />
+>>>>>>> master
           <Text size="large">Title</Text>
           <EdenTitles />
           <Text size="large">Text</Text>
           <EdenTexts />
+          <Text size="large">Textfield</Text>
+          <EdenTextfields />
+          <Text size="large">Textarea</Text>
+          <EdenTextareas />
           <Text size="large">Colors</Text>
           <EdenColors />
           <Text size="large">Gradient green</Text>

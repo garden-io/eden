@@ -4,7 +4,7 @@
  * All rights reserved.
  */
 
-import { Color, Whitespace, BorderRadius } from "../themes"
+import { Color, Whitespace, BorderRadius, BorderWidth } from "../themes"
 import React, { FC } from "react"
 
 import { useTheme } from "../contexts"
@@ -22,6 +22,10 @@ interface Props {
    * Border color
    */
   borderColor?: Color
+  /**
+   * Border width
+   */
+  borderWidth?: BorderWidth
   /**
    * Border radius
    */
@@ -43,6 +47,7 @@ export const Box: FC<Props> = ({
   children = null,
   padding = "large",
   borderColor = "none",
+  borderWidth = "none",
   borderRadius = "none",
   background = "none",
   justify = "flex-start",
@@ -52,7 +57,7 @@ export const Box: FC<Props> = ({
   debug = false,
   overflow = "auto",
 }) => {
-  const { space, colors, borderRadiuses } = useTheme()
+  const { space, colors, borderRadiuses, borderWidths } = useTheme()
   return (
     <div
       style={{
@@ -64,7 +69,7 @@ export const Box: FC<Props> = ({
         borderRadius: borderRadiuses[borderRadius],
         borderStyle: borderColor ? "solid" : "",
         backgroundColor: colors[background],
-        borderWidth: borderColor ? "1px" : "",
+        borderWidth: borderColor ? borderWidths[borderWidth] : "",
         height: Object(space).hasOwnProperty(height) ? space[height] : height,
         boxShadow: shadow ? "0 0 2px rgba(0,0,0,0.1), 0 0 40px rgba(0,0,0,0.05)" : "",
         overflow,

@@ -1,4 +1,5 @@
 import { FC } from "react";
+import { BorderWidth } from "..";
 interface Props {
     title?: string;
     name?: string;
@@ -6,6 +7,10 @@ interface Props {
     placeholder?: string;
     type?: string;
     disabled?: boolean;
+    /**
+     * Border width
+     */
+    borderWidth?: BorderWidth;
     onChange?: (value: string) => void;
 }
 export declare const Textfield: FC<Props>;
