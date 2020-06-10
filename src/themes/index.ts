@@ -8,9 +8,6 @@
 
 export const brandColors = {
   black: "hsl(0, 0%, 0%)", // #010101 in brand guidelines
-  gray: "hsl(180,0%,33%)",
-  grayLight: "hsl(0,0%,83%)",
-  grayLighter: "hsl(210,33%,100%)",
   blueDark: "hsl(205,100%,30%)",
   blue: "hsl(197,100%,46%)",
   blueLight: "hsl(197, 61%, 92%)",
@@ -59,6 +56,11 @@ export interface Colors {
   white: string
   black: string
   none: string
+  shadow: string
+}
+
+const shadowColors = {
+  shadow: "hsla(197, 61%, 92%,0.5)", // blueLight
 }
 
 export type Color = keyof Colors
@@ -76,6 +78,7 @@ export const colors: Colors = {
   white: brandColors.white,
   black: brandColors.black,
   none: "transparent",
+  ...shadowColors,
 }
 
 // Logo colors
@@ -217,9 +220,9 @@ export interface TextSizes {
 export type TextSize = keyof TextSizes
 
 export const textSizes: TextSizes = {
-  small: `calc(${spacer}px * 1.2)`, // 14.4
+  small: `calc(${spacer}px * 1.25)`, // 15
   medium: `calc(${spacer}px * 1.5)`, // 16
-  large: `calc(${spacer}px * 2)`, // 18
+  large: `calc(${spacer}px * 1.75)`, // 21
 }
 
 export interface TextAligns {
@@ -281,7 +284,7 @@ export type IconSize = keyof IconSizes
 export const iconSizes: IconSizes = {
   small: spacer * 1.5,
   medium: spacer * 2.5,
-  large: spacer * 6, // Modified
+  large: spacer * 4,
 }
 
 export interface BorderRadiuses {
@@ -301,16 +304,16 @@ export const borderRadiuses: BorderRadiuses = {
 }
 
 export interface BorderWidths {
+  large: string
   medium: string
-  small: string
   none: string
 }
 
 export type BorderWidth = keyof BorderWidths
 
 export const borderWidths: BorderWidths = {
-  medium: "2px",
-  small: "1px",
+  large: "2px",
+  medium: "1px",
   none: "0px",
 }
 

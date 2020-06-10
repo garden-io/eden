@@ -7,9 +7,6 @@ interface Props {
     placeholder?: string;
     type?: string;
     disabled?: boolean;
-    /**
-     * Border width
-     */
     borderWidth?: BorderWidth;
     onChange?: (value: string) => void;
 }

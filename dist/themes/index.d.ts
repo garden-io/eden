@@ -1,8 +1,5 @@
 export declare const brandColors: {
     black: string;
-    gray: string;
-    grayLight: string;
-    grayLighter: string;
     blueDark: string;
     blue: string;
     blueLight: string;
@@ -46,6 +43,7 @@ export interface Colors {
     white: string;
     black: string;
     none: string;
+    shadow: string;
 }
 export declare type Color = keyof Colors;
 export declare const colors: Colors;
@@ -160,8 +158,8 @@ export interface BorderRadiuses {
 export declare type BorderRadius = keyof BorderRadiuses;
 export declare const borderRadiuses: BorderRadiuses;
 export interface BorderWidths {
+    large: string;
     medium: string;
-    small: string;
     none: string;
 }
 export declare type BorderWidth = keyof BorderWidths;
@@ -170,9 +168,6 @@ export declare const theme: {
     colors: Colors;
     brandColors: {
         black: string;
-        gray: string;
-        grayLight: string;
-        grayLighter: string;
         blueDark: string;
         blue: string;
         blueLight: string;

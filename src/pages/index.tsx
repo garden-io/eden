@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import {
   Box,
   GlobalStyles,
@@ -13,14 +13,78 @@ import {
   flatten,
   Title,
   TitleSize,
-  TitleSizes,
   titleTags,
   textSizes,
   TextSize,
-  Pre,
+  Gradient,
+  iconSizes,
+  Flex,
+  IconSize,
+  IconTwitter,
+  IconArrow,
+  IconBranch,
+  IconCheck,
+  IconDelete,
+  IconDocs,
+  IconGithub,
+  IconLock,
+  IconPlaceholder,
+  IconSlack,
+  IconUser,
+  Expandable,
   Textfield,
   Textarea,
+  Button,
+  SelectOption,
+  Select,
 } from ".."
+import { IconCaret } from "../components/IconCaret"
+
+const EdenArrows = () => {
+  return (
+    <>
+      {Object.entries(iconSizes).map(([key, value]) => (
+        <>
+          <Flex key={key} wrap>
+            <IconArrow size={key as IconSize} />
+            <IconArrow size={key as IconSize} direction="right" />
+            <IconArrow size={key as IconSize} direction="down" />
+            <IconArrow size={key as IconSize} direction="left" />
+            <IconCaret size={key as IconSize} />
+            <IconCaret size={key as IconSize} direction="right" />
+            <IconCaret size={key as IconSize} direction="down" />
+            <IconCaret size={key as IconSize} direction="left" />
+          </Flex>
+          <Space height="larger" />
+        </>
+      ))}
+    </>
+  )
+}
+
+const EdenIcons = () => {
+  return (
+    <>
+      {Object.entries(iconSizes).map(([key, value]) => (
+        <>
+          <Flex key={key} wrap>
+            <IconUser size={key as IconSize} />
+            <IconBranch size={key as IconSize} />
+            <IconCheck size={key as IconSize} />
+            <IconDelete size={key as IconSize} />
+            <IconLock size={key as IconSize} />
+            <IconDocs size={key as IconSize} />
+            <IconGithub size={key as IconSize} />
+            <IconSlack size={key as IconSize} />
+            <IconTwitter size={key as IconSize} />
+            <IconPlaceholder size={key as IconSize} />
+          </Flex>
+          <Space height="larger" />
+        </>
+      ))}
+    </>
+  )
+}
 
 const EdenColors = () => (
   <Grid columns={6} gap="none">
@@ -99,26 +163,20 @@ const EdenTexts = () => (
 
 const EdenBoxes = () => {
   return (
-    <Grid>
-      <Box borderWidth="medium" borderColor="greenDark">
-        <Text>Sample box</Text>
-      </Box>
-      <Box borderWidth="small" borderColor="greenDark">
-        <Text>Sample box</Text>
-      </Box>
-    </Grid>
+    <Box borderColor="greenDark">
+      <Text>Box</Text>
+    </Box>
   )
 }
 
 const EdenTextfields = () => {
   return (
     <Grid columns="1fr 1fr">
-      <Grid>
+      <Flex>
         <Textfield placeholder="Hello" />
-        <Textfield borderWidth="small" placeholder="Hello" />
-        <Textarea placeholder="Hello" />
-        <Textarea borderWidth="small" placeholder="Hello" />
-      </Grid>
+        <Button>Test button</Button>
+        <Button secondary>Test button</Button>
+      </Flex>
     </Grid>
   )
 }
@@ -126,9 +184,23 @@ const EdenTextfields = () => {
 const EdenTextareas = () => {
   return (
     <Grid columns="1fr 1fr">
+      <Textarea placeholder="Hello" />
+    </Grid>
+  )
+}
+
+const EdenSelects = () => {
+  const options1: SelectOption[] = [{ value: "hello" }, { value: "world" }]
+  const [selected1, setSelected1] = useState("hello")
+  const onChange1 = (option) => setSelected1(option)
+
+  return (
+    <Grid columns="1fr 1fr">
       <Grid>
-        <Textarea placeholder="Hello" />
-        <Textarea borderWidth="small" placeholder="Hello" />
+        <Select options={options1} onChange={onChange1} />
+        <Text>
+          <div>Selected option: {selected1}</div>
+        </Text>
       </Grid>
     </Grid>
   )
@@ -141,19 +213,49 @@ const Colors = () => {
       <Space height="largest" />
       <Section>
         <Space height="larger" />
-        <Grid gap="large">
-          <Text size="large">Box</Text>
-          <EdenBoxes />
-          <Text size="large">Title</Text>
-          <EdenTitles />
-          <Text size="large">Text</Text>
-          <EdenTexts />
-          <Text size="large">Textfield</Text>
-          <EdenTextfields />
-          <Text size="large">Textarea</Text>
-          <EdenTextareas />
-          <Text size="large">Colors</Text>
+        <Grid gap="larger">
+          <Code>E D E N</Code>
+          <Code>colors</Code>
           <EdenColors />
+          <Code>Gradient color="green"</Code>
+          <Gradient>
+            <Space height="largest" />
+          </Gradient>
+          <Code>Gradient color="greenReverse"</Code>
+          <Gradient color="greenReverse">
+            <Space height="largest" />
+          </Gradient>
+          <Code>Gradient color="blue"</Code>
+          <Gradient color="blue">
+            <Space height="largest" />
+          </Gradient>
+          <Code>Gradient color="blueReverse"</Code>
+          <Gradient color="blueReverse">
+            <Space height="largest" />
+          </Gradient>
+          <Code>Title</Code>
+          <EdenTitles />
+          <Code>Text</Code>
+          <EdenTexts />
+          <Code>IconArrow / IconCaret</Code>
+          <EdenArrows />
+          <Code>Icon*</Code>
+          <EdenIcons />
+          <Code>Textfield / Button / Button secondary</Code>
+          <EdenTextfields />
+          <Code>Textarea</Code>
+          <EdenTextareas />
+          <Code>Select</Code>
+          <EdenSelects />
+          <Code>Expandable</Code>
+          <Grid columns="1fr 1fr">
+            <Expandable title="Hello">
+              <Text>World</Text>
+            </Expandable>
+          </Grid>
+          <Code>Box</Code>
+          <EdenBoxes />
+          <Space height="huge" />
         </Grid>
       </Section>
     </>

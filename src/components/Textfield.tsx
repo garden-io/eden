@@ -15,9 +15,6 @@ interface Props {
   placeholder?: string
   type?: string
   disabled?: boolean
-  /**
-   * Border width
-   */
   borderWidth?: BorderWidth
   onChange?: (value: string) => void
 }
@@ -63,14 +60,16 @@ export const Textfield: FC<Props> = ({
           borderStyle: "solid",
           borderColor: colors.grayLight,
           color: colors.gray,
-          paddingTop: space.medium,
+          paddingTop: `calc(${space.medium} * 0.9)`,
           paddingRight: `calc(${space.medium} * 1.25)`,
-          paddingBottom: space.medium,
+          paddingBottom: `calc(${space.medium} * 0.9)`,
           paddingLeft: `calc(${space.medium} * 1.25)`,
           fontFamily: fontFamilies.text,
           fontSize: textSizes.medium,
           outline: "none",
           width: "100%",
+          // TODO: extract to a style
+          boxShadow: "inset 2px 2px 4px rgba(224, 225, 237, 0.5)",
         }}
         onChange={handleChange}
       />

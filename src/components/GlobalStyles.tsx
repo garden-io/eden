@@ -40,6 +40,9 @@ export const GlobalStyles: FC<{}> = () => {
         color: ${colors.pink};
         font-weight: ${fontWeights.bold};
       }
+      ::placeholder {
+        color: ${colors.grayLight}
+      }
     `,
       }}
     />
