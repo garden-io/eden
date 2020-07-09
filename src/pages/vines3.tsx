@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from "react"
 import { colors } from ".."
 
 const Svg = ({ children }) => (
-  <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+  <svg width="400" height="400" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
     {children}
   </svg>
 )
@@ -16,16 +16,18 @@ const Page = () => {
       <defs>
         <path id="path" d={path} fill="none" stroke="black" />
         <clipPath id="clip">
-          <path fill-rule="evenodd" clip-rule="evenodd" d={path} />
+          <path d={outlinepath} />
         </clipPath>
       </defs>
       <path d={path} fill="none" stroke="black" opacity="0.5" />
       <path fill-rule="evenodd" clip-rule="evenodd" d={outlinepath} fill="black" fill-opacity="0.1" />
-      <rect x="0" y="-10" width="20" height="20" fill="red" clipPath="url(#clip)">
-        {/* <animateMotion dur="2s" rotate="auto" fill="freeze" repeatCount="indefinite">
-          <mpath xlinkHref="#path" />
-        </animateMotion> */}
-      </rect>
+      <g clipPath="url(#clip)">
+        <rect x="0" y="-10" width="20" height="20" fill="red">
+          <animateMotion dur="2s" rotate="auto" fill="freeze" repeatCount="indefinite">
+            <mpath xlinkHref="#path" />
+          </animateMotion>
+        </rect>
+      </g>
     </Svg>
   )
 }
