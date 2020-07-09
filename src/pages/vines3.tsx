@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from "react"
 import { colors } from ".."
 
 const Svg = ({ children }) => (
-  <svg width="400" height="400" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <svg style={{ filter: "" }} width="400" height="400" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
     {children}
   </svg>
 )
@@ -24,8 +24,8 @@ const Page = () => {
       </defs>
       <path d={path} fill="none" stroke="black" opacity="0.5" />
       <path d={outlinepath} fill={colors.greenDark} />
-      <g clipPath="url(#clipp)">
-        <rect x="-100" y="-50" width="100" height="100" fill={colors.greenLight} filter="url(#blur)">
+      <g clipPath="url(#clip)">
+        <rect x="-400" y="-200" width="400" height="400" fill={colors.greenLight} filter="url(#blur)">
           <animateMotion dur="2s" rotate="auto" fill="freeze" repeatCount="indefinite">
             <mpath xlinkHref="#path" />
           </animateMotion>
