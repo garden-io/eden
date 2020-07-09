@@ -18,11 +18,14 @@ const Page = () => {
         <clipPath id="clip">
           <path d={outlinepath} />
         </clipPath>
+        <filter id="blur">
+          <feGaussianBlur stdDeviation="6" />
+        </filter>
       </defs>
       <path d={path} fill="none" stroke="black" opacity="0.5" />
-      <path fill-rule="evenodd" clip-rule="evenodd" d={outlinepath} fill="black" fill-opacity="0.1" />
-      <g clipPath="url(#clip)">
-        <rect x="0" y="-10" width="20" height="20" fill="red">
+      <path d={outlinepath} fill={colors.greenDark} />
+      <g clipPath="url(#clipp)">
+        <rect x="-100" y="-50" width="100" height="100" fill={colors.greenLight} filter="url(#blur)">
           <animateMotion dur="2s" rotate="auto" fill="freeze" repeatCount="indefinite">
             <mpath xlinkHref="#path" />
           </animateMotion>
