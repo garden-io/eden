@@ -2,11 +2,11 @@ import React, { useState, useRef, useEffect } from "react"
 import { colors } from ".."
 
 const Svg = ({ children }) => (
-  <svg style={{ filter: "" }} width="400" height="400" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <svg width="400" height="400" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
     {children}
   </svg>
 )
-const Page = () => {
+const Vine = () => {
   const path =
     "M20 20H90C96.5761 20.077 109.783 24.1847 110 40C110.217 55.8153 110.091 126.59 110 160C109.961 166.589 113.906 179.813 130 180C146.094 180.187 170.039 180.078 180 180"
   const outlinepath =
@@ -21,33 +21,36 @@ const Page = () => {
         <filter id="blur">
           <feGaussianBlur stdDeviation="6" />
         </filter>
+        <linearGradient id="gradient">
+          <stop offset="0" stopColor="white" stopOpacity="0" />
+          <stop offset="0.1" stopColor="white" stopOpacity="1" />
+          <stop offset="0.9" stopColor="white" stopOpacity="1" />
+          <stop offset="1" stopColor="white" stopOpacity="0" />
+        </linearGradient>
+        <mask id="gradient-mask">
+          <rect x="30" y="0" width="150" height="400" fill="url(#gradient)" />
+        </mask>
       </defs>
-      <path d={path} fill="none" stroke="black" opacity="0.5" />
-      <path d={outlinepath} fill={colors.greenDark} />
-      <g clipPath="url(#clip)">
-        <rect x="-400" y="-200" width="400" height="400" fill={colors.greenLight} filter="url(#blur)">
-          <animateMotion dur="2s" rotate="auto" fill="freeze" repeatCount="indefinite">
-            <mpath xlinkHref="#path" />
-          </animateMotion>
-        </rect>
+      {/* <path d={path} fill="none" stroke="black" opacity="0.5" /> */}
+      <g mask="url(#gradient-mask)">
+        <path d={outlinepath} fill={colors.greenDark} />
+        <g clipPath="url(#clip)">
+          <rect x="-400" y="-200" width="400" height="400" fill={colors.greenLight} filter="url(#blur)">
+            <animateMotion dur="2s" rotate="auto" fill="freeze" repeatCount="indefinite">
+              <mpath xlinkHref="#path" />
+            </animateMotion>
+          </rect>
+        </g>
       </g>
     </Svg>
   )
 }
 
-// const Page2 = () => {
-//   return (
-//     <Svg>
-//       <defs>
-//         <path id="curve" d="M 10 100 C 200 30 300 250 350 50" stroke="black" fill="none" stroke-width="5" />
-//       </defs>
-//       <ellipse cx="7" cy="-5" rx="20" ry="10" fill="#8888ff" stroke="#44aa88">
-//         <animateMotion dur="2s" rotate="auto" fill="freeze" repeatCount="indefinite">
-//           <mpath xlinkHref="#curve" />
-//         </animateMotion>
-//       </ellipse>
-//     </Svg>
-//   )
-// }
+const Page = () => (
+  <>
+    <style>{`body { background: ${colors.blueDark}; }`}</style>
+    <Vine />
+  </>
+)
 
 export default Page
