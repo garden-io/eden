@@ -1,10 +1,5 @@
-import React, { useState } from "react"
-import { roundCorners } from "svg-round-corners"
-
-// const RoundedPath = ({ path, r = 20 }) => {
-//   const roundedPath = roundCorners(path, r, 2)
-//   return <path stroke="red" fill="none" d={roundedPath} />
-// }
+import React, { useState, useRef, useEffect } from "react"
+import GradientPath from "gradient-path"
 
 const Svg = ({ children }) => (
   <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
@@ -12,25 +7,51 @@ const Svg = ({ children }) => (
   </svg>
 )
 
+import { colors } from ".."
+
+const gradient = (path) => {
+  const c = [
+    { color: colors.greenDark, pos: 0 },
+    { color: colors.greenDark, pos: 0.25 },
+    { color: colors.greenLight, pos: 0.5 },
+    { color: colors.greenDark, pos: 0.75 },
+    { color: colors.greenDark, pos: 1 },
+  ]
+  const gp = new GradientPath({
+    path,
+    segments: 500,
+    samples: 6,
+    precision: 2, // Optional
+  })
+
+  gp.render({
+    type: "path",
+    fill: c,
+    stroke: c,
+    strokeWidth: 0.5,
+    width: 10,
+  })
+}
+
 const Page = () => {
-  const [r, setR] = useState(10)
-  const path = "M0 0 L 20 100 L 40 0 L 60 100 L 80 0 L 100 100"
+  const p = "M10 10 L 100 10 L 100 100 L 200 100"
+  const path = roundPathCorners(p, 20)
+  const pathEl = useRef(null)
+  useEffect(() => {
+    if (pathEl.current) {
+      gradient(pathEl.current)
+    }
+  }, [pathEl])
 
-  //const path = "m216.1042,78.4l0,49.49112l49.21308,0l0,-49.49112l-49.21308,0z"
-  //const path = "M216.1042,78.4L216.1042,127.89112L265.31728,127.89112L265.31728,78.4"
-  // const p = convertToAbsolute(path)
-  // console.log(p)
-
-  const roundedPath = roundPathCorners(path, r)
   return (
-    <>
-      <input max="30" type="range" value={r} onChange={(e) => setR(parseFloat(e.target.value))} />
-      <pre>{JSON.stringify(roundPathCorners(path, 10))}</pre>
-      <Svg>
-        <path d={path} fill="none" stroke="black" />
-        <path d={roundedPath} fill="none" stroke="red" />
-      </Svg>
-    </>
+    <Svg>
+      <filter id="A">
+        <feGaussianBlur stdDeviation="8" />
+      </filter>
+      <g filter="url(#A)">
+        <path ref={pathEl} d={path} stroke="black" fill="none" />
+      </g>
+    </Svg>
   )
 }
 
