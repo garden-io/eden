@@ -13,7 +13,7 @@ const Svg = ({ children }) => (
   </svg>
 )
 const Vine = () => {
-  const [r, setR] = useState(0)
+  const [r, setR] = useState(270)
   //const path =
   "M20 20H90C96.5761 20.077 109.783 24.1847 110 40C110.217 55.8153 110.091 126.59 110 160C109.961 166.589 113.906 179.813 130 180C146.094 180.187 170.039 180.078 180 180"
   const path =
@@ -29,22 +29,30 @@ const Vine = () => {
   var outlinepath = pathOutline(segments, rr, { bezierAccuracy: 0.5 })
   let [left, top, right, bottom] = getBounds(path)
   const x = left
-  const y = top - rr
+  const y = top
   const width = right - left
-  const height = bottom - top + 2 * rr
+  const height = bottom - top
 
   return (
     <>
+      <input max="360" type="range" value={r} onChange={(e) => setR(parseFloat(e.target.value))} />
       <Svg>
         <defs>
           <linearGradient id="gradient">
             <stop offset="0" stopColor="white" stopOpacity="0" />
+            <stop offset="0.03" stopColor="white" stopOpacity="0" />
             <stop offset="0.1" stopColor="white" stopOpacity="1" />
-            <stop offset="0.9" stopColor="white" stopOpacity="1" />
-            <stop offset="1" stopColor="white" stopOpacity="0" />
+            <stop offset="1" stopColor="white" stopOpacity="1" />
           </linearGradient>
           <mask id="gradient-mask">
-            <rect x={x} y={y} width={width} height={height} fill="url(#gradient)" />
+            <rect
+              x={x}
+              y={y}
+              width={width}
+              height={height}
+              fill="url(#gradient)"
+              transform={`rotate(${r} ${width / 2 + x} ${height / 2 + y})`}
+            />
           </mask>
         </defs>
         <g mask="url(#gradient-mask)">
@@ -52,6 +60,15 @@ const Vine = () => {
         </g>
         <path d={path} stroke="blue" fill="none" />
         <rect x={x} y={y} width={width} height={height} fill="none" stroke="red" />
+        <rect
+          x={x}
+          y={y}
+          width={width}
+          height={height}
+          fill="none"
+          stroke="green"
+          transform={`rotate(${r} ${width / 2 + x} ${height / 2 + y})`}
+        />
       </Svg>
     </>
   )
