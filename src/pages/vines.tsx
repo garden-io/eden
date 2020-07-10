@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from "react"
-import { colors, Box } from ".."
+import { colors, Box, flatten } from ".."
 import getBounds from "svg-path-bounds"
 import pathOutline from "svg-path-outline"
 import { Gradient } from "../components/Gradient"
@@ -114,9 +114,7 @@ const AnimateShine = ({ path, outlinepath, fill, id }) => (
 )
 
 const getPathOutline = (path, r = 6) => {
-  const segments = normalize(abs(parse(path)))
-    .flat()
-    .join(" ")
+  const segments = flatten(normalize(abs(parse(path)))).join(" ")
   return pathOutline(segments, r)
 }
 
