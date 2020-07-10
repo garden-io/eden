@@ -46,35 +46,92 @@ const Vine = () => {
     rotate: 0,
   }
 
-  const GradientMask = ({ opacities, rotate, x, y, width, height, id }) => {
+  const FadeEdges = ({ path, r, children, top = false, right = false, bottom = false, left = false }) => {
+    const [leftBound, topBound, rightBound, bottomBound] = getBounds(path)
+    const x = leftBound - r
+    const y = topBound - r
+    const width = rightBound - leftBound + 2 * r
+    const height = bottomBound - topBound + 2 * r
+    const gradients = [
+      {
+        id: "topGradient",
+        opacities: [0, 0, 1, 1, 1, 1],
+        rotate: 90,
+      },
+      {
+        id: "rightGradient",
+        opacities: [1, 1, 1, 1, 0, 0],
+        rotate: 0,
+      },
+      {
+        id: "bottomGradient",
+        opacities: [1, 1, 1, 1, 0, 0],
+        rotate: 90,
+      },
+      {
+        id: "leftGradient",
+        opacities: [0, 0, 1, 1, 1, 1],
+        rotate: 0,
+      },
+    ]
     const offsets = [0, 0.03, 0.1, 0.9, 0.97, 1]
+
     return (
       <>
-        <linearGradient id={id + "-gradient"} gradientTransform={`rotate(${rotate})`}>
-          {offsets.map((offset, i) => (
-            <stop key={i} offset={offset} stopColor="white" stopOpacity={opacities[i]} />
-          ))}
-        </linearGradient>
-        <mask id={id}>
-          <rect x={x} y={y} width={width} height={height} fill={`url(#${id + "-gradient"})`} />
-        </mask>
+        {gradients.map(({ id, opacities, rotate }, i) => (
+          <defs key={i}>
+            <linearGradient id={id + "-gradient"} gradientTransform={`rotate(${rotate})`}>
+              {offsets.map((offset, i) => (
+                <stop key={i} offset={offset} stopColor="white" stopOpacity={opacities[i]} />
+              ))}
+            </linearGradient>
+            <mask key={"m" + i} id={id}>
+              <rect x={x} y={y} width={width} height={height} fill={`url(#${id + "-gradient"})`} />
+            </mask>
+          </defs>
+        ))}
+        <g mask={top ? "url(#topGradient)" : ""}>
+          <g mask={right ? "url(#rightGradient)" : ""}>
+            <g mask={bottom ? "url(#bottomGradient)" : ""}>
+              <g mask={left ? "url(#leftGradient)" : ""}>{children}</g>
+            </g>
+          </g>
+        </g>
       </>
     )
   }
+
+  // const GradientMask = ({ opacities, rotate, x, y, width, height, id }) => {
+  //   const offsets = [0, 0.03, 0.1, 0.9, 0.97, 1]
+  //   return (
+  //     <>
+  //       <linearGradient id={id + "-gradient"} gradientTransform={`rotate(${rotate})`}>
+  //         {offsets.map((offset, i) => (
+  //           <stop key={i} offset={offset} stopColor="white" stopOpacity={opacities[i]} />
+  //         ))}
+  //       </linearGradient>
+  //       <mask id={id}>
+  //         <rect x={x} y={y} width={width} height={height} fill={`url(#${id + "-gradient"})`} />
+  //       </mask>
+  //     </>
+  //   )
+  // }
 
   return (
     <>
       <input max="360" type="range" value={r} onChange={(e) => setR(parseFloat(e.target.value))} />
       <Svg>
-        <defs>
-          <GradientMask {...topGradient} x={x} y={y} width={width} height={height} id="topGradient" />
+        <FadeEdges path={path} r={6} left bottom>
+          <path d={outlinepath} />
+        </FadeEdges>
+        {/* <GradientMask {...topGradient} x={x} y={y} width={width} height={height} id="topGradient" />
           <GradientMask {...bottomGradient} x={x} y={y} width={width} height={height} id="bottomGradient" />
-        </defs>
-        <g mask="url(#topGradient)">
+        </defs> */}
+        {/* <g mask="url(#topGradient)">
           <g mask="url(#bottomGradient)">
             <path d={outlinepath} />
           </g>
-        </g>
+        </g> */}
         <path d={path} stroke="blue" fill="none" />
         <rect x={x} y={y} width={width} height={height} fill="none" stroke="red" />
       </Svg>
