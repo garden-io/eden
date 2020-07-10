@@ -1,171 +1,157 @@
-import React, { useState } from "react"
-import { roundCorners } from "svg-round-corners"
+import React, { useState, useRef, useEffect } from "react"
+import { colors, Box } from ".."
+import getBounds from "svg-path-bounds"
+import pathOutline from "svg-path-outline"
+import { Gradient } from "../components/Gradient"
 
-// const RoundedPath = ({ path, r = 20 }) => {
-//   const roundedPath = roundCorners(path, r, 2)
-//   return <path stroke="red" fill="none" d={roundedPath} />
-// }
+var parse = require("parse-svg-path")
+var abs = require("abs-svg-path")
+var normalize = require("normalize-svg-path")
 
 const Svg = ({ children }) => (
-  <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+  <svg width="400" height="400" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
     {children}
   </svg>
 )
 
-const Page = () => {
-  const [r, setR] = useState(10)
-  const path = "M0 0 L 20 100 L 40 0 L 60 100 L 80 0 L 100 100"
+const FadeEdges = ({ path, r, children, top = false, right = false, bottom = false, left = false }) => {
+  const [leftBound, topBound, rightBound, bottomBound] = getBounds(path)
+  const x = leftBound - r
+  const y = topBound - r
+  const width = rightBound - leftBound + 2 * r
+  const height = bottomBound - topBound + 2 * r
+  const gradients = [
+    {
+      id: "topGradient",
+      opacities: [0, 0, 1, 1, 1, 1],
+      rotate: 90,
+    },
+    {
+      id: "rightGradient",
+      opacities: [1, 1, 1, 1, 0, 0],
+      rotate: 0,
+    },
+    {
+      id: "bottomGradient",
+      opacities: [1, 1, 1, 1, 0, 0],
+      rotate: 90,
+    },
+    {
+      id: "leftGradient",
+      opacities: [0, 0, 1, 1, 1, 1],
+      rotate: 0,
+    },
+  ]
+  const offsets = [0, 0.03, 0.14, 0.85, 0.97, 1]
 
-  //const path = "m216.1042,78.4l0,49.49112l49.21308,0l0,-49.49112l-49.21308,0z"
-  //const path = "M216.1042,78.4L216.1042,127.89112L265.31728,127.89112L265.31728,78.4"
-  // const p = convertToAbsolute(path)
-  // console.log(p)
-
-  const roundedPath = roundPathCorners(path, r)
   return (
     <>
-      <input max="30" type="range" value={r} onChange={(e) => setR(parseFloat(e.target.value))} />
-      <pre>{JSON.stringify(roundPathCorners(path, 10))}</pre>
+      {gradients.map(({ id, opacities, rotate }, i) => (
+        <defs key={i}>
+          <linearGradient id={id + "-gradient"} gradientTransform={`rotate(${rotate})`}>
+            {offsets.map((offset, i) => (
+              <stop key={i} offset={offset} stopColor="white" stopOpacity={opacities[i]} />
+            ))}
+          </linearGradient>
+          <mask key={"m" + i} id={id}>
+            <rect x={x} y={y} width={width} height={height} fill={`url(#${id + "-gradient"})`} />
+          </mask>
+        </defs>
+      ))}
+      <g mask={top ? "url(#topGradient)" : ""}>
+        <g mask={right ? "url(#rightGradient)" : ""}>
+          <g mask={bottom ? "url(#bottomGradient)" : ""}>
+            <g mask={left ? "url(#leftGradient)" : ""}>{children}</g>
+          </g>
+        </g>
+      </g>
+    </>
+  )
+}
+
+/*
+const AnimateShine = ({ path, outlinepath, fill, id }) => (
+  <>
+    <defs>
+      <path id={id + "-path"} d={path} fill="none" stroke="black" />
+      <clipPath id={id + "-clip"}>
+        <path d={outlinepath} />
+      </clipPath>
+      <filter id="blur">
+        <feGaussianBlur stdDeviation="6" />
+      </filter>
+    </defs>
+    <g clipPath={`url(#${id + "-clipp"})`}>
+      <rect x="-200" y="-100" width="200" height="200" fill={fill} filter="url(#blur)">
+        <animateMotion id="one" dur="2s" rotate="auto" fill="freeze" calcMode="linear" begin="0s">
+          <mpath xlinkHref={`url(#${id + "-path"})`} />
+        </animateMotion>
+      </rect>
+    </g>
+  </>
+)
+*/
+
+const AnimateShine = ({ path, outlinepath, fill, id }) => (
+  <>
+    <defs>
+      <path id={id + "-path"} d={path} fill="none" stroke="black" />
+      <clipPath id={id + "-clip"}>
+        <path d={outlinepath} />
+      </clipPath>
+      <filter id="blur">
+        <feGaussianBlur stdDeviation="6" />
+      </filter>
+    </defs>
+    <g clipPath={"url(#" + id + "-clip)"}>
+      <rect x="-400" y="-200" width="400" height="400" fill={fill} filter="url(#blur)">
+        <animateMotion id="one" dur="3s" rotate="auto" fill="freeze" calcMode="linear" begin="0s">
+          <mpath xlinkHref={"#" + id + "-path"} />
+        </animateMotion>
+      </rect>
+    </g>
+  </>
+)
+
+const getPathOutline = (path, r = 6) => {
+  const segments = normalize(abs(parse(path)))
+    .flat()
+    .join(" ")
+  return pathOutline(segments, r)
+}
+
+const Vine = () => {
+  const path =
+    "M20 20H80C86.5 19.9 99.6 23.76 100 40C100.4 56.24 100.167 86.7667 100 100C99.7667 106.638 103.44 119.932 120 120C136.56 120.068 146.9 120.028 150 120C156.641 119.733 169.938 123.36 170 140C170.062 156.64 170.026 173.6 170 180"
+  const path2 =
+    "M100 40V70C100.072 76.7744 96.1723 90.2585 80 90C63.8277 89.7415 53.2615 89.8923 50 90C43.3692 90.2128 30.0862 94.5108 30 110C29.9138 125.489 29.9641 176.838 30 180.385"
+  const outlinepath = getPathOutline(path)
+  const outlinepath2 = getPathOutline(path2)
+
+  return (
+    <>
       <Svg>
-        <path d={path} fill="none" stroke="black" />
-        <path d={roundedPath} fill="none" stroke="red" />
+        <FadeEdges path={path} r={6} top bottom>
+          <path d={outlinepath2} fill={colors.greenLight} />
+          <AnimateShine id="two" path={path2} outlinepath={outlinepath2} fill={colors.greenDark} />
+        </FadeEdges>
+        <FadeEdges path={path} r={6} left bottom>
+          <path d={outlinepath} fill={colors.greenDark} />
+          <AnimateShine id="one" path={path} outlinepath={outlinepath} fill={colors.greenLight} />
+        </FadeEdges>
       </Svg>
     </>
   )
 }
 
+const Page = () => (
+  <>
+    <style>{`body { margin: 0; }`}</style>
+    <Gradient color="blueReverse">
+      <Vine />
+      <Box height="50vh" />
+    </Gradient>
+  </>
+)
+
 export default Page
-
-function roundPathCorners(pathString, radius, useFractionalRadius = false) {
-  function moveTowardsLength(movingPoint, targetPoint, amount) {
-    var width = targetPoint.x - movingPoint.x
-    var height = targetPoint.y - movingPoint.y
-
-    var distance = Math.sqrt(width * width + height * height)
-
-    return moveTowardsFractional(movingPoint, targetPoint, Math.min(1, amount / distance))
-  }
-  function moveTowardsFractional(movingPoint, targetPoint, fraction) {
-    return {
-      x: movingPoint.x + (targetPoint.x - movingPoint.x) * fraction,
-      y: movingPoint.y + (targetPoint.y - movingPoint.y) * fraction,
-    }
-  }
-
-  // Adjusts the ending position of a command
-  function adjustCommand(cmd, newPoint) {
-    if (cmd.length > 2) {
-      cmd[cmd.length - 2] = newPoint.x
-      cmd[cmd.length - 1] = newPoint.y
-    }
-  }
-
-  // Gives an {x, y} object for a command's ending position
-  function pointForCommand(cmd) {
-    return {
-      x: parseFloat(cmd[cmd.length - 2]),
-      y: parseFloat(cmd[cmd.length - 1]),
-    }
-  }
-
-  // Split apart the path, handing concatonated letters and numbers
-  var pathParts = pathString.split(/[,\s]/).reduce(function (parts, part) {
-    var match = part.match("([a-zA-Z])(.+)")
-    if (match) {
-      parts.push(match[1])
-      parts.push(match[2])
-    } else {
-      parts.push(part)
-    }
-
-    return parts
-  }, [])
-
-  // Group the commands with their arguments for easier handling
-  var commands = pathParts.reduce(function (commands, part) {
-    if (parseFloat(part) == part && commands.length) {
-      commands[commands.length - 1].push(part)
-    } else {
-      commands.push([part])
-    }
-
-    return commands
-  }, [])
-
-  // The resulting commands, also grouped
-  var resultCommands = []
-
-  if (commands.length > 1) {
-    var startPoint = pointForCommand(commands[0])
-
-    // Handle the close path case with a "virtual" closing line
-    var virtualCloseLine = null
-    if (commands[commands.length - 1][0] == "Z" && commands[0].length > 2) {
-      virtualCloseLine = ["L", startPoint.x, startPoint.y]
-      commands[commands.length - 1] = virtualCloseLine
-    }
-
-    // We always use the first command (but it may be mutated)
-    resultCommands.push(commands[0])
-
-    for (var cmdIndex = 1; cmdIndex < commands.length; cmdIndex++) {
-      var prevCmd = resultCommands[resultCommands.length - 1]
-
-      var curCmd = commands[cmdIndex]
-
-      // Handle closing case
-      var nextCmd = curCmd == virtualCloseLine ? commands[1] : commands[cmdIndex + 1]
-
-      // Nasty logic to decide if this path is a candidite.
-      if (nextCmd && prevCmd && prevCmd.length > 2 && curCmd[0] == "L" && nextCmd.length > 2 && nextCmd[0] == "L") {
-        // Calc the points we're dealing with
-        var prevPoint = pointForCommand(prevCmd)
-        var curPoint = pointForCommand(curCmd)
-        var nextPoint = pointForCommand(nextCmd)
-
-        // The start and end of the cuve are just our point moved towards the previous and next points, respectivly
-        var curveStart, curveEnd
-
-        if (useFractionalRadius) {
-          curveStart = moveTowardsFractional(curPoint, prevCmd.origPoint || prevPoint, radius)
-          curveEnd = moveTowardsFractional(curPoint, nextCmd.origPoint || nextPoint, radius)
-        } else {
-          curveStart = moveTowardsLength(curPoint, prevPoint, radius)
-          curveEnd = moveTowardsLength(curPoint, nextPoint, radius)
-        }
-
-        // Adjust the current command and add it
-        adjustCommand(curCmd, curveStart)
-        curCmd.origPoint = curPoint
-        resultCommands.push(curCmd)
-
-        // The curve control points are halfway between the start/end of the curve and
-        // the original point
-        var startControl = moveTowardsFractional(curveStart, curPoint, 0.5)
-        var endControl = moveTowardsFractional(curPoint, curveEnd, 0.5)
-
-        // Create the curve
-        var curveCmd = ["C", startControl.x, startControl.y, endControl.x, endControl.y, curveEnd.x, curveEnd.y]
-        // Save the original point for fractional calculations
-        curveCmd.origPoint = curPoint
-        resultCommands.push(curveCmd)
-      } else {
-        // Pass through commands that don't qualify
-        resultCommands.push(curCmd)
-      }
-    }
-
-    // Fix up the starting point and restore the close path if the path was orignally closed
-    if (virtualCloseLine) {
-      var newStartPoint = pointForCommand(resultCommands[resultCommands.length - 1])
-      resultCommands.push(["Z"])
-      adjustCommand(resultCommands[0], newStartPoint)
-    }
-  } else {
-    resultCommands = commands
-  }
-
-  return resultCommands.reduce(function (str, c) {
-    return str + c.join(" ") + " "
-  }, "")
-}
