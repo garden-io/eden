@@ -21,6 +21,7 @@
     "gradient-path": "^2.1.0",
     "lodash.merge": "^4.6.2",
     "react-use": "^14.2.0",
+    "svg-path-bounds": "^1.0.1",
     "svg-path-outline": "^1.0.1",
     "svg-round-corners": "^0.1.0"
   }
