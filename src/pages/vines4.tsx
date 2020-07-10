@@ -28,47 +28,70 @@ const Vine = () => {
   const rr = 6
   var outlinepath = pathOutline(segments, rr, { bezierAccuracy: 0.5 })
   let [left, top, right, bottom] = getBounds(path)
-  const x = left
-  const y = top
-  const width = right - left
-  const height = bottom - top
+  const x = left - rr
+  const y = top - rr
+  const width = right - left + 2 * rr
+  const height = bottom - top + 2 * rr
+
+  const leftGradient = {
+    opacities: [0, 0, 1, 1, 1, 1],
+    rotate: 0,
+  }
+  const bottomGradient = {
+    opacities: [1, 1, 1, 1, 0, 0],
+    rotate: 90,
+  }
+
+  const GradientMask = ({ opacities, rotate, x, y, width, height, id }) => {
+    const offsets = [0, 0.03, 0.1, 0.9, 0.97, 1]
+    return (
+      <>
+        <linearGradient id={id + "-gradient"} gradientTransform={`rotate(${rotate})`}>
+          {offsets.map((offset, i) => (
+            <stop key={i} offset={offset} stopColor="white" stopOpacity={opacities[i]} />
+          ))}
+        </linearGradient>
+        <mask id={id}>
+          <rect x={x} y={y} width={width} height={height} fill={`url(#${id + "-gradient"})`} />
+        </mask>
+      </>
+    )
+  }
 
   return (
     <>
       <input max="360" type="range" value={r} onChange={(e) => setR(parseFloat(e.target.value))} />
       <Svg>
         <defs>
-          <linearGradient id="gradient">
+          <GradientMask {...leftGradient} x={x} y={y} width={width} height={height} id="leftGradient" />
+          {/* <linearGradient id="gradient">
             <stop offset="0" stopColor="white" stopOpacity="0" />
             <stop offset="0.03" stopColor="white" stopOpacity="0" />
             <stop offset="0.1" stopColor="white" stopOpacity="1" />
+            <stop offset="0.9" stopColor="white" stopOpacity="1" />
+            <stop offset="0.97" stopColor="white" stopOpacity="1" />
             <stop offset="1" stopColor="white" stopOpacity="1" />
           </linearGradient>
           <mask id="gradient-mask">
-            <rect
-              x={x}
-              y={y}
-              width={width}
-              height={height}
-              fill="url(#gradient)"
-              transform={`rotate(${r} ${width / 2 + x} ${height / 2 + y})`}
-            />
+            <rect x={x} y={y} width={width} height={height} fill="url(#gradient)" />
           </mask>
+          <linearGradient id="gradient2" gradientTransform="rotate(90)">
+            <stop offset="0" stopColor="white" stopOpacity="1" />
+            <stop offset="0.03" stopColor="white" stopOpacity="1" />
+            <stop offset="0.1" stopColor="white" stopOpacity="1" />
+            <stop offset="0.9" stopColor="white" stopOpacity="1" />
+            <stop offset="0.97" stopColor="white" stopOpacity="0" />
+            <stop offset="1" stopColor="white" stopOpacity="0" />
+          </linearGradient>
+          <mask id="gradient-mask2">
+            <rect x={x} y={y} width={width} height={height} fill="url(#gradient2)" />
+          </mask> */}
         </defs>
-        <g mask="url(#gradient-mask)">
+        <g mask="url(#leftGradient)">
           <path d={outlinepath} />
         </g>
         <path d={path} stroke="blue" fill="none" />
         <rect x={x} y={y} width={width} height={height} fill="none" stroke="red" />
-        <rect
-          x={x}
-          y={y}
-          width={width}
-          height={height}
-          fill="none"
-          stroke="green"
-          transform={`rotate(${r} ${width / 2 + x} ${height / 2 + y})`}
-        />
       </Svg>
     </>
   )
