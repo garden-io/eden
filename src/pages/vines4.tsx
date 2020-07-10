@@ -12,8 +12,8 @@ const Svg = ({ children }) => (
     {children}
   </svg>
 )
+
 const Vine = () => {
-  const [r, setR] = useState(270)
   const path =
     "M20 20H80C86.5 19.9 99.6 23.76 100 40C100.4 56.24 100.167 86.7667 100 100C99.7667 106.638 103.44 119.932 120 120C136.56 120.068 146.9 120.028 150 120C156.641 119.733 169.938 123.36 170 140C170.062 156.64 170.026 173.6 170 180"
 
@@ -21,30 +21,7 @@ const Vine = () => {
     .flat()
     .join(" ")
 
-  const rr = 6
-  var outlinepath = pathOutline(segments, rr, { bezierAccuracy: 0.5 })
-  let [left, top, right, bottom] = getBounds(path)
-  const x = left - rr
-  const y = top - rr
-  const width = right - left + 2 * rr
-  const height = bottom - top + 2 * rr
-
-  const topGradient = {
-    opacities: [0, 0, 1, 1, 1, 1],
-    rotate: 90,
-  }
-  const rightGradient = {
-    opacities: [1, 1, 1, 1, 0, 0],
-    rotate: 0,
-  }
-  const bottomGradient = {
-    opacities: [1, 1, 1, 1, 0, 0],
-    rotate: 90,
-  }
-  const leftGradient = {
-    opacities: [0, 0, 1, 1, 1, 1],
-    rotate: 0,
-  }
+  var outlinepath = pathOutline(segments, 6)
 
   const FadeEdges = ({ path, r, children, top = false, right = false, bottom = false, left = false }) => {
     const [leftBound, topBound, rightBound, bottomBound] = getBounds(path)
@@ -74,7 +51,7 @@ const Vine = () => {
         rotate: 0,
       },
     ]
-    const offsets = [0, 0.03, 0.1, 0.9, 0.97, 1]
+    const offsets = [0, 0.03, 0.14, 0.85, 0.97, 1]
 
     return (
       <>
@@ -101,39 +78,36 @@ const Vine = () => {
     )
   }
 
-  // const GradientMask = ({ opacities, rotate, x, y, width, height, id }) => {
-  //   const offsets = [0, 0.03, 0.1, 0.9, 0.97, 1]
-  //   return (
-  //     <>
-  //       <linearGradient id={id + "-gradient"} gradientTransform={`rotate(${rotate})`}>
-  //         {offsets.map((offset, i) => (
-  //           <stop key={i} offset={offset} stopColor="white" stopOpacity={opacities[i]} />
-  //         ))}
-  //       </linearGradient>
-  //       <mask id={id}>
-  //         <rect x={x} y={y} width={width} height={height} fill={`url(#${id + "-gradient"})`} />
-  //       </mask>
-  //     </>
-  //   )
-  // }
+  const AnimateShine = ({ path, outlinepath, fill }) => (
+    <>
+      <defs>
+        <path id="path" d={path} fill="none" stroke="black" />
+        <clipPath id="clip">
+          <path d={outlinepath} />
+        </clipPath>
+        <filter id="blur">
+          <feGaussianBlur stdDeviation="6" />
+        </filter>
+      </defs>
+      <g clipPath="url(#clip)">
+        <rect x="-400" y="-200" width="400" height="400" fill={fill} filter="url(#blur)">
+          <animateMotion id="one" dur="2s" rotate="auto" fill="freeze" calcMode="linear" begin="0s">
+            <mpath xlinkHref="#path" />
+          </animateMotion>
+        </rect>
+      </g>
+    </>
+  )
 
   return (
     <>
-      <input max="360" type="range" value={r} onChange={(e) => setR(parseFloat(e.target.value))} />
       <Svg>
+        <defs></defs>
         <FadeEdges path={path} r={6} left bottom>
-          <path d={outlinepath} />
+          <path d={outlinepath} fill={colors.greenDark} />
+          <AnimateShine path={path} outlinepath={outlinepath} fill={colors.greenLight} />
         </FadeEdges>
-        {/* <GradientMask {...topGradient} x={x} y={y} width={width} height={height} id="topGradient" />
-          <GradientMask {...bottomGradient} x={x} y={y} width={width} height={height} id="bottomGradient" />
-        </defs> */}
-        {/* <g mask="url(#topGradient)">
-          <g mask="url(#bottomGradient)">
-            <path d={outlinepath} />
-          </g>
-        </g> */}
         <path d={path} stroke="blue" fill="none" />
-        <rect x={x} y={y} width={width} height={height} fill="none" stroke="red" />
       </Svg>
     </>
   )
@@ -141,7 +115,7 @@ const Vine = () => {
 
 const Page = () => (
   <>
-    {/* <style>{`body { background: ${colors.blueDark}; }`}</style> */}
+    <style>{`body { background: ${colors.blueDark}; }`}</style>
     <Vine />
   </>
 )
